@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" data-theme={config.colors.theme} className={font.className}>
       {config.domainName && (
         <head>
-          <PlausibleProvider domain={config.domainName} />
+          <script defer data-domain="soulgem.xyz" src="https://plausible.io/js/script.js"></script>
         </head>
       )}
       <body>

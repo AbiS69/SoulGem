@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
         // Update user data + Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
         user.priceId = priceId;
         user.customerId = customerId;
-        user.hasAccess = true;
+        user.credits += 100;
         await user.save();
 
         // Extra: send email with user link, product page, etc...
@@ -141,7 +141,6 @@ export async function POST(req: NextRequest) {
         if (user.priceId !== priceId) break;
 
         // Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
-        user.hasAccess = true;
         await user.save();
 
         break;

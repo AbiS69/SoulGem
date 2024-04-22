@@ -10,6 +10,7 @@ import User from "@/models/User";
 // By default, it doesn't force users to be authenticated. But if they are, it will prefill the Checkout data with their email and/or credit card
 export async function POST(req: NextRequest) {
   const body = await req.json();
+  console.log(body);
 
   if (!body.priceId) {
     return NextResponse.json(

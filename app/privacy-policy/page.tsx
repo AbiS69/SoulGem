@@ -57,51 +57,56 @@ const PrivacyPolicy = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: 2023-08-25
+          {`
+Privacy Policy for SoulGem
 
-Thank you for visiting ShipFast ("we," "us," or "our"). This Privacy Policy outlines how we collect, use, and protect your personal and non-personal information when you use our website located at https://shipfa.st (the "Website").
+ Last updated: April 20, 2024
 
-By accessing or using the Website, you agree to the terms of this Privacy Policy. If you do not agree with the practices described in this policy, please do not use the Website.
+Welcome to SoulGem, accessible from https://soulgem.xyz. This privacy policy outlines our policies regarding the collection, use, and disclosure of personal information when you use our service.
 
-1. Information We Collect
+1. Information Collection and Use
 
-1.1 Personal Data
+We collect various types of information for various purposes to provide and improve our service to you:
+Personal Data: We may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. This may include, but is not limited to:
+Name
+Email address
+Answers to a personality test
+Payment information (if necessary for processing orders)
+Cookies and Usage Data: We use cookies and similar tracking technologies to track activity on our service and hold certain information.
 
-We collect the following personal information from you:
 
-Name: We collect your name to personalize your experience and communicate with you effectively.
-Email: We collect your email address to send you important information regarding your orders, updates, and communication.
-Payment Information: We collect payment details to process your orders securely. However, we do not store your payment information on our servers. Payments are processed by trusted third-party payment processors.
+2. Use of Data
 
-1.2 Non-Personal Data
+SoulGem uses the collected data for various purposes:
+To provide and maintain our service
+To notify you about changes to our service
+To allow you to participate in interactive features of our service when you choose to do so
+To provide customer support
+To gather analysis or valuable information so that we can improve our service
+To monitor the usage of our service
+To detect, prevent, and address technical issues
 
-We may use web cookies and similar technologies to collect non-personal information such as your IP address, browser type, device information, and browsing patterns. This information helps us to enhance your browsing experience, analyze trends, and improve our services.
-
-2. Purpose of Data Collection
-
-We collect and use your personal data for the sole purpose of order processing. This includes processing your orders, sending order confirmations, providing customer support, and keeping you updated about the status of your orders.
 
 3. Data Sharing
 
-We do not share your personal data with any third parties except as required for order processing (e.g., sharing your information with payment processors). We do not sell, trade, or rent your personal information to others.
+We do not share your personal data with third parties, except as necessary to provide and improve the service, comply with the law, or protect our rights.
 
 4. Children's Privacy
 
-ShipFast is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us at the email address provided below.
+Our service does not address anyone under the age of 18 ("Children"). We do not knowingly collect personally identifiable information from anyone under the age of 18.
 
-5. Updates to the Privacy Policy
 
-We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any updates will be posted on this page, and we may notify you via email about significant changes.
+5. Changes to This Privacy Policy
 
-6. Contact Information
+We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating you by email.
 
-If you have any questions, concerns, or requests related to this Privacy Policy, you can contact us at:
 
-Email: marc@shipfa.st
+6. Contact Us
 
-For all other inquiries, please visit our Contact Us page on the Website.
+If you have any questions about this Privacy Policy, please contact us at toni@soulgem.xyz.
 
-By using ShipFast, you consent to the terms of this Privacy Policy.`}
+
+By using our site, you acknowledge that you have read and understood our Privacy Policy.`}
         </pre>
       </div>
     </main>

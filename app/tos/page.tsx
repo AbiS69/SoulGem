@@ -57,39 +57,54 @@ const TOS = () => {
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: September 26, 2023
+          {`Terms of Service for SoulGem
 
-Welcome to ShipFast!
+Last updated: April 20, 2024
 
-These Terms of Service ("Terms") govern your use of the ShipFast website at https://shipfa.st ("Website") and the services provided by ShipFast. By using our Website and services, you agree to these Terms.
+Welcome to SoulGem! 
 
-1. Description of ShipFast
+By accessing and using our website located at https://soulgem.xyz ("Site"), you agree to be bound by the following terms of service ("Terms").
 
-ShipFast is a platform that offers a JavaScript code boilerplate to assist entrepreneurs in launching their startups more efficiently.
+1. Use of Our Service
 
-2. Ownership and Usage Rights
+SoulGem provides an image generation service based on your personality. To use our service, you will be asked to provide personal information including your name, email, and answers to a personality test. Payment information may also be requested for purchases related to our services.
 
-When you purchase a package from ShipFast, you gain the right to download and use the code provided for creating applications. You own the code you create but do not have the right to resell it. We offer a full refund within 7 days of purchase, as specified in our refund policy.
 
-3. User Data and Privacy
+2. Data Collection
 
-We collect and store user data, including name, email, and payment information, as necessary to provide our services. For details on how we handle your data, please refer to our Privacy Policy at https://shipfa.st/privacy-policy.
+We collect both personal and non-personal data as described in our Privacy Policy, which can be accessed at https://soulgem.xyz/privacy-policy. Personal data includes name, email, and personality test answers, and may include payment information if provided. Non-personal data includes web cookies.
 
-4. Non-Personal Data Collection
 
-We use web cookies to collect non-personal data for the purpose of improving our services and user experience.
+3. Intellectual Property
 
-5. Governing Law
+All content on this Site, including text, graphics, logos, and images, is the property of SoulGem and is protected by intellectual property laws. You may not commercially use any content from our Site without the express permission of SoulGem.
 
-These Terms are governed by the laws of France.
 
-6. Updates to the Terms
+4. User Responsibilities
 
-We may update these Terms from time to time. Users will be notified of any changes via email.
+You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. You agree to use our services for lawful purposes only.
 
-For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
 
-Thank you for using ShipFast!`}
+5. Termination
+
+We may terminate or suspend your access to our Site immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms.
+
+
+6. Changes to Terms
+
+We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the new Terms on this Site and updating you by email.
+
+
+7. Governing Law
+
+These Terms shall be governed by and construed in accordance with the laws of France.
+
+
+8. Contact Us
+
+If you have any questions about these Terms, please contact us at toni@soulgem.xyz.
+
+By using our Site, you acknowledge that you have read and agree to be bound by these Terms.`}
         </pre>
       </div>
     </main>
