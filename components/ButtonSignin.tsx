@@ -18,7 +18,6 @@ const ButtonSignin = ({
 }) => {
   const router = useRouter();
   const { data: session, status } = useSession();
-  console.log("seesion", session);
 
   const handleClick = () => {
     if (status === "authenticated") {

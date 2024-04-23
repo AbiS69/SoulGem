@@ -1,3 +1,5 @@
+import AutoCarousel from "../components/carousel/AutoCarousel";
+
 const Arrow = ({ extraStyle }: { extraStyle: string }) => {
   return (
     <svg
@@ -42,6 +44,7 @@ const Step = ({ emoji, text }: { emoji: string; text: string }) => {
 const Problem = () => {
   return (
     <section className="bg-neutral text-neutral-content">
+      <AutoCarousel />
       <div className="max-w-7xl mx-auto px-8 py-16 md:py-32 text-center">
         <h2 className="max-w-3xl mx-auto font-extrabold text-4xl md:text-5xl tracking-tight mb-6 md:mb-8">
           80% of startups fail because founders never launch

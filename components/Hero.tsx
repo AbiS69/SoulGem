@@ -1,22 +1,30 @@
+"use client";
+
 import Image from "next/image";
 import TestimonialsAvatars from "./TestimonialsAvatars";
 import config from "@/config";
 import CTA from "./CTA";
+import TestimonialRating from "@/components/TestimonialRating";
+import ButtonGradient from "@/components/ButtonGradient";
 
 const Hero = () => {
+	function clickCTA() {
+		// This function is called when the button is clicked
+		// It will increment the count by 1
+		console.log("sum function called");
+	}
 	return (
 		<>
-			{/* <Image src={heroSoulGem} alt="Soulgem" className="w-full" /> */}
 			<section
-				className="mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-12 lg:py-36"
+				className="mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-12 lg:py-32 md:bg-contain md:bg-center bg-repeat-x"
 				style={{
 					backgroundImage: "url('/assets/HeroSoulGem1.png')",
-					backgroundSize: "contain",
-					backgroundPosition: "center",
 					filter: "brightness(0.8)",
 				}}
 			>
 				<div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center">
+					<TestimonialRating />
+
 					{/* <a
           href="https://www.producthunt.com/posts/shipfast-2?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-shipfast&#0045;2"
           target="_blank"
@@ -32,44 +40,51 @@ const Hero = () => {
           </svg>
         </a> */}
 					<h1
-						className="font-extrabold text-7xl lg:text-8xl tracking-tight md:-mb-4 text-center drop-shadow-2xl"
+						className="font-extrabold text-7xl lg:text-8xl tracking-tight md:mb-4 text-center drop-shadow-2xl"
 						style={{
 							textShadow: "8px 8px 8px rgba(0, 0, 0, 0.5)",
 						}}
 					>
 						SoulGem
 					</h1>
-					<p
-						className="font-bold text-xl leading-relaxed opacity-90 drop-shadow-2xl"
+					<div
+						className="font-bold text-xl leading-relaxed drop-shadow-2xl lg:-mt-12 lg:mb-12"
 						style={{
 							textShadow: "8px 8px 8px rgba(0, 0, 0, 0.6)",
 							borderRadius: "10px",
 							padding: " 2px 10px",
-							backgroundColor: "rgba(255, 255, 255, 0.3)", // Ajoute un fond blanc transparent
-							color: "white", // Change la couleur du texte en blanc
+							//backgroundColor: "rgba(255, 255, 255, 0.3)", // Ajoute un fond blanc transparent
+							backgroundColor: "white",
 							border: "2px solid white", // Ajoute une bordure blanche
 							boxShadow: "8px 8px 8px rgba(0, 0, 0, 0.5)",
-
 						}}
 					>
-						Create your Soulgem and share it with the world. Transform your
-						personality into art.
-					</p>
-					<button
-						className="btn  btn-wide"
-						style={{
-							boxShadow: "8px 8px 8px rgba(0, 0, 0, 0.5)",
-							borderRadius: "10px",
-							padding: " 2px 10px",
-              color: "white",
-              backgroundColor: "#08A6FF",
-							//backgroundImage: "linear-gradient(to right, #FFD700, #FF5733)",
-							border: "none",
-						}}
-					>
-						Create my Soulgem for free
-					</button>
-
+						<p
+							className="text-sm sm:text-lg md:text-xl md:bg-contain md:bg-center bg-no-repeat"
+							style={{
+								textShadow: "8px 8px 8px rgba(0, 0, 0, 0.2)",
+								borderRadius: "10px",
+								padding: " 2px 10px",
+								//backgroundColor: "rgba(255, 255, 255, 0.3)", // Ajoute un fond blanc transparent
+								color: "transparent", // Change la couleur du texte en blanc
+								backgroundImage: "url('/assets/HeroSoulGem1.png')",
+								backgroundSize: "cover",
+								// backgroundRepeat: "no-repeat",
+								// backgroundPosition: "center",
+								filter: "brightness(0.6)",
+								backgroundClip: "text",
+								WebkitBackgroundClip: "text",
+								fontWeight: "bold",
+							}}
+						>
+							Transform your personality into art. Create your Soulgem and share
+							it with the world.
+						</p>
+					</div>
+					<ButtonGradient
+						title="🔮 Create My SoulGem for free 🔮"
+						onClick={clickCTA}
+					/>
 					{/* <TestimonialsAvatars priority={true} /> */}
 				</div>
 			</section>
