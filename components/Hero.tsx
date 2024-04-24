@@ -22,8 +22,8 @@ const Hero = () => {
 					filter: "brightness(0.8)",
 				}}
 			>
-				<div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center">
-					<TestimonialRating />
+				<div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center animate-popup">
+					<TestimonialRating/>
 
 					{/* <a
           href="https://www.producthunt.com/posts/shipfast-2?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-shipfast&#0045;2"
@@ -48,7 +48,7 @@ const Hero = () => {
 						SoulGem
 					</h1>
 					<div
-						className="font-bold text-xl leading-relaxed drop-shadow-2xl lg:-mt-12 lg:mb-12"
+						className="font-bold text-xl leading-relaxed drop-shadow-2xl md:-mt-6 lg:-mt-12 lg:mb-12"
 						style={{
 							textShadow: "8px 8px 8px rgba(0, 0, 0, 0.6)",
 							borderRadius: "10px",

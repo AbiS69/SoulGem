@@ -12,10 +12,11 @@ module.exports = {
           "linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)",
       },
       animation: {
+        wiggleShimmer: 'wiggle 1.5s ease-in-out 3s infinite, shimmer 2s linear infinite',
         opacity: "opacity 0.25s ease-in-out",
         appearFromRight: "appearFromRight 300ms ease-in-out",
-        wiggle: "wiggle 1.5s ease-in-out infinite",
-        popup: "popup 0.25s ease-in-out",
+        wiggle: "wiggle 1.5s ease-in-out ",
+        popup: "popup 1s ease-in-out",
         shimmer: "shimmer 3s ease-out infinite alternate",
       },
       keyframes: {
@@ -32,16 +33,16 @@ module.exports = {
             transform: "rotate(0deg)",
           },
           "30%, 60%": {
-            transform: "rotate(-2deg)",
+            transform: "rotate(-0.5deg)",
           },
           "40%, 70%": {
-            transform: "rotate(2deg)",
+            transform: "rotate(0.5deg)",
           },
           "45%": {
-            transform: "rotate(-4deg)",
+            transform: "rotate(-1deg)",
           },
           "55%": {
-            transform: "rotate(4deg)",
+            transform: "rotate(1deg)",
           },
         },
         popup: {

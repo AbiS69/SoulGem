@@ -9,7 +9,7 @@ export default function AutoplayCarousel() {
       <div className="carousel-track">
         {Object.keys(cardDetails).map((detailKey) => {
           return (
-            <div>cul
+            <div>
             <ItemCarousel
               imgUrl={cardDetails[detailKey].imgUrl}
               imgTitle={cardDetails[detailKey].title}
