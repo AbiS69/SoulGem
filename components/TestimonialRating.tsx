@@ -1,6 +1,6 @@
 const TestimonialRating = () => {
   return (
-    <div className="flex -gap-1 items-center mt-auto animate-bounce">
+    <div className="flex -gap-1 items-center lg:-mt-24 animate-bounce">
       <svg
         viewBox="0 0 773 1262"
         className="w-8 fill-base-content/90 rotate-12"

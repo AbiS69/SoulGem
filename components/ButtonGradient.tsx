@@ -4,13 +4,16 @@ import React from "react";
 
 const ButtonGradient = ({
   title = "Gradient Button",
-  onClick = () => {},
+  onClick = () => {}
 }: {
   title?: string;
   onClick?: () => void;
 }) => {
   return (
-    <button className="btn btn-gradient animate-wiggleShimmer hover:scale-110 hover:ring-violet-300 active:bg-violet-700 ring-4 focus:outline-none focus:ring ring-blue-300 md:text-lg shadow-lg lg:h-14 md:mb-8" onClick={onClick}>
+    <button
+      className="btn btn-gradient hover:scale-110 hover:ring-violet-300 active:bg-violet-700 ring-2 focus:outline-none focus:ring ring-blue-300 md:text-lg shadow-lg lg:h-14 md:-mt-8"
+      onClick={onClick}
+    >
       {title}
     </button>
   );

@@ -1,52 +1,56 @@
 .carousel-container {
-	overflow: hidden;
-	position: relative;
-	height: 100%;
-	border-color: #4b5563;
-	width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 1vw;
+  height: 100%;
+  border-color: #4b5563;
+  width: 100%;
 }
 
 .carousel-card {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 12vw;
-	height: 12vw;
-	&:hover {
-		transform: scale(0.9);
-		// box-shadow: 5px 5px 8px rgba(222, 222, 222, 0.362),
-		// 	10px 10px 8px rgba(152, 133, 133, 0.392),
-		// 	15px 15px 8px rgba(139, 154, 139, 0.303);
-	}
-	border-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    transform: scale(0.9);
+    // box-shadow: 5px 5px 8px rgba(222, 222, 222, 0.362),
+    // 	10px 10px 8px rgba(152, 133, 133, 0.392),
+    // 	15px 15px 8px rgba(139, 154, 139, 0.303);
+  }
+  border-radius: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 4rem;
 }
 
 .carousel-card > img {
-	height: 80%;
-	width: 80%;
-	border-radius: 10%;
+  border-radius: 10%;
+  min-width: 10vw;
+  min-height: 10vw;
 }
 
 .carousel-track {
-	display: flex;
-	position: relative;
-	justify-content: center;
-	align-items: center;
-	height: 80px;
-	gap: 16px;
-	width: 100%;
-	height: 100%;
-	animation: slide 20s linear infinite;
-	&:hover {
-		animation-play-state: paused;
-	}
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  gap: 2.5vw;
+  width: 100%;
+  height: 100%;
+  animation: slide 20s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes slide {
-	0% {
-		left: 0;
-	}
-	100% {
-		left: -100%;
-	}
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
 }

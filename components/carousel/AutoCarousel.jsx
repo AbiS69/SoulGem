@@ -9,19 +9,51 @@ export default function AutoplayCarousel() {
       <div className="carousel-track">
         {Object.keys(cardDetails).map((detailKey) => {
           return (
-            <div>
+            // eslint-disable-next-line react/jsx-key
             <ItemCarousel
               imgUrl={cardDetails[detailKey].imgUrl}
               imgTitle={cardDetails[detailKey].title}
+              imgCreator={cardDetails[detailKey].creator}
             ></ItemCarousel>
-            </div>
           );
         })}
         {Object.keys(cardDetails).map((detailKey) => {
           return (
+            // eslint-disable-next-line react/jsx-key
             <ItemCarousel
               imgUrl={cardDetails[detailKey].imgUrl}
               imgTitle={cardDetails[detailKey].title}
+              imgCreator={cardDetails[detailKey].creator}
+            ></ItemCarousel>
+          );
+        })}
+        {Object.keys(cardDetails).map((detailKey) => {
+          return (
+            // eslint-disable-next-line react/jsx-key
+            <ItemCarousel
+              imgUrl={cardDetails[detailKey].imgUrl}
+              imgTitle={cardDetails[detailKey].title}
+              imgCreator={cardDetails[detailKey].creator}
+            ></ItemCarousel>
+          );
+        })}
+        {Object.keys(cardDetails).map((detailKey) => {
+          return (
+            // eslint-disable-next-line react/jsx-key
+            <ItemCarousel
+              imgUrl={cardDetails[detailKey].imgUrl}
+              imgTitle={cardDetails[detailKey].title}
+              imgCreator={cardDetails[detailKey].creator}
+            ></ItemCarousel>
+          );
+        })}
+        {Object.keys(cardDetails).map((detailKey) => {
+          return (
+            // eslint-disable-next-line react/jsx-key
+            <ItemCarousel
+              imgUrl={cardDetails[detailKey].imgUrl}
+              imgTitle={cardDetails[detailKey].title}
+              imgCreator={cardDetails[detailKey].creator}
             ></ItemCarousel>
           );
         })}
