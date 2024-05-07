@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         gradient:
-          "linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)",
+          //"linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)",
+          "linear-gradient(60deg, #00BFFF, #4169E1)"
+
       },
       animation: {
         wiggleShimmer: 'wiggle 1.5s ease-in-out 3s infinite, shimmer 2s linear infinite',

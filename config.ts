@@ -27,42 +27,44 @@ const config = {
             //? ""
             : "price_456",
         //  REQUIRED - Name of the plan, displayed on the pricing page
-        name: "Starter",
+        name: "Just curious",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
         description: "Perfect for a few artworks",
         // The price you want to display, the one user will be charged on Stripe.
-        price: 5,
+        price: 4,
+        planText: "Get 100 credits",
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
         priceAnchor: 10,
         features: [
-          {
-            name: "Create your SoulGem",
-          },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
+          // {
+          //   name: "Create your SoulGem",
+          // },
+          // { name: "User oauth" },
+          // { name: "Database" },
+          // { name: "Emails" },
         ],
       },
       {
         priceId:
           process.env.NODE_ENV === "development"
-            ? "price_1O5KtcAxyNprDp7iftKnrrpw"
+            ? "price_1PDxPfFY60tLCCEBgrxqfDJZ"
             : "price_456",
         // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
         isFeatured: true,
-        name: "Advanced",
-        description: "You need more power",
-        price: 149,
-        priceAnchor: 299,
+        name: "Soul Artist",
+        description: "To explore your various personality facets",
+        planText: "Get 500 credits",
+        price: 10,
+        priceAnchor: 25,
         features: [
-          {
-            name: "Transofrm your personality into art",
-          },
-          { name: "User oauth" },
-          { name: "Database" },
-          { name: "Emails" },
-          { name: "1 year of updates" },
-          { name: "24/7 support" },
+          // {
+          //   name: "Transofrm your personality into art",
+          // },
+          // { name: "User oauth" },
+          // { name: "Database" },
+          // { name: "Emails" },
+          // { name: "1 year of updates" },
+          // { name: "24/7 support" },
         ],
       },
     ],

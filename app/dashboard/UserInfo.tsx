@@ -19,7 +19,7 @@ export default function UserInfo() {
 
   // Render the credits or a loading message if the user data hasn't loaded yet
   return (
-    <div className="text-center text-sm text-neutral-500">
+    <div className="text-center text-sm text-white-500">
       {user ? `You currently have ${user.credits} credits` : 'Loading your credits...'}
     </div>
   );

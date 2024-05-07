@@ -6,12 +6,24 @@ import config from "@/config";
 import CTA from "./CTA";
 import TestimonialRating from "@/components/TestimonialRating";
 import ButtonGradient from "@/components/ButtonGradient";
+import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+
 
 const Hero = () => {
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
   function clickCTA() {
     // This function is called when the button is clicked
     // It will increment the count by 1
     console.log("sum function called");
+    if (status === "authenticated") {
+      router.push(config.auth.callbackUrl);
+    } else {
+      signIn(undefined, { callbackUrl: config.auth.callbackUrl });
+    }
+
   }
   return (
     <>
@@ -82,7 +94,7 @@ const Hero = () => {
             </p>
           </div>
           <ButtonGradient
-            title="🔮 Create My SoulGem for free 🔮"
+            title="Create My SoulGem for free"
             onClick={clickCTA}
           />
           {/* <TestimonialsAvatars priority={true} /> */}

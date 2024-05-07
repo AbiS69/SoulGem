@@ -7,50 +7,10 @@ export default function AutoplayCarousel() {
   return (
     <div className="carousel-container">
       <div className="carousel-track">
-        {Object.keys(cardDetails).map((detailKey) => {
+        {Object.keys(cardDetails).map((detailKey, index) => {
           return (
-            // eslint-disable-next-line react/jsx-key
             <ItemCarousel
-              imgUrl={cardDetails[detailKey].imgUrl}
-              imgTitle={cardDetails[detailKey].title}
-              imgCreator={cardDetails[detailKey].creator}
-            ></ItemCarousel>
-          );
-        })}
-        {Object.keys(cardDetails).map((detailKey) => {
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <ItemCarousel
-              imgUrl={cardDetails[detailKey].imgUrl}
-              imgTitle={cardDetails[detailKey].title}
-              imgCreator={cardDetails[detailKey].creator}
-            ></ItemCarousel>
-          );
-        })}
-        {Object.keys(cardDetails).map((detailKey) => {
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <ItemCarousel
-              imgUrl={cardDetails[detailKey].imgUrl}
-              imgTitle={cardDetails[detailKey].title}
-              imgCreator={cardDetails[detailKey].creator}
-            ></ItemCarousel>
-          );
-        })}
-        {Object.keys(cardDetails).map((detailKey) => {
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <ItemCarousel
-              imgUrl={cardDetails[detailKey].imgUrl}
-              imgTitle={cardDetails[detailKey].title}
-              imgCreator={cardDetails[detailKey].creator}
-            ></ItemCarousel>
-          );
-        })}
-        {Object.keys(cardDetails).map((detailKey) => {
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <ItemCarousel
+              key={index}
               imgUrl={cardDetails[detailKey].imgUrl}
               imgTitle={cardDetails[detailKey].title}
               imgCreator={cardDetails[detailKey].creator}

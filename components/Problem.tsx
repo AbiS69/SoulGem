@@ -58,7 +58,7 @@ const Problem = () => {
         </p>
 
         <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6">
-          <Step emoji="🧑‍💻" text="Take our precise MBTI personality test" />
+          <Step emoji="🧑‍💻" text="Take our short and precise personality test" />
 
           <Arrow extraStyle="max-md:-scale-x-100 md:-rotate-90" />
 
@@ -66,7 +66,7 @@ const Problem = () => {
 
           <Arrow extraStyle="md:-scale-x-100 md:-rotate-90" />
 
-          <Step emoji="🎉" text="Reveal yourself to the world artistically " />
+          <Step emoji="🎉" text="Artistically reveal yourself to the world" />
         </div>
       </div>
     </section>
