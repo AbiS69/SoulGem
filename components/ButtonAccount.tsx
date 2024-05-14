@@ -26,7 +26,7 @@ const ButtonAccount = () => {
       const { url }: { url: string } = await apiClient.post(
         "/stripe/create-portal",
         {
-          returnUrl: window.location.href,
+          returnUrl: window.location.href
         }
       );
 

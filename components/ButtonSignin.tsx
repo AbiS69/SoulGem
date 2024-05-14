@@ -11,7 +11,7 @@ import config from "@/config";
 // If the user is already logged in, it will show their profile picture & redirect them to callbackUrl immediately.
 const ButtonSignin = ({
   text = "Get started",
-  extraStyle,
+  extraStyle
 }: {
   text?: string;
   extraStyle?: string;
@@ -54,7 +54,9 @@ const ButtonSignin = ({
 
   return (
     <button
-      className={`btn ${extraStyle ? extraStyle : ""}`}
+      className={`btn btn-primary btn-outline text-white font-bold ${
+        extraStyle ? extraStyle : ""
+      }`}
       onClick={handleClick}
     >
       {text}
