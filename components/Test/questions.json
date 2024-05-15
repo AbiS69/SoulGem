@@ -1,0 +1,276 @@
+{
+	"axis_EI": [
+		{
+			"question": "How do you prefer to spend your weekend?",
+			"answers": [
+				"At a big social event, like a concert or a party",
+				"At home or with a small group of close friends"
+			]
+		},
+		{
+			"question": "Which work environment do you prefer?",
+			"answers": [
+				"An open office with lots of people and activity",
+				"A quiet office with minimal interruptions"
+			]
+		},
+		{
+			"question": "How do you feel about meeting new people?",
+			"answers": [
+				"Excited to network and make new connections",
+				"A bit apprehensive, preferring to stick with familiar faces"
+			]
+		},
+		{
+			"question": "When solving a problem, do you prefer?",
+			"answers": [
+				"Brainstorming with a group",
+				"Thinking things through on your own"
+			]
+		},
+		{
+			"question": "How do you usually make decisions?",
+			"answers": [
+				"By discussing them with others to gather input",
+				"By reflecting quietly and deciding for yourself"
+			]
+		},
+		{
+			"question": "Which describes your preferred social setting?",
+			"answers": ["A large, lively gathering", "A small, intimate setting"]
+		},
+		{
+			"question": "When it comes to downtime, do you prefer?",
+			"answers": [
+				"Doing something active with a group",
+				"Relaxing alone or with a close friend"
+			]
+		},
+		{
+			"question": "How do you like to celebrate your birthday?",
+			"answers": [
+				"With a big party involving many people",
+				"With a low-key celebration with close friends or family"
+			]
+		},
+		{
+			"question": "Which is more appealing to you?",
+			"answers": [
+				"Traveling to a popular tourist destination",
+				"Exploring a quiet, less-known place"
+			]
+		},
+		{
+			"question": "How do you usually handle networking events?",
+			"answers": [
+				"Eagerly, looking forward to meeting many people",
+				"Reluctantly, preferring to stay in the background"
+			]
+		}
+	],
+
+	"axis_SN": [
+		{
+			"question": "When learning something new, do you prefer?",
+			"answers": [
+				"Detailed, step-by-step instructions",
+				"An overview with general concepts and ideas"
+			]
+		},
+		{
+			"question": "How do you tend to solve problems?",
+			"answers": [
+				"Using practical, tried-and-true methods",
+				"Thinking creatively and exploring new approaches"
+			]
+		},
+		{
+			"question": "When making a decision, do you rely more on?",
+			"answers": ["Concrete facts and data", "Intuition and gut feelings"]
+		},
+		{
+			"question": "In your daily life, do you prefer?",
+			"answers": ["Routine and consistency", "Variety and spontaneity"]
+		},
+		{
+			"question": "When someone asks you to describe something, do you tend to focus on?",
+			"answers": [
+				"Specific details and characteristics",
+				"General impressions and overall themes"
+			]
+		},
+		{
+			"question": "Do you tend to notice?",
+			"answers": [
+				"The practical applications of things",
+				"The hidden meanings or symbolism in things"
+			]
+		},
+		{
+			"question": "When organizing a project, do you prefer?",
+			"answers": ["A clear, structured plan", "Flexibility to adjust as you go"]
+		},
+		{
+			"question": "Do you tend to appreciate?",
+			"answers": [
+				"Things that are tangible and can be experienced with the senses",
+				"Ideas that are theoretical or conceptual"
+			]
+		},
+		{
+			"question": "Which do you find more appealing?",
+			"answers": [
+				"Things that are concrete and grounded in reality",
+				"Things that are abstract and imaginative"
+			]
+		},
+		{
+			"question": "When it comes to future planning, do you prefer?",
+			"answers": [
+				"Focusing on the near-term and what is feasible",
+				"Thinking about long-term possibilities and visions"
+			]
+		}
+	],
+	"axis_TF": [
+		{
+			"question": "When making decisions, do you prioritize?",
+			"answers": [
+				"Logical analysis and objectivity",
+				"Personal values and emotions"
+			]
+		},
+		{
+			"question": "When giving feedback, do you tend to?",
+			"answers": [
+				"Be straightforward and direct",
+				"Consider how the other person will feel"
+			]
+		},
+		{
+			"question": "Which is more important to you in a work environment?",
+			"answers": ["Efficiency and results", "Team morale and harmony"]
+		},
+		{
+			"question": "How do you prefer to resolve conflicts?",
+			"answers": [
+				"By discussing facts and finding a logical solution",
+				"By focusing on people's feelings and finding common ground"
+			]
+		},
+		{
+			"question": "When planning an event, do you prioritize?",
+			"answers": [
+				"Achieving the goals and tasks",
+				"Making sure everyone is comfortable and enjoying themselves"
+			]
+		},
+		{
+			"question": "When choosing a career, do you focus more on?",
+			"answers": [
+				"Opportunities for advancement and success",
+				"Job satisfaction and personal fulfillment"
+			]
+		},
+		{
+			"question": "Do you find it easier to work with?",
+			"answers": [
+				"People who are efficient and task-oriented",
+				"People who are friendly and people-oriented"
+			]
+		},
+		{
+			"question": "Which do you tend to prioritize in relationships?",
+			"answers": [
+				"Clear communication and mutual respect",
+				"Emotional support and empathy"
+			]
+		},
+		{
+			"question": "How do you feel about difficult conversations?",
+			"answers": [
+				"They are a necessary part of resolving issues",
+				"They can be challenging and emotionally draining"
+			]
+		},
+		{
+			"question": "When working on a team project, do you prefer?",
+			"answers": [
+				"Clearly defined roles and expectations",
+				"A flexible approach that allows for collaboration"
+			]
+		}
+	],
+	"axis_JP": [
+		{
+			"question": "How do you prefer to approach tasks?",
+			"answers": [
+				"With a clear plan and checklist",
+				"Flexibly, adapting as you go"
+			]
+		},
+		{
+			"question": "When planning a trip, do you prefer?",
+			"answers": [
+				"Having an itinerary with scheduled activities",
+				"Going with the flow and exploring spontaneously"
+			]
+		},
+		{
+			"question": "When working on a project, do you prefer?",
+			"answers": [
+				"To have clear deadlines and expectations",
+				"To work with a flexible timeline and open-ended goals"
+			]
+		},
+		{
+			"question": "How do you handle surprises or unexpected changes?",
+			"answers": [
+				"They can be frustrating, disrupting your plans",
+				"They are exciting, providing new opportunities"
+			]
+		},
+		{
+			"question": "Which do you prefer when making plans with friends?",
+			"answers": [
+				"Setting a time and sticking to it",
+				"Having flexibility to change plans as needed"
+			]
+		},
+		{
+			"question": "When approaching a new challenge, do you prefer?",
+			"answers": [
+				"To research and understand the details beforehand",
+				"To dive in and learn as you go"
+			]
+		},
+		{
+			"question": "Which describes your general style of organization?",
+			"answers": [
+				"Keeping things neat, tidy, and in their place",
+				"A more relaxed approach, with some clutter"
+			]
+		},
+		{
+			"question": "When it comes to deadlines, do you prefer?",
+			"answers": [
+				"Meeting them ahead of time",
+				"Working up to the last minute, sometimes pushing them back"
+			]
+		},
+		{
+			"question": "When making decisions, do you prefer?",
+			"answers": [
+				"To make a choice and stick with it",
+				"To keep options open for as long as possible"
+			]
+		},
+		{
+			"question": "Which do you find more comfortable?",
+			"answers": [
+				"Having structure and routine in your daily life",
+				"Enjoying flexibility and variety day-to-day"
+			]
+		}
+	]
+}

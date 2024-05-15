@@ -1,0 +1,51 @@
+.blue-pill {
+	color: rgb(0, 149, 255);
+    //color: oklch(var(--s));
+	padding: 10px;
+	border-radius: 30px;
+	min-width: 30%;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	cursor: pointer;
+	&:hover {
+		scale: 0.9;
+	}
+
+	&-active {
+		background-color: rgb(0, 149, 255);
+		//background-color: oklch(var(--s));
+        //border-color: white;
+		color: white;
+		font-weight: bold;
+	}
+}
+
+.red-pill {
+	color: rgb(250, 29, 77);
+	padding: 10px;
+	border-radius: 30px;
+	min-width: 30%;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	cursor: pointer;
+	&:hover {
+		scale: 0.9;
+	}
+	&-active {
+		background-color: rgb(250, 29, 77);
+		color: white;
+		font-weight: bold;
+	}
+}
+
+.index {
+	border: 2px solid yellow;
+	width: 1.5vw;
+	height: 1.5vw;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 12px;
+}

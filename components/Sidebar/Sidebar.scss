@@ -7,12 +7,17 @@
   align-items: center;
 }
 
-.gallery {
+.sidebar-btn {
   width: 90%;
 }
 
-.gallery-active {
+.test-active {
   background-color: oklch(var(--s));
+  color: black !important;
+}
+
+.gallery-active {
+  background-color: oklch(var(--p));
   color: black !important;
 }
 

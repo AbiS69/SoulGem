@@ -11,6 +11,7 @@ import Pricing from "@/components/Pricing";
 import BuyCredits from "@/components/BuyCredits/BuyCredits";
 import "./dashboard.scss";
 import Gallery from "@/components/Gallery/Gallery";
+import Test from '@/components/Test/Test';
 
 const UserInfo = dynamic(() => import("./UserInfo"), { ssr: false });
 
@@ -29,6 +30,8 @@ export default function Dashboard() {
         return <BuyCredits />;
       case "Gallery":
         return <Gallery />;
+      case "Test":
+        return <Test />;
       case "Smartphone Wallpaper":
         return <div>Samrtphone Wallpaper</div>;
       case "Desktop Wallpaper":
@@ -45,12 +48,12 @@ export default function Dashboard() {
   return (
     <main className="min-h-screen dashboard-container">
       <Sidebar onTabClick={handleTabClick} activeTab={activeTab} />
-      <section className="max-w-xl mx-auto space-y-8">
+      <section className="w-full mx-auto space-y-8">
         {/* <h1 className="text-3xl md:text-4xl font-extrabold">
 					Subscribe to get access:
 				</h1> */}
 
-        <div className="content-area">{renderContent()}</div>
+        <div className="content-area justify-center">{renderContent()}</div>
       </section>
     </main>
   );
