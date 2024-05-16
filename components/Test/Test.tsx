@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import questionsData from "./questions.json";
 import "./Test.scss";
-import { set } from 'mongoose';
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import { set } from "mongoose";
 
 const Test = () => {
 	const [questions, setQuestions] = useState([]);
@@ -47,7 +50,6 @@ const Test = () => {
 			}
 		}
 
-		console.log("interleaved questions", interleavedQuestions);
 		setQuestions(interleavedQuestions);
 	}, []);
 
@@ -56,63 +58,67 @@ const Test = () => {
 			...prevState,
 			[questionIndex]: answerIndex,
 		}));
-		console.log("questionIndex", questionIndex);
-		console.log("answerIndex", answerIndex);
-		console.log("answers", answers);
 	};
 
 	const getMBTI = (answers) => {
-		let index = 0;
+		console.log("answers", answers);
 
-		const counts = {
-			axis_EI: { E: 0, I: 0 },
-			axis_SN: { S: 0, N: 0 },
-			axis_TF: { T: 0, F: 0 },
-			axis_JP: { J: 0, P: 0 },
-		};
+		if (Object.keys(answers).length == 12) {
+			let index = 0;
 
-		for (let question in answers) {
-			while (index < 11) {
-				if (index % 4 === 0) {
-					if (answers[question] === 1) {
-						counts.axis_EI.I++;
-					} else {
-						counts.axis_EI.E++;
-					}
-				} else if (index % 4 === 1) {
-					if (answers[question] === 1) {
-						counts.axis_SN.N++;
-					} else {
-						counts.axis_SN.S++;
-					}
-				} else if (index % 4 === 1) {
-					if (answers[question] === 1) {
-						counts.axis_TF.F++;
-					} else {
-						counts.axis_TF.T++;
-					}
-				} else if (index % 4 === 1) {
-					if (answers[question] === 1) {
-						counts.axis_JP.P++;
-					} else {
-						counts.axis_JP.J++;
+			const counts = {
+				axis_EI: { E: 0, I: 0 },
+				axis_SN: { S: 0, N: 0 },
+				axis_TF: { T: 0, F: 0 },
+				axis_JP: { J: 0, P: 0 },
+			};
+
+			for (let question in answers) {
+				if (answers[question] !== undefined && answers[question] !== null) {
+					while (index < 12) {
+						if (index % 4 === 0) {
+							if (answers[index] === 1) {
+								counts.axis_EI.I++;
+							} else {
+								counts.axis_EI.E++;
+							}
+						} else if (index % 4 === 1) {
+							if (answers[index] === 1) {
+								counts.axis_SN.N++;
+							} else {
+								counts.axis_SN.S++;
+							}
+						} else if (index % 4 === 2) {
+							if (answers[index] === 1) {
+								counts.axis_TF.F++;
+							} else {
+								counts.axis_TF.T++;
+							}
+						} else if (index % 4 === 3) {
+							if (answers[index] === 1) {
+								counts.axis_JP.P++;
+							} else {
+								counts.axis_JP.J++;
+							}
+						}
+						index++;
 					}
 				}
-				index++;
 			}
 
-			console.log("counts", counts);
-
 			const acronym = [
-				counts.axis_EI.E >= counts.axis_EI.I ? "E" : "I",
-				counts.axis_SN.S >= counts.axis_SN.N ? "S" : "N",
-				counts.axis_TF.T >= counts.axis_TF.F ? "T" : "F",
-				counts.axis_JP.J >= counts.axis_JP.P ? "J" : "P",
+				counts.axis_EI.E >= 2 ? "E" : "I",
+				counts.axis_SN.S >= 2 ? "S" : "N",
+				counts.axis_TF.T >= 2 ? "T" : "F",
+				counts.axis_JP.J >= 2 ? "J" : "P",
 			].join("");
 
+			console.log("acronym", acronym);
 			setResult(acronym);
-
-			return acronym;
+		} else {
+			toast("You forgot a few questions!", {
+				position: "bottom-right"
+			  });
 		}
 	};
 
@@ -144,11 +150,12 @@ const Test = () => {
 			))}
 			<button
 				className="btn btn-primary mt-8 flex justify-center w-1/2 mx-auto"
-				onClick={() => console.log(getMBTI(answers))}
+				onClick={() => getMBTI(answers)}
 			>
 				Get the result
 			</button>
-			<div className="mt-8">{result}</div>
+			<div className="mt-8 flex justify-center">{result}</div>
+			<ToastContainer />
 		</div>
 	);
 };
