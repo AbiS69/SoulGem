@@ -1,0 +1,85 @@
+{
+    "personalities": [
+      {
+        "type": "ESTJ",
+        "title": "Executive",
+        "description": "You are practical and fact-minded, known for your reliability. You are decisive and have a strong will, making you an excellent administrator, especially in fields like law enforcement, business, and government. You respect laws and authority, value honesty and dedication, and prefer a structured and orderly lifestyle. You excel in managing projects and ensuring tasks are completed efficiently."
+      },
+      {
+        "type": "ESFP",
+        "title": "Entertainer",
+        "description": "You are enthusiastic and creative, always finding a reason to smile. You love exploring new things and often become excited about new projects and ideas. You are sociable and enjoy being the center of attention, thriving in dynamic environments where you can interact with others. You bring energy and fun to social gatherings."
+      },
+      {
+        "type": "ENTJ",
+        "title": "Commander",
+        "description": "You are bold, imaginative, and strong-willed, always finding a way or making one. You are a natural-born leader, full of passion and charisma, and you often lead groups and organizations. You are a strategic thinker, adept at organizing resources and people to achieve long-term goals. You value efficiency and competence and are driven by a desire to achieve success."
+      },
+      {
+        "type": "ISTJ",
+        "title": "Logistician",
+        "description": "You are practical and hardworking, focusing on details and the present moment. You are reliable and thorough, making you excellent at managing day-to-day operations. You value tradition, order, and loyalty. You excel in roles that require precision and attention to detail, approaching your responsibilities with a sense of duty and commitment."
+      },
+      {
+        "type": "INTP",
+        "title": "Logician",
+        "description": "You are creative and insightful, driven by curiosity and a desire to understand the world. You excel at coming up with new ideas and theories, often in scientific or philosophical pursuits. You enjoy intellectual challenges and are seen as an innovative problem solver. You prefer working independently and are motivated by a quest for knowledge and understanding."
+      },
+      {
+        "type": "ESFJ",
+        "title": "Consul",
+        "description": "You are caring and supportive, often putting the needs of others before your own. You excel at understanding and responding to the emotional needs of others, making you a great friend and counselor. You value harmony and cooperation, and you are highly sociable. You thrive in roles that allow you to care for and support others, creating a positive and nurturing environment."
+      },
+      {
+        "type": "ESTP",
+        "title": "Entrepreneur",
+        "description": "You are flexible and charming, always ready to explore new opportunities. You are spontaneous and adaptable, thriving in environments where you can be creative and interact with others. You are action-oriented and enjoy taking risks. You excel in roles that require quick thinking and adaptability, and your charisma and energy make you a natural entertainer."
+      },
+      {
+        "type": "ISTP",
+        "title": "Virtuoso",
+        "description": "You are analytical and reserved, preferring to work independently and focus on the facts. You are logical and detail-oriented, often excelling in technical or scientific fields. You are a practical problem solver who enjoys understanding how things work. You are seen as independent and self-reliant, with a preference for hands-on activities and troubleshooting."
+      },
+      {
+        "type": "ISFJ",
+        "title": "Defender",
+        "description": "You are dedicated and warm, always ready to defend your loved ones. You are loyal and committed, often putting the needs of others above your own and working hard to create a sense of stability and security. You value tradition and dependability, excelling in roles that require patience and attention to detail. You are nurturing and supportive, making you an excellent caregiver."
+      },
+      {
+        "type": "ENTP",
+        "title": "Debater",
+        "description": "You are innovative and strategic, always coming up with new and exciting ideas. You are seen as a visionary, with a natural ability to see the big picture and think long-term. You enjoy debating and exploring new concepts, thriving in environments that allow you to use your creativity and problem-solving skills."
+      },
+      {
+        "type": "ENFP",
+        "title": "Campaigner",
+        "description": "You are friendly and outgoing, always ready to have fun and try new things. You are enthusiastic and energetic, often becoming the life of the party and enjoying being around others. You are imaginative and open-minded, drawn to creative pursuits and social activities. You value individuality and seek to inspire and motivate others with your enthusiasm and positive outlook."
+      },
+      {
+        "type": "INFJ",
+        "title": "Advocate",
+        "description": "You are quiet and mystical, yet very inspiring and tireless as an idealist. You are deeply empathetic and caring, driven by a desire to help others and make the world a better place. You are insightful and principled, guided by a strong sense of purpose and integrity. You excel in roles that allow you to support and uplift others, seeking to create meaningful change in your community."
+      },
+      {
+        "type": "INTJ",
+        "title": "Architect",
+        "description": "You are logical and efficient, always looking for ways to improve systems and processes. You are a strategic thinker, excelling in roles that require organization and planning. You are independent and visionary, with a strong drive to achieve your goals. You value knowledge and competence, often pursuing long-term projects with dedication and determination."
+      },
+      {
+        "type": "ENFJ",
+        "title": "Protagonist",
+        "description": "You are charismatic and inspiring, able to mesmerize your listeners. You are a natural communicator, excelling in roles that require persuasion and public speaking. You are empathetic and supportive, driven by a desire to help others reach their full potential. You thrive in roles that allow you to inspire and guide others, often seen as an influential and motivational figure."
+      },
+      {
+        "type": "ISFP",
+        "title": "Adventurer",
+        "description": "You are kind and altruistic, always eager to help and support others. You are empathetic and understanding, driven by a strong sense of duty and responsibility. You value harmony and personal expression, excelling in creative and artistic pursuits. You are compassionate and seek to create a positive and supportive environment for yourself and others."
+      },
+      {
+        "type": "INFP",
+        "title": "Mediator",
+        "description": "You are an innovative inventor with an unquenchable thirst for knowledge. You are curious and creative, often coming up with new and innovative solutions to problems. You are idealistic and driven by your values, seeking to understand yourself and the world around you. You excel in roles that allow you to explore your ideas and express your individuality."
+      }
+    ]
+  }
+  

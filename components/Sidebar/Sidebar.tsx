@@ -6,11 +6,11 @@ import UserInfo from "@/app/dashboard/UserInfo";
 const Sidebar = ({ onTabClick, activeTab }) => {
 	return (
 		<>
-			<div className="sidebar border-primary p-2">
+			<div className="sidebar border-primary p-2 sidebar">
 				<div className="my-4">
 					<ButtonAccount />
 				</div>
-				<div className="">
+				<div className="mt-8">
 					<UserInfo />
 				</div>
 				<div

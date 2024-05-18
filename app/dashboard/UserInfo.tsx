@@ -21,7 +21,7 @@ export default function UserInfo() {
   return (
     <div className="text-center text-sm text-white-500">
       {user
-        ? `You currently have ${user.credits} credits`
+        ? `Credits: ${user.credits}`
         : "Loading your credits..."}
     </div>
   );

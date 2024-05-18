@@ -11,7 +11,7 @@ import Pricing from "@/components/Pricing";
 import BuyCredits from "@/components/BuyCredits/BuyCredits";
 import "./dashboard.scss";
 import Gallery from "@/components/Gallery/Gallery";
-import Test from '@/components/Test/Test';
+import Test from '@/app/dashboard/test/page';
 
 const UserInfo = dynamic(() => import("./UserInfo"), { ssr: false });
 
@@ -31,7 +31,8 @@ export default function Dashboard() {
       case "Gallery":
         return <Gallery />;
       case "Test":
-        return <Test />;
+        // return <Test />;
+        return window.location.href = '/dashboard/test';
       case "Smartphone Wallpaper":
         return <div>Samrtphone Wallpaper</div>;
       case "Desktop Wallpaper":

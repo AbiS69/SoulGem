@@ -1,6 +1,36 @@
+.test-container {
+	margin-left: 15vw;
+}
+
+.test {
+	width: 100%;
+}
+
+.results-button {
+	margin-top: 5vw !important;
+	margin-bottom: 5vw !important;
+}
+
+.test-title {
+	width: fit-content;
+	font-size: 3rem;
+}
+
+.test-header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1vw;
+	width: 100%;
+	background-color: oklch(var(--b2));
+	min-height: 10vh;
+	padding: 2vw 0;
+}
+
 .blue-pill {
 	color: rgb(0, 149, 255);
-    //color: oklch(var(--s));
+	// color: oklch(var(--s));
 	padding: 10px;
 	border-radius: 30px;
 	min-width: 30%;
@@ -13,8 +43,8 @@
 
 	&-active {
 		background-color: rgb(0, 149, 255);
-		//background-color: oklch(var(--s));
-        //border-color: white;
+		// background-color: oklch(var(--s));
+		//border-color: white;
 		color: white;
 		font-weight: bold;
 	}
@@ -22,6 +52,7 @@
 
 .red-pill {
 	color: rgb(250, 29, 77);
+	// color: oklch(var(--p));
 	padding: 10px;
 	border-radius: 30px;
 	min-width: 30%;
@@ -33,13 +64,14 @@
 	}
 	&-active {
 		background-color: rgb(250, 29, 77);
+		// background-color: oklch(var(--p));
 		color: white;
 		font-weight: bold;
 	}
 }
 
 .index {
-	border: 2px solid yellow;
+	border: 2px solid oklch(var(--a));
 	width: 1.5vw;
 	height: 1.5vw;
 	border-radius: 50%;

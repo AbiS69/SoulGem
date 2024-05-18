@@ -1,15 +1,48 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import questionsData from "./questions.json";
 import "./Test.scss";
 import { ToastContainer, toast } from "react-toastify";
+import Sidebar from "@/components/Sidebar/Sidebar";
 
 import "react-toastify/dist/ReactToastify.css";
 import { set } from "mongoose";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+export const dynamic1 = "force-dynamic";
 
 const Test = () => {
 	const [questions, setQuestions] = useState([]);
 	const [answers, setAnswers] = useState({});
 	const [result, setResult] = useState("");
+	const [activeTab, setActiveTab] = useState("Gallery"); // Default to the first tab
+
+	const handleTabClick = (tab) => {
+		setActiveTab(tab);
+	};
+
+	const renderContent = () => {
+		switch (activeTab) {
+			// case "Buy Credits":
+			//   return <BuyCredits />;
+			// case "Gallery":
+			//   return <Gallery />;
+			case "Test":
+				// return <Test />;
+				return (window.location.href = "/dashboard/test");
+			case "Smartphone Wallpaper":
+				return <div>Samrtphone Wallpaper</div>;
+			case "Desktop Wallpaper":
+				return <div>Desktop Wallpaper</div>;
+			case "Duo":
+				return <div>Duo</div>;
+			case "Prints":
+				return <div>Prints</div>;
+			default:
+				return <div>Content not found</div>;
+		}
+	};
 
 	useEffect(() => {
 		// Sélectionnez aléatoirement 3 questions pour chaque axe
@@ -115,48 +148,63 @@ const Test = () => {
 
 			console.log("acronym", acronym);
 			setResult(acronym);
+			window.location.href = "/dashboard/create";
+			localStorage.setItem("acronym", acronym);
 		} else {
 			toast("You forgot a few questions!", {
-				position: "bottom-right"
-			  });
+				position: "bottom-right",
+			});
 		}
 	};
 
 	return (
-		<div>
-			{questions.map((question, index) => (
-				<div className="flex flex-col items-center mt-8" key={index}>
-					<p className="my-4 index">{index + 1}</p>
-					<p className="mb-4">{question.question}</p>
-					<div className="grid grid-cols-2 gap-4">
-						<button
-							onClick={() => handleAnswer(index, 0)}
-							className={`btn btn-outline justify-self-end blue-pill ${
-								answers[index] === 0 ? "blue-pill-active" : "blue-pill"
-							} `}
-						>
-							{question.answers[0]}
-						</button>
-						<button
-							onClick={() => handleAnswer(index, 1)}
-							className={`btn btn-outline justify-self-start red-pill ${
-								answers[index] === 1 ? "red-pill-active" : ""
-							} `}
-						>
-							{question.answers[1]}
-						</button>
+		<>
+			<div className="flex w-full test">
+				<Sidebar onTabClick={handleTabClick} activeTab={activeTab} />
+				<div className="w-full mx-auto content-area justify-center flex-grow test-container">
+					<Header />
+					<div className="test-header">
+						<h1 className="test-title mx-auto font-bold">Take the test!</h1>
+						<h4 className="text-primary text-center mx-auto italic">
+							No pressure, you just need to be you
+						</h4>
 					</div>
+					{questions.map((question, index) => (
+						<div className="flex flex-col items-center mt-8" key={index}>
+							<p className="my-4 index">{index + 1}</p>
+							<p className="mb-4">{question.question}</p>
+							<div className="grid grid-cols-2 gap-4">
+								<button
+									onClick={() => handleAnswer(index, 0)}
+									className={`btn btn-outline justify-self-end blue-pill ${
+										answers[index] === 0 ? "blue-pill-active" : "blue-pill"
+									} `}
+								>
+									{question.answers[0]}
+								</button>
+								<button
+									onClick={() => handleAnswer(index, 1)}
+									className={`btn btn-outline justify-self-start red-pill ${
+										answers[index] === 1 ? "red-pill-active" : ""
+									} `}
+								>
+									{question.answers[1]}
+								</button>
+							</div>
+						</div>
+					))}
+					<button
+						className="btn btn-accent flex justify-center w-1/4 mx-auto results-button"
+						onClick={() => getMBTI(answers)}
+					>
+						Get the results
+					</button>
+					<div className="mt-8 flex justify-center">{result}</div>
+					<ToastContainer />
+					<Footer />
 				</div>
-			))}
-			<button
-				className="btn btn-primary mt-8 flex justify-center w-1/2 mx-auto"
-				onClick={() => getMBTI(answers)}
-			>
-				Get the result
-			</button>
-			<div className="mt-8 flex justify-center">{result}</div>
-			<ToastContainer />
-		</div>
+			</div>
+		</>
 	);
 };
 

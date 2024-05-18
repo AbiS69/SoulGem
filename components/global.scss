@@ -1,0 +1,9 @@
+.circler{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid oklch(var(--p));
+}
