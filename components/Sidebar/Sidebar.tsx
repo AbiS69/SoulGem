@@ -6,8 +6,8 @@ import UserInfo from "@/app/dashboard/UserInfo";
 const Sidebar = ({ onTabClick, activeTab }) => {
 	return (
 		<>
-			<div className="sidebar border-primary p-2 sidebar">
-				<div className="my-4">
+			<div className="sidebar border-primary p-2 sidebar bg-base-200">
+				<div className="mt-2">
 					<ButtonAccount />
 				</div>
 				<div className="mt-8">
@@ -16,7 +16,7 @@ const Sidebar = ({ onTabClick, activeTab }) => {
 				<div
 					onClick={() => onTabClick("Buy Credits")}
 					//className={`tab ${activeTab === "Tab 1" ? "active" : ""}`}
-					className="btn btn-accent buy-credits hover:scale-90 outline my-4"
+					className="btn btn-accent buy-credits hover:scale-90 outline my-4 mt-2"
 				>
 					Buy Credits
 				</div>
@@ -36,8 +36,8 @@ const Sidebar = ({ onTabClick, activeTab }) => {
 				>
 					Take the test!
 				</div>
-				<div className="text-grey-700 text-xs justify-start text-primary mt-4">
-					Create your Soulgem
+				<div className="text-grey-700 text-xs justify-start text-primary mt-4 italic font-medium">
+					Create your SoulGem
 				</div>
 				<div className="create-section border-accent">
 					<div

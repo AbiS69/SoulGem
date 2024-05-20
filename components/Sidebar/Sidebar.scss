@@ -4,7 +4,7 @@
   width: 15vw;
   display: flex;
   flex-direction: column;
-  border-right-width: 1px;
+  border-right-width: 2px;
   border-color: primary;
   align-items: center;
   height: 100%;
@@ -44,7 +44,7 @@
 }
 
 .create-section {
-  border: 2.5px solid oklch(var(--p));
+  border: 1.5px solid oklch(var(--p));
   border-radius: 12px;
   width: 90%;
 }

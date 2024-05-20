@@ -50,6 +50,8 @@ export async function POST(req: NextRequest) {
         const priceId = session?.line_items?.data[0]?.price.id;
         const userId = stripeObject.client_reference_id;
         const plan = configFile.stripe.plans.find((p) => p.priceId === priceId);
+        console.log("plan", plan);
+        const credits = plan?.credits || 0;
 
         if (!plan) break;
 
@@ -81,7 +83,7 @@ export async function POST(req: NextRequest) {
         // Update user data + Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
         user.priceId = priceId;
         user.customerId = customerId;
-        user.credits += 100;
+        user.credits += credits;
         await user.save();
 
         // Extra: send email with user link, product page, etc...

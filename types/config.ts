@@ -36,6 +36,7 @@ export interface ConfigProps {
       priceId: string;
       name: string;
       description?: string;
+      credits: number;
       price: number;
       priceAnchor?: number;
       planText?: string;

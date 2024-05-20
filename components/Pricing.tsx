@@ -14,7 +14,7 @@ const Pricing = () => {
           {/* <p className="font-medium text-primary mb-8">SoulGem</p> */}
           <h2 className="font-bold text-xl lg:text-3xl tracking-tight">
             Transform your Personality into Art <br />
-            with <span className="text-primary">SoulGem</span>
+            with <span className="text-primary">SoulGem</span>.
           </h2>
         </div>
 
@@ -98,10 +98,6 @@ const Pricing = () => {
                       priceId={plan.priceId}
                       text={plan.planText}
                     />
-
-                    {/* <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-											Pay once. Access forever.
-										</p> */}
                   </div>
                 </div>
               </div>

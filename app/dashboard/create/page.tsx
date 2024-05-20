@@ -12,19 +12,37 @@ import exp from "constants";
 import { set } from "nprogress";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { useSession } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 export const dynamic1 = "force-dynamic";
 
 export default function Create() {
 	const [acronym, setAcronym] = useState("");
-	const [activeTab, setActiveTab] = useState("Gallery"); // Default to the first tab
-	const [selectedFormat, setSelectedFormat] = useState("Smartphone Wallpaper");
+	const [activeTab, setActiveTab] = useState(""); // Default to the first tab
+	const searchParams = useSearchParams();
+	const format = searchParams.get("format");
+	let formatTemp = "Smartphone Wallpaper";
+	if (format === "square") {
+		formatTemp = "Square Artwork";
+	} else if (format === "smatphone") {
+		formatTemp = "Smartphone Wallpaper";
+	} else if (format === "desktop") {
+		formatTemp = "Desktop Wallpaper";
+	}
+	const [selectedFormat, setSelectedFormat] = useState(formatTemp);
+	console.log("selectedFormat", selectedFormat);
 	const [MBTIdescription, setMBTIdescription] = useState("");
 	const [imageUrl, setImageUrl] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [explanation, setExplanation] = useState("");
 	const [title, setTitle] = useState("");
-  const [initialLoading, setInitialLoading] = useState(true);
+	const [initialLoading, setInitialLoading] = useState(true);
+	const { data: session } = useSession();
+	const userId = session?.user?.id;
+	const router = useRouter();
+	console.log("formazzt", searchParams.get("format"));
 
 	const generateImage = async (quality: string) => {
 		setLoading(true);
@@ -39,22 +57,48 @@ export default function Create() {
 			size = "1792x1024";
 		}
 
-		quality = quality === "HD" ? "hd" : "standard";
-
-		console.log("prompt", prompt);
-		console.log("size", size);
-		console.log("quality", quality);
+		let definition = quality === "HD" ? "hd" : "standard";
 
 		const response = await fetch("/api/generateImage", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ prompt, size, quality }),
+			body: JSON.stringify({ prompt, size, definition }),
 		});
+
+		if (!response.ok) {
+			console.error("Failed to generate image");
+			setLoading(false);
+			return;
+		}
 
 		const data = await response.json();
 		setImageUrl(data.imageUrl);
+
+		let creditsToSubstract = calculateCredits(quality);
+		console.log("creditsToSubstract", creditsToSubstract);
+
+		const userResponse = await fetch("/api/updateUserCredits", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ userId, creditsToSubstract }),
+		});
+
+		if (!userResponse.ok) {
+			console.error("Failed to update user credits");
+		}
+
+		const responseBody = await userResponse.json();
+		let updatedCredits = responseBody.credits;
+		localStorage.setItem("credits", updatedCredits);
+
+		if (!userResponse.ok) {
+			console.error("Failed to update user credits");
+		}
+
 		setLoading(false);
 	};
 
@@ -67,28 +111,32 @@ export default function Create() {
 	};
 
 	const renderContent = () => {
+		const router = useRouter();
+
 		switch (activeTab) {
 			case "Buy Credits":
-				return <BuyCredits />;
+				router.push("/dashboard/credits");
+				break;
 			case "Gallery":
 				return <Gallery />;
 			case "Test":
-				// return <Test />;
-				return (window.location.href = "/dashboard/test");
+				router.push("/dashboard/test");
+				break;
 			case "Smartphone Wallpaper":
-				return <div>Samrtphone Wallpaper</div>;
+				router.push("/dashboard/test?format=smartphone");
+				break;
 			case "Desktop Wallpaper":
-				return <div>Desktop Wallpaper</div>;
-			case "Duo":
-				return <div>Duo</div>;
-			case "Prints":
-				return <div>Prints</div>;
+				router.push("/dashboard/test?format=desktop");
+				break;
+			// Add other cases as needed
 			default:
-				return <div>Content not found</div>;
+				return <></>;
 		}
 	};
 
 	const calculateCredits = (definition) => {
+		console.log("selectedFormat", selectedFormat);
+		console.log("definition", definition);
 		switch (selectedFormat) {
 			case "Square Artwork":
 				if (definition === "HD") {
@@ -130,30 +178,38 @@ export default function Create() {
 		setExplanation(
 			promptData.prompts.find((p) => p.type === storedAcronym).explanation
 		);
+
 		setInitialLoading(false);
 	}, []);
 
 	return (
 		<>
 			<main className="min-h-screen dashboard-container flex w-full">
-				<Sidebar onTabClick={handleTabClick} activeTab={activeTab} />
+				<Sidebar onTabClick={handleTabClick} activeTab="Test" />
 				<div className="results-container flex-grow">
 					<Header />
 
 					<div className="results-header">
-						<h1 className="mbti-title mx-auto font-bold">Your results</h1>
+						<h1 className="mbti-title mx-auto font-bold opacity-80">
+							Your results
+						</h1>
 						<h4 className="text-primary text-center mx-auto italic">
 							Guess what? You are unique.
 						</h4>
 					</div>
 					{initialLoading ? (
-						<span className="loading loading-lg flex mx-auto"></span>
+						<div className="w-full h-full bg-base-200">
+							<span className="loading loading-lg flex mx-auto"></span>
+						</div>
 					) : (
-						<section className="space-y-8 w-2/3 mx-auto mt-16">
-							<h2 className="text-center mx-auto text-4xl font-bold">
-								The {title}.
+						<section className="w-2/3 mx-auto mt-24">
+							<div className="text-center text-lg font-bold mb-16">
+								You are...
+							</div>
+							<h2 className="text-center mx-auto text-5xl font-bold italic">
+								The <span className="text-primary italic">{title}</span>.
 							</h2>
-							<div className="mbti-description mx-auto">
+							<div className="mbti-description mx-auto mt-16">
 								<p className="text-lg opacity-80 leading-relaxed">
 									{MBTIdescription}
 								</p>
@@ -164,12 +220,12 @@ export default function Create() {
 										Go further in your self-discovery journey and craft your
 										unique masterpiece
 									</h2>
-									<h3 className="fit text-primary font-bold">
+									<h3 className="fit text-primary font-bold mb-2">
 										Choose your format:
 									</h3>
 									<div className="formats flex justify-center w-full mx-auto space-x-16">
 										<div className="format-choice w-32">
-											<div className="h-64 flex justify-center">
+											<div className="h-64 flex justify-center mb-6 square">
 												<Image
 													src="/assets/square.svg"
 													alt="choice"
@@ -187,10 +243,11 @@ export default function Create() {
 												value="Square Artwork"
 												className="radio radio-primary"
 												onChange={handleFormatChange}
+												checked={selectedFormat === "Square Artwork"}
 											/>
 										</div>
 										<div className="format-choice w-32">
-											<div className="h-64 flex justify-center">
+											<div className="h-64 flex justify-center mb-6 square">
 												<Image
 													src="/assets/iphone.svg"
 													alt="choice"
@@ -212,7 +269,7 @@ export default function Create() {
 											/>
 										</div>
 										<div className="format-choice w-60">
-											<div className="h-64 flex justify-center">
+											<div className="h-64 flex justify-center mb-6 mac">
 												<Image
 													src="/assets/macbook.svg"
 													alt="choice"
@@ -230,6 +287,7 @@ export default function Create() {
 												value="Desktop Wallpaper"
 												className="radio radio-primary"
 												onChange={handleFormatChange}
+												checked={selectedFormat === "Desktop Wallpaper"}
 											/>
 										</div>
 									</div>
@@ -258,16 +316,16 @@ export default function Create() {
 									</div>
 								</div>
 							)}
-							<div className="justify-center pb-24">{renderContent()}</div>
+							<div className="invisible h-0 w-0">{renderContent()}</div>
 							{imageUrl && (
 								<>
-									<div className="w-1/2 mx-auto">
+									<div className="soulgem mx-auto mt-8">
 										<img src={imageUrl} alt="Generated" />
 									</div>
-									<h2 className="text-primary fit my-16 font-bold">
+									<h2 className="text-primary fit mt-4 font-bold">
 										Your SoulGem Is Unique, Be Proud & Showcase It To The World!
 									</h2>
-									<p className="mbti-explanation text-lg opacity-80 leading-relaxed mx-auto">
+									<p className="mbti-explanation mt-12 text-lg opacity-80 leading-relaxed mx-auto">
 										{explanation}
 									</p>
 								</>

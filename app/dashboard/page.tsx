@@ -12,49 +12,55 @@ import BuyCredits from "@/components/BuyCredits/BuyCredits";
 import "./dashboard.scss";
 import Gallery from "@/components/Gallery/Gallery";
 import Test from '@/app/dashboard/test/page';
+import { useRouter } from 'next/navigation'
+import Link from 'next/link';
+
 
 const UserInfo = dynamic(() => import("./UserInfo"), { ssr: false });
 
 export const dynamic1 = "force-dynamic";
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("Gallery"); // Default to the first tab
-
+  const [activeTab, setActiveTab] = useState(""); // Default to the first tab
+  const router = useRouter()
+  
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
   const renderContent = () => {
-    switch (activeTab) {
-      case "Buy Credits":
-        return <BuyCredits />;
-      case "Gallery":
-        return <Gallery />;
-      case "Test":
-        // return <Test />;
-        return window.location.href = '/dashboard/test';
-      case "Smartphone Wallpaper":
-        return <div>Samrtphone Wallpaper</div>;
-      case "Desktop Wallpaper":
-        return <div>Desktop Wallpaper</div>;
-      case "Duo":
-        return <div>Duo</div>;
-      case "Prints":
-        return <div>Prints</div>;
-      default:
-        return <div>Content not found</div>;
-    }
-  };
+  const router = useRouter();
+
+  switch (activeTab) {
+    case "Buy Credits":
+      router.push("/dashboard/credits");
+      break;
+    case "Gallery":
+      return <Gallery />;
+    case "Test":
+      router.push("/dashboard/test");
+      break;
+    case "Smartphone Wallpaper":
+      router.push("/dashboard/test?format=smartphone");
+      break;
+    case "Desktop Wallpaper":
+      router.push("/dashboard/test?format=desktop");
+      break;
+    // Add other cases as needed
+    default:
+      return <div>Content not found</div>;
+  }
+};
 
   return (
-    <main className="min-h-screen dashboard-container">
-      <Sidebar onTabClick={handleTabClick} activeTab={activeTab} />
+    <main className="min-h-screen dashboard-container bg-base-200">
+      <Sidebar onTabClick={handleTabClick} activeTab="Test" />
       <section className="w-full mx-auto space-y-8">
         {/* <h1 className="text-3xl md:text-4xl font-extrabold">
 					Subscribe to get access:
 				</h1> */}
 
-        <div className="content-area justify-center">{renderContent()}</div>
+        <div className="w-0 h-0">{renderContent()}</div>
       </section>
     </main>
   );

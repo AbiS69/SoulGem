@@ -3,7 +3,7 @@
 import { NextResponse } from 'next/server';
 
 export async function POST(request) {
-  const { prompt, size, quality } = await request.json();
+  const { prompt, size, definition } = await request.json();
 
   try {
     const response = await fetch('https://api.openai.com/v1/images/generations', {
@@ -17,7 +17,7 @@ export async function POST(request) {
         prompt: prompt,
         n: 1,
         size: size,
-        quality: quality,
+        quality: definition,
       }),
     });
 

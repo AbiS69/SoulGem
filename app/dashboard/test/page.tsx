@@ -4,11 +4,14 @@ import questionsData from "./questions.json";
 import "./Test.scss";
 import { ToastContainer, toast } from "react-toastify";
 import Sidebar from "@/components/Sidebar/Sidebar";
+import Gallery from "@/components/Gallery/Gallery";
 
 import "react-toastify/dist/ReactToastify.css";
 import { set } from "mongoose";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 export const dynamic1 = "force-dynamic";
 
@@ -16,29 +19,37 @@ const Test = () => {
 	const [questions, setQuestions] = useState([]);
 	const [answers, setAnswers] = useState({});
 	const [result, setResult] = useState("");
-	const [activeTab, setActiveTab] = useState("Gallery"); // Default to the first tab
+	const [activeTab, setActiveTab] = useState(""); // Default to the first tab
+	const router = useRouter()
+	const searchParams = useSearchParams();
+	const format = searchParams.get("format");
+	
+
+	console.log("format", searchParams.get("format"));
 
 	const handleTabClick = (tab) => {
 		setActiveTab(tab);
 	};
 
 	const renderContent = () => {
+		const router = useRouter();
+
 		switch (activeTab) {
-			// case "Buy Credits":
-			//   return <BuyCredits />;
-			// case "Gallery":
-			//   return <Gallery />;
+			case "Buy Credits":
+				router.push("/dashboard/credits");
+				break;
+			case "Gallery":
+				return <Gallery />;
 			case "Test":
-				// return <Test />;
-				return (window.location.href = "/dashboard/test");
+				router.push("/dashboard/test");
+				break;
 			case "Smartphone Wallpaper":
-				return <div>Samrtphone Wallpaper</div>;
+				router.push("/dashboard/test?format=smartphone");
+				break;
 			case "Desktop Wallpaper":
-				return <div>Desktop Wallpaper</div>;
-			case "Duo":
-				return <div>Duo</div>;
-			case "Prints":
-				return <div>Prints</div>;
+				router.push("/dashboard/test?format=desktop");
+				break;
+			// Add other cases as needed
 			default:
 				return <div>Content not found</div>;
 		}
@@ -148,7 +159,7 @@ const Test = () => {
 
 			console.log("acronym", acronym);
 			setResult(acronym);
-			window.location.href = "/dashboard/create";
+			router.push(`/dashboard/create?format=${format}`);
 			localStorage.setItem("acronym", acronym);
 		} else {
 			toast("You forgot a few questions!", {
@@ -160,13 +171,15 @@ const Test = () => {
 	return (
 		<>
 			<div className="flex w-full test">
-				<Sidebar onTabClick={handleTabClick} activeTab={activeTab} />
+				<Sidebar onTabClick={handleTabClick} activeTab={"Test"} />
 				<div className="w-full mx-auto content-area justify-center flex-grow test-container">
 					<Header />
+					<div className="invisible h-0 w-0">{renderContent()}</div>
+
 					<div className="test-header">
 						<h1 className="test-title mx-auto font-bold">Take the test!</h1>
 						<h4 className="text-primary text-center mx-auto italic">
-							No pressure, you just need to be you
+							Try to be as objective as possible
 						</h4>
 					</div>
 					{questions.map((question, index) => (
@@ -199,7 +212,6 @@ const Test = () => {
 					>
 						Get the results
 					</button>
-					<div className="mt-8 flex justify-center">{result}</div>
 					<ToastContainer />
 					<Footer />
 				</div>

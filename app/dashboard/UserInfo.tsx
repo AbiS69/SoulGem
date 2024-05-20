@@ -4,18 +4,20 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 export default function UserInfo() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     if (session) {
       fetch(`/api/user?userId=${session.user.id}`)
         .then((response) => response.json())
-        .then((data) => setUser(data))
+        .then((data) => {
+          console.log("Fetched data:", data);
+          setUser(data);
+        })
         .catch((error) => console.error("Error:", error));
     }
-    console.log("user", user);
-  }, [session]);
+  }, [session, localStorage.getItem("credits")]);
 
   // Render the credits or a loading message if the user data hasn't loaded yet
   return (
