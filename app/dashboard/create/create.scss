@@ -1,99 +1,125 @@
-.format-choice{
+.format-choice {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0.5vw;
+	width: 50%;
+}
+
+.mbti-type {
+	border: 3px solid white;
+	border-radius: 5vw;
+	padding: 1vw;
+	width: fit-content;
+	background-color: rgba(255, 255, 255, 0.15);
+	box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.4);
+    text-shadow: 10px 10px 30px rgba(0, 0, 0, 1);
+}
+
+.mac {
+	width: 100% !important;
+}
+
+.square {
+	width: 50%;
+}
+
+.results-container {
+	margin-left: 15vw;
+}
+
+.loader{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding:0.5vw;
-    width: 50%;
-}
-
-.mac{
-    width: 100% !important;
-}
-
-.square{
-    width: 50%;
-}
-
-.results-container{
-    margin-left: 15vw;
-
-}
-
-.soulgem{
-    width: 20vw;
-}
-
-.formats{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    margin-top: 0px !important;
+    max-width: 80%;
+    max-width: 60%;
+    padding: 2vw;
+    border-radius: 2vw;
     background-color: oklch(var(--b3));
-    padding-top: 2vw;
-    padding-bottom: 3vw;
-    border-radius: 2vw;
 }
 
-.mbti-description{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.soulgem {
+	width: fit-content;
+    height: fit-content;
+    max-width: 80%;
+    max-width: 60%;
     padding: 1vw;
     border-radius: 2vw;
-    width: 70%;
-    border: 2px solid oklch(var(--a));
-    //background: linear-gradient(135deg, #7b4397 0%, #dc2430 100%);
-    //background: linear-gradient(135deg, #007bff 0%, #e83e8c 100%);
-    background-color: var(--rt-color-dark);
-    box-shadow: 0 0 20px 0 rgba(355, 355, 355, 0.2);
+    background-color: oklch(var(--b3));
 }
 
-.mbti-explanation{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1vw;
-    border-radius: 2vw;
-    width: 70%;
-    margin-bottom: 1vw;
-    border: 2px solid oklch(var(--p));
-    background-color: var(--rt-color-dark);
-    margin-top: 2vw;
-    margin-bottom: 8vw;
-    opacity: 0.8;
-    box-shadow: 0 0 20px 0 rgba(355, 355, 355, 0.2);
+.formats {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding-left: 5vw;
+	padding-right: 5vw;
+	margin-top: 0px !important;
+	background-color: oklch(var(--b3));
+	padding-top: 2vw;
+	padding-bottom: 3vw;
+	border-radius: 2vw;
 }
 
-.mbti-title{
-    width: fit-content;
-    font-size: 4rem;
+.mbti-description {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1vw;
+	border-radius: 2vw;
+	width: 70%;
+	border: 2px solid oklch(var(--a));
+	//background: linear-gradient(135deg, #7b4397 0%, #dc2430 100%);
+	//background: linear-gradient(135deg, #007bff 0%, #e83e8c 100%);
+	background-color: var(--rt-color-dark);
+	box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.2);
 }
 
-.fit{
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+.mbti-explanation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1vw;
+	border-radius: 2vw;
+	width: 70%;
+	margin-bottom: 1vw;
+	border: 2px solid oklch(var(--p));
+	background-color: var(--rt-color-dark);
+	margin-top: 2vw;
+	margin-bottom: 8vw;
+	opacity: 0.8;
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.2);
 }
 
-.further{
-    width: fit-content;
-    padding: 0.5vw;
-    // border : 1px solid oklch(var(--s));
-    // border-radius: 1vw;
-    margin-bottom: 3vw;
+.mbti-title {
+	width: fit-content;
+	font-size: 4rem;
 }
 
-.results-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1vw;
-    width: 100%;
-    background-color: oklch(var(--b2));
-    min-height: 10vh;
-    padding: 2vw 0;
+.fit {
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.further {
+	width: fit-content;
+	padding: 0.5vw;
+	// border : 1px solid oklch(var(--s));
+	// border-radius: 1vw;
+	margin-bottom: 3vw;
+}
+
+.results-header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1vw;
+	width: 100%;
+	background-color: oklch(var(--b2));
+	min-height: 10vh;
+	padding: 2vw 0;
 }

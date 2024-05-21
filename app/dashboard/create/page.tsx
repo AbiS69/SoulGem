@@ -59,6 +59,14 @@ export default function Create() {
 
 		let definition = quality === "HD" ? "hd" : "standard";
 
+		const credits = parseInt(localStorage.getItem("credits") || "0");
+		let creditsToSubstract = calculateCredits(quality);
+		if (credits < creditsToSubstract) {
+			router.push("/dashboard/credits");
+			return;
+		}
+
+
 		const response = await fetch("/api/generateImage", {
 			method: "POST",
 			headers: {
@@ -76,7 +84,7 @@ export default function Create() {
 		const data = await response.json();
 		setImageUrl(data.imageUrl);
 
-		let creditsToSubstract = calculateCredits(quality);
+		
 		console.log("creditsToSubstract", creditsToSubstract);
 
 		const userResponse = await fetch("/api/updateUserCredits", {
@@ -203,124 +211,147 @@ export default function Create() {
 						</div>
 					) : (
 						<section className="w-2/3 mx-auto mt-24">
-							<div className="text-center text-lg font-bold mb-16">
-								You are...
-							</div>
-							<h2 className="text-center mx-auto text-5xl font-bold italic">
+							<div className="text-center text-lg mb-1 italic">You are...</div>
+							<h2 className="text-center mx-auto text-5xl font-bold italic mbti-type mt-4">
 								The <span className="text-primary italic">{title}</span>.
 							</h2>
-							<div className="mbti-description mx-auto mt-16">
+							<div className="mbti-description mx-auto mt-24">
 								<p className="text-lg opacity-80 leading-relaxed">
 									{MBTIdescription}
 								</p>
 							</div>
-							{!imageUrl && (
-								<div className="w-full mx-auto">
-									<h2 className="mx-auto text-accent further font-bold">
-										Go further in your self-discovery journey and craft your
-										unique masterpiece
-									</h2>
-									<h3 className="fit text-primary font-bold mb-2">
-										Choose your format:
-									</h3>
-									<div className="formats flex justify-center w-full mx-auto space-x-16">
-										<div className="format-choice w-32">
-											<div className="h-64 flex justify-center mb-6 square">
-												<Image
-													src="/assets/square.svg"
-													alt="choice"
-													width={200}
-													height={200}
-													onClick={() =>
-														document.getElementById("square-radio").click()
-													}
-												/>
-											</div>
-											<input
-												id="square-radio"
-												type="radio"
-												name="radio-2"
-												value="Square Artwork"
-												className="radio radio-primary"
-												onChange={handleFormatChange}
-												checked={selectedFormat === "Square Artwork"}
-											/>
-										</div>
-										<div className="format-choice w-32">
-											<div className="h-64 flex justify-center mb-6 square">
-												<Image
-													src="/assets/iphone.svg"
-													alt="choice"
-													width={400}
-													height={400}
-													onClick={() =>
-														document.getElementById("iphone-radio").click()
-													}
-												/>
-											</div>
-											<input
-												id="iphone-radio"
-												type="radio"
-												name="radio-2"
-												value="Smartphone Wallpaper"
-												className="radio radio-primary"
-												onChange={handleFormatChange}
-												checked={selectedFormat === "Smartphone Wallpaper"}
-											/>
-										</div>
-										<div className="format-choice w-60">
-											<div className="h-64 flex justify-center mb-6 mac">
-												<Image
-													src="/assets/macbook.svg"
-													alt="choice"
-													width={800}
-													height={800}
-													onClick={() =>
-														document.getElementById("macbook-radio").click()
-													}
-												/>
-											</div>
-											<input
-												id="macbook-radio"
-												type="radio"
-												name="radio-2"
-												value="Desktop Wallpaper"
-												className="radio radio-primary"
-												onChange={handleFormatChange}
-												checked={selectedFormat === "Desktop Wallpaper"}
-											/>
-										</div>
-									</div>
-									<div className="h-16 flex items-center">
-										{loading && (
-											<span className="loading loading-ring loading-lg flex mx-auto"></span>
-										)}
-									</div>
-									<div className="flex px-36 justify-center">
-										<button
-											className="btn btn-accent flex justify-center w-1/2 leading-6 h-16 mx-4 hover:scale-90"
-											onClick={() => generateImage("HD")}
-										>
-											Create {selectedFormat} in HD
-											<br />
-											{calculateCredits("HD")} credits
-										</button>
-										<button
-											className="btn btn-primary flex justify-center w-1/2 leading-6 h-16 mx-4 hover:scale-90"
-											onClick={() => generateImage("SD")}
-										>
-											Create {selectedFormat}
-											<br />
-											{calculateCredits("SD")} credits
-										</button>
-									</div>
+							{loading ? (
+								<div className="bg-base-300 mt-8 loader w-64 h-64 mx-auto">
+									<span className="loading loading-lg flex mx-auto"></span>
 								</div>
+							) : (
+								!imageUrl && (
+									<div className="w-full mx-auto">
+										<h2 className="mx-auto text-accent further font-bold">
+											Go further in your self-discovery journey and craft your
+											unique masterpiece
+										</h2>
+										<h3 className="fit text-primary font-bold mb-2">
+											Choose your format:
+										</h3>
+										<div className="formats flex justify-center w-full mx-auto">
+											<div className="format-choice w-32">
+												<div className="h-64 flex justify-center mb-6 square">
+													<Image
+														src="/assets/square.svg"
+														alt="choice"
+														width={200}
+														height={200}
+														onClick={() =>
+															document.getElementById("square-radio").click()
+														}
+													/>
+												</div>
+												<input
+													id="square-radio"
+													type="radio"
+													name="radio-2"
+													value="Square Artwork"
+													className="radio radio-primary"
+													onChange={handleFormatChange}
+													checked={selectedFormat === "Square Artwork"}
+												/>
+											</div>
+											<div className="format-choice w-32">
+												<div className="h-64 flex justify-center mb-6 square">
+													<Image
+														src="/assets/iphone.svg"
+														alt="choice"
+														width={400}
+														height={400}
+														onClick={() =>
+															document.getElementById("iphone-radio").click()
+														}
+													/>
+												</div>
+												<input
+													id="iphone-radio"
+													type="radio"
+													name="radio-2"
+													value="Smartphone Wallpaper"
+													className="radio radio-primary"
+													onChange={handleFormatChange}
+													checked={selectedFormat === "Smartphone Wallpaper"}
+												/>
+											</div>
+											<div className="format-choice w-60">
+												<div className="h-64 flex justify-center mb-6 mac">
+													<Image
+														src="/assets/macbook.svg"
+														alt="choice"
+														width={800}
+														height={800}
+														onClick={() =>
+															document.getElementById("macbook-radio").click()
+														}
+													/>
+												</div>
+												<input
+													id="macbook-radio"
+													type="radio"
+													name="radio-2"
+													value="Desktop Wallpaper"
+													className="radio radio-primary"
+													onChange={handleFormatChange}
+													checked={selectedFormat === "Desktop Wallpaper"}
+												/>
+											</div>
+										</div>
+										<div className="h-16 flex items-center"></div>
+										<div className="flex justify-center">
+											<button
+												className="btn btn-accent flex justify-center w-2/5 leading-6 h-16 mr-4 hover:scale-90"
+												onClick={() => generateImage("HD")}
+											>
+												Create {selectedFormat} in HD
+												<br />
+												{calculateCredits("HD")} credits
+											</button>
+											<button
+												className="btn btn-primary flex justify-center w-2/5 leading-6 h-16 ml-4 hover:scale-90"
+												onClick={() => generateImage("SD")}
+											>
+												Create {selectedFormat}
+												<br />
+												{calculateCredits("SD")} credits
+											</button>
+										</div>
+									</div>
+								)
 							)}
 							<div className="invisible h-0 w-0">{renderContent()}</div>
 							{imageUrl && (
 								<>
 									<div className="soulgem mx-auto mt-8">
-										<img src={imageUrl} alt="Generated" />
+										{selectedFormat === "Square Artwork" && (
+											<Image
+												src={imageUrl}
+												width={400}
+												height={400}
+												alt={explanation}
+											/>
+										)}
+										{selectedFormat === "Smartphone Wallpaper" && (
+											<Image
+												src={imageUrl}
+												width={400}
+												height={800}
+												alt={explanation}
+											/>
+										)}
+										{selectedFormat === "Desktop Wallpaper" && (
+											<Image
+												src={imageUrl}
+												width={800}
+												height={400}
+												alt={explanation}
+											/>
+										)}
 									</div>
 									<h2 className="text-primary fit mt-4 font-bold">
 										Your SoulGem Is Unique, Be Proud & Showcase It To The World!

@@ -9,6 +9,7 @@ const nextConfig = {
       "images.unsplash.com",
       "logos-world.net",
       "picsum.photos",
+      "oaidalleapiprodscus.blob.core.windows.net",
     ],
   },
 
