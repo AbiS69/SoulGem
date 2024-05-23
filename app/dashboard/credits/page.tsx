@@ -18,8 +18,8 @@ export const dynamic1 = "force-dynamic";
 export default function Credits() {
 	const [activeTab, setActiveTab] = useState(""); // Default to the first tab
 	const [initialLoading, setInitialLoading] = useState(true);
-	const router = useRouter()
-	
+	const router = useRouter();
+
 	const handleTabClick = (tab) => {
 		setActiveTab(tab);
 	};
@@ -28,17 +28,13 @@ export default function Credits() {
 		setInitialLoading(false);
 	}, []);
 
-	const renderContent = () => {
-		const router = useRouter();
-
+	useEffect(() => {
 		switch (activeTab) {
 			case "Buy Credits":
 				router.push("/dashboard/credits");
 				break;
-			case "Gallery":
-				return <Gallery />;
 			case "Test":
-				router.push("/dashboard/test");
+				router.push("/dashboard/test?format=smartphone");
 				break;
 			case "Smartphone Wallpaper":
 				router.push("/dashboard/test?format=smartphone");
@@ -46,16 +42,15 @@ export default function Credits() {
 			case "Desktop Wallpaper":
 				router.push("/dashboard/test?format=desktop");
 				break;
-			// Add other cases as needed
-			default:
-				return <div>Content not found</div>;
+			case "Gallery":
+				router.push("/dashboard/gallery");
+				break;
 		}
-	};
+	}, [activeTab, router]);
 
 	return (
 		<>
 			<main className="min-h-screen dashboard-container flex w-full">
-				<div className="invisible h-0 w-0">{renderContent()}</div>
 				<Sidebar onTabClick={handleTabClick} activeTab="Credits" />
 				<div className="credits-container flex-grow">
 					<Header />

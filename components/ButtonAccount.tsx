@@ -34,7 +34,6 @@ const ButtonAccount = () => {
     } catch (e) {
       console.error(e);
     }
-
     setIsLoading(false);
   };
 

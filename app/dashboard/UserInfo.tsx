@@ -6,6 +6,10 @@ import { useEffect, useState } from "react";
 export default function UserInfo() {
   const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
+  let credits = user?.credits || 0;
+  if (typeof window !== 'undefined' && window.localStorage.getItem('credits') !== null) {
+    credits = parseInt(window.localStorage.getItem('credits'));
+  }
 
   useEffect(() => {
     if (session) {
@@ -14,10 +18,11 @@ export default function UserInfo() {
         .then((data) => {
           console.log("Fetched data:", data);
           setUser(data);
+          localStorage.setItem('credits', data.credits);
         })
         .catch((error) => console.error("Error:", error));
     }
-  }, [session, localStorage.getItem("credits")]);
+  }, [session, credits]);
 
   // Render the credits or a loading message if the user data hasn't loaded yet
   return (

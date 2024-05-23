@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import BuyCredits from "@/components/BuyCredits/BuyCredits";
@@ -15,10 +15,13 @@ import Header from "@/components/Header";
 import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import ImageViewer from "react-simple-image-viewer";
 
 export const dynamic1 = "force-dynamic";
 
 export default function Create() {
+	const { data: session } = useSession();
+	const userId = session?.user?.id;
 	const [acronym, setAcronym] = useState("");
 	const [activeTab, setActiveTab] = useState(""); // Default to the first tab
 	const searchParams = useSearchParams();
@@ -39,10 +42,25 @@ export default function Create() {
 	const [explanation, setExplanation] = useState("");
 	const [title, setTitle] = useState("");
 	const [initialLoading, setInitialLoading] = useState(true);
-	const { data: session } = useSession();
-	const userId = session?.user?.id;
 	const router = useRouter();
-	console.log("formazzt", searchParams.get("format"));
+	const [currentImage, setCurrentImage] = useState(0);
+	const [isViewerOpen, setIsViewerOpen] = useState(false);
+	const [images, setImages] = useState([]);
+
+	useEffect(() => {
+		console.log("Image URL:", imageUrl);
+		setImages([imageUrl]);
+	}, [imageUrl]);
+
+	const openImageViewer = useCallback((index) => {
+		setCurrentImage(0);
+		setIsViewerOpen(true);
+	}, []);
+
+	const closeImageViewer = () => {
+		setCurrentImage(0);
+		setIsViewerOpen(false);
+	};
 
 	const generateImage = async (quality: string) => {
 		setLoading(true);
@@ -60,19 +78,21 @@ export default function Create() {
 		let definition = quality === "HD" ? "hd" : "standard";
 
 		const credits = parseInt(localStorage.getItem("credits") || "0");
+
 		let creditsToSubstract = calculateCredits(quality);
 		if (credits < creditsToSubstract) {
 			router.push("/dashboard/credits");
 			return;
 		}
 
+		console.log("User ID:", userId);
 
 		const response = await fetch("/api/generateImage", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ prompt, size, definition }),
+			body: JSON.stringify({ prompt, size, definition, userId }),
 		});
 
 		if (!response.ok) {
@@ -82,9 +102,13 @@ export default function Create() {
 		}
 
 		const data = await response.json();
+		console.log("Data:", data);
+		// setImageUrl("/api/images/[id]?id=664e6e84f483c0663c10d68e");
 		setImageUrl(data.imageUrl);
 
-		
+		console.log("Image URL:", data.imageUrl);
+
+
 		console.log("creditsToSubstract", creditsToSubstract);
 
 		const userResponse = await fetch("/api/updateUserCredits", {
@@ -106,7 +130,6 @@ export default function Create() {
 		if (!userResponse.ok) {
 			console.error("Failed to update user credits");
 		}
-
 		setLoading(false);
 	};
 
@@ -118,15 +141,11 @@ export default function Create() {
 		setActiveTab(tab);
 	};
 
-	const renderContent = () => {
-		const router = useRouter();
-
+	useEffect(() => {
 		switch (activeTab) {
 			case "Buy Credits":
 				router.push("/dashboard/credits");
 				break;
-			case "Gallery":
-				return <Gallery />;
 			case "Test":
 				router.push("/dashboard/test");
 				break;
@@ -136,11 +155,11 @@ export default function Create() {
 			case "Desktop Wallpaper":
 				router.push("/dashboard/test?format=desktop");
 				break;
-			// Add other cases as needed
-			default:
-				return <></>;
+			case "Gallery":
+				router.push("/dashboard/gallery");
+				break;
 		}
-	};
+	}, [activeTab, router]);
 
 	const calculateCredits = (definition) => {
 		console.log("selectedFormat", selectedFormat);
@@ -324,16 +343,16 @@ export default function Create() {
 									</div>
 								)
 							)}
-							<div className="invisible h-0 w-0">{renderContent()}</div>
 							{imageUrl && (
 								<>
 									<div className="soulgem mx-auto mt-8">
-										{selectedFormat === "Square Artwork" && (
+										{/* {selectedFormat === "Square Artwork" && (
 											<Image
 												src={imageUrl}
 												width={400}
 												height={400}
 												alt={explanation}
+												onClick={() => openImageViewer(1)}
 											/>
 										)}
 										{selectedFormat === "Smartphone Wallpaper" && (
@@ -350,6 +369,18 @@ export default function Create() {
 												width={800}
 												height={400}
 												alt={explanation}
+											/>
+										)} */}
+										<img src={imageUrl
+										} alt={explanation} onClick={() => openImageViewer(1)} />
+
+										{isViewerOpen && (
+											<ImageViewer
+												src={images}
+												currentIndex={currentImage}
+												disableScroll={false}
+												closeOnClickOutside={true}
+												onClose={closeImageViewer}
 											/>
 										)}
 									</div>

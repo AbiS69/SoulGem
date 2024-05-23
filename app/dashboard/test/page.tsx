@@ -31,29 +31,25 @@ const Test = () => {
 		setActiveTab(tab);
 	};
 
-	const renderContent = () => {
-		const router = useRouter();
-
+	useEffect(() => {
 		switch (activeTab) {
-			case "Buy Credits":
-				router.push("/dashboard/credits");
-				break;
-			case "Gallery":
-				return <Gallery />;
-			case "Test":
-				router.push("/dashboard/test");
-				break;
-			case "Smartphone Wallpaper":
-				router.push("/dashboard/test?format=smartphone");
-				break;
-			case "Desktop Wallpaper":
-				router.push("/dashboard/test?format=desktop");
-				break;
-			// Add other cases as needed
-			default:
-				return <div>Content not found</div>;
+		  case "Buy Credits":
+			router.push("/dashboard/credits");
+			break;
+		  case "Test":
+			router.push("/dashboard/test?format=smartphone");
+			break;
+		  case "Smartphone Wallpaper":
+			router.push("/dashboard/test?format=smartphone");
+			break;
+		  case "Desktop Wallpaper":
+			router.push("/dashboard/test?format=desktop");
+			break;
+		  case "Gallery":
+			router.push("/dashboard/gallery");
+			break;
 		}
-	};
+	  }, [activeTab, router]);
 
 	useEffect(() => {
 		// Sélectionnez aléatoirement 3 questions pour chaque axe
@@ -174,8 +170,6 @@ const Test = () => {
 				<Sidebar onTabClick={handleTabClick} activeTab={"Test"} />
 				<div className="w-full mx-auto content-area justify-center flex-grow test-container">
 					<Header />
-					<div className="invisible h-0 w-0">{renderContent()}</div>
-
 					<div className="test-header">
 						<h1 className="test-title mx-auto font-bold">Take the test!</h1>
 						<h4 className="text-primary text-center mx-auto italic">

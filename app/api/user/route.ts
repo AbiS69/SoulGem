@@ -4,9 +4,9 @@ import { NextResponse } from "next/server";
 import { type NextRequest } from 'next/server'
 
 export async function GET(req: NextRequest, res: NextApiResponse) {
-	console.log("req", req.nextUrl);
 	const searchParams = req.nextUrl.searchParams;
 	const userId = searchParams.get("userId");
+	console.log("Received userId:", userId);
 	const client = new MongoClient(process.env.MONGODB_URI);
 	await client.connect();
 	const database = client.db(process.env.MONGODB_DB);

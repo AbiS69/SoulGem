@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sturdy-method-420913",
+  "private_key_id": "7aa3484becda96a301b6a452f1e82a213195ff1f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDKRMsmZF8+KCIv\nef/2wyzJEiYBoCHdBJMYxmk1fzvoRCVN2eB6+VIUN+vlMs+j8xgsOuVsCNRdsw2k\nZ48Iy/qqzeQgdmg2vhurxMN37Xo1NUuZs9fTp/QuR8BPvL5n3wSxyqFhFFAzou0q\nQO5ArvLjs9TiHKr2/kNODc0CoksR5FyVJXO8H91Lr7vNbKDhRRmMmTyIPZfykmOp\n6y+/bYHKK5ATa+nmwvXs0jDkxnirgAgqSVXzgEgvHLDykiAl/SRePt0Asj9pSwmJ\nggncleAH7etLM6HowukkfwIJZtFfNNt7h2NOA8Y6hDAturlEKxNwPphtwAFyCKYB\nrKG3bjnBAgMBAAECggEAEz78S4qY0dIn/cRKIDtBbpJzZ/H9ahZBpUWMnjwDwcQc\nmC2tx+9WqYWjd9Tfxm+R/1qaGOKc/mg6pi5gzeTG1Ov8k6aT012mEvzvRa2+VDcr\nGq47nTA2fxU+gPfQvRNB7MuyLLzhLFo83ql8YhtwRICIgy++7siSM+hpRCGYKtTL\nlCzPysRtzoTe2CanGDZOEUUuClWtcQ6IZyUyuXjVqxL7S4GYXAWR1GZSG1jdCT9j\njO6IiD0GEX6cdKFTpqQWbYaR0Pdm5FM6MSiP+Jp3ELmbvef2mYKncgbO6CW2opQF\nmTzx+alYTYDNo2wRgF5mHYSg6l7wTefR4jAWnQgMDwKBgQDt9XYjPXjoWIHuaJNR\na75ElVGFGPXfbOFv3ad5LBOiDI8uVKUbRjbDcWXQU2yx80ZBElmc/zUUBfrGGR0b\nPMghVvuF+YaNSs6rSFZOtnIjVB7e3c4eQZ23tTVwvPvirm2/5A4g5W335X4N16Gd\nKRj6sUFUOlNW9ys02/9fK/5LcwKBgQDZmp+Yw74sU/L2jnfXZebuzBlcB8tDNoW1\ni+9dFhKORGz0euaN9dqRkcdN7EmdUU9TiJ07mvo3AkwsxSDqXAV9mDH/Yy1TyH37\nGL+JIcMME/i0u/eIuVd55cE6/+DdbaJFsE36Ipf/6dsZ39RPCceBNTTslh72atEJ\nTNeW2GzA+wKBgHxOylRGfK8D7XxZ7PuPyWmSh298RpVdD7eclyxZtjflT7boSQgi\neeFHj+RwcEvVxlGgAGhfeZ7oMMTjwazE59di1Sp726pb9fLMaynbbWy/ORE71b1A\nkd+yLiSi1QLqFDM2M5tDv1rM7DjW+HpdSctMZdBWV8sKe+u1MYbKOKG5AoGAOety\nN5NCd0IRFZduRqMVCNLCnUBl1goZJO2OVNSfM8b6yUg9PeQGvWB0EEWogns2BiIC\n1+60UxgFdpUx4a+Etp1gEX4wfnCLN96qfLHD3N8j/9dYV8gdhJCnEjExhT69Rpda\n6g1zL+brLsPpGvCbbcTfxWlf7G8aHMObTsdkiykCgYBXKPcVXj1K7/eV8fpJpACY\nuYYA0r5SkTvTq6/DXTsnbxF5p87aAfaBSWIhhQyB42eCbF4rODFs5W7EBLSe+2zA\n4PdcV2gqhl+d+EkqYmtnB6VOxPlQosU5w9T4oQamR8K7EQX+RRZpQ90A6ve0rGv2\nLx4Z/HSGdZMMvdRM4L9GWw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "soulgem@sturdy-method-420913.iam.gserviceaccount.com",
+  "client_id": "114370959272305926813",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/soulgem%40sturdy-method-420913.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

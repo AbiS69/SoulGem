@@ -38,7 +38,7 @@ export default function Dashboard() {
     case "Gallery":
       return <Gallery />;
     case "Test":
-      router.push("/dashboard/test");
+      router.push("/dashboard/test?format=smartphone");
       break;
     case "Smartphone Wallpaper":
       router.push("/dashboard/test?format=smartphone");
