@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
-import { type NextRequest } from 'next/server'
+import { type NextRequest } from "next/server";
 
 export async function GET(req: NextRequest, res: NextApiResponse) {
 	const searchParams = req.nextUrl.searchParams;
@@ -13,6 +13,5 @@ export async function GET(req: NextRequest, res: NextApiResponse) {
 	const users = database.collection("users");
 	// const user = await users.findOne({ id: userId });
 	const user = await users.findOne({ _id: new ObjectId(userId) });
-	await client.close();
-  return NextResponse.json(user);
+	return NextResponse.json(user);
 }

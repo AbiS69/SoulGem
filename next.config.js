@@ -10,6 +10,7 @@ const nextConfig = {
       "logos-world.net",
       "picsum.photos",
       "oaidalleapiprodscus.blob.core.windows.net",
+      "storage.googleapis.com"
     ],
   },
 
