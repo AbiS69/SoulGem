@@ -59,7 +59,7 @@ const Step = ({
 // - Features: "ShipFast has user auth, Stripe, emails all set up for you"
 const Problem = () => {
 	return (
-		<section className="bg-neutral text-neutral-content">
+		<section className="bg-neutral text-neutral-content mt-8">
 			<AutoCarousel />
 			<div className="max-w-7xl mx-auto px-8 py-16 md:py-32 text-center">
 				<h2 className="max-w-3xl mx-auto font-extrabold text-4xl md:text-5xl tracking-tight mb-6 md:mb-8">

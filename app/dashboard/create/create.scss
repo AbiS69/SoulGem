@@ -27,6 +27,10 @@
 
 .results-container {
 	margin-left: 15vw;
+
+	@media (max-width: 1025px) {
+		margin-left: 0;
+	}
 }
 
 .gender-selection{
@@ -79,6 +83,8 @@ label{
     border-radius: 2vw;
     background-color: oklch(var(--b3));
 }
+
+
 
 .formats {
 	display: flex;

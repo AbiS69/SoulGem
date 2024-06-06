@@ -91,7 +91,7 @@ function Gallery() {
 			<div className="gallery-container flex-grow">
 				<Header />
 				<div className="gallery-header">
-					<h1 className="gallery-title1 mx-auto font-bold opacity-80">
+					<h1 className="gallery-title1 mx-auto font-bold opacity-80 text-center">
 						Your SoulGems
 					</h1>
 					<h4 className="text-primary text-center mx-auto italic">

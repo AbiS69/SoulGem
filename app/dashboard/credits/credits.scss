@@ -1,3 +1,7 @@
 .credits-container{
     margin-left: 15vw;
+
+    @media (max-width: 1025px) {
+		margin-left: 0;
+	}
 }

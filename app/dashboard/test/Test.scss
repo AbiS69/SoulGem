@@ -1,5 +1,9 @@
 .test-container {
 	margin-left: 15vw;
+
+	@media (max-width: 1025px) {
+		margin-left: 0;
+	}
 }
 
 .test {
@@ -28,6 +32,18 @@
 	padding: 2vw 0;
 }
 
+.matrix-text {
+	color: rgba(255, 255, 255, 0.859);
+	margin-top: 5vw;
+	border: 1px solid oklch(var(--p));
+	border-radius: 2vw;
+	width: fit-content;
+	margin: 3vw auto;
+	padding: 0.3vw 1vw;
+	opacity: 0.9;
+	font-size: 0.9rem;
+}
+
 .blue-pill {
 	color: rgb(0, 149, 255);
 	// color: oklch(var(--s));
@@ -36,6 +52,8 @@
 	min-width: 30%;
 	padding-left: 1vw;
 	padding-right: 1vw;
+	height: fit-content;
+	width: fit-content;
 	cursor: pointer;
 
 	&-active {
@@ -47,18 +65,22 @@
 	}
 }
 
-.red-pill {
+.pink-pill {
 	color: rgb(250, 29, 77);
 	// color: oklch(var(--p));
+	// color: rgb(188, 90, 148);
 	padding: 10px;
 	border-radius: 30px;
 	min-width: 30%;
 	padding-left: 1vw;
 	padding-right: 1vw;
+	height: fit-content;
+	width: fit-content;
 	cursor: pointer;
 	&-active {
 		background-color: rgb(250, 29, 77);
 		// background-color: oklch(var(--p));
+		// background-color: rgb(188, 90, 148);
 		color: white;
 		font-weight: bold;
 	}
@@ -66,8 +88,8 @@
 
 .index {
 	border: 2px solid oklch(var(--a));
-	width: 1.5vw;
-	height: 1.5vw;
+	width: 24px;
+	height: 24px;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;

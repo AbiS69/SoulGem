@@ -237,7 +237,7 @@ export default function Create() {
 
 	return (
 		<>
-			<main className="min-h-screen dashboard-container flex w-full">
+			<main className="min-h-screen create-container flex w-full">
 				<Sidebar onTabClick={handleTabClick} activeTab="Test" />
 				<div className="results-container flex-grow">
 					<Header />

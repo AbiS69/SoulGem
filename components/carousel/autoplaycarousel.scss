@@ -29,6 +29,13 @@
   border-radius: 10%;
   min-width: 10vw;
   min-height: 10vw;
+
+  @media (max-width: 725px) {
+    width: 20vw;
+    height: 20vw;
+    min-width: 100px;
+    min-height: 100px;
+  }
 }
 
 .carousel-track {
