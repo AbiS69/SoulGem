@@ -106,7 +106,7 @@ function Gallery() {
 						</div>
 					) : (
 						<>
-							<div className="text-center mx-auto">
+							<div className="text-center mx-auto mt-8 px-8">
 								You can either screenshot or right-click and then click "Save"
 								to then use the image as you wish !
 							</div>

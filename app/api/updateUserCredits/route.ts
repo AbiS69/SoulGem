@@ -10,7 +10,9 @@ export async function POST(req: NextRequest) {
 	const { userId, creditsToSubstract } = await req.json();
 
 	// Fetch the user from the database
-	let user = await User.findOne({ _id: new ObjectId(userId) });
+	// const user = await User.findOne({ _id: new ObjectId(userId) });
+	
+	const user = await User.findById(userId);
 
 	// Check if user exists
 	if (!user) {

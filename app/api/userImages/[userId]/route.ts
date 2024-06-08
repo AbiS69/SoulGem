@@ -2,15 +2,36 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { MongoClient, ObjectId } from 'mongodb';
 import connectMongo from '@/libs/mongoose';
+import User from "@/models/User";
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+export interface Image {
+	url: string;
+	createdAt: Date;
+	format: string;
+  }
+  
+  export interface User {
+	_id: string;
+	name: string;
+	email: string;
+	image: string;
+	customerId: string;
+	priceId: string;
+	hasAccess: boolean;
+	credits: number;
+	images: Image[];
+	createdAt: Date;
+	updatedAt: Date;
+  }
+  
+
 
 export async function GET(
 	request: NextRequest,
 	{ params }: { params: { userId: string } }
 ) {
 	const { userId } = params;
+
 
 	if (!userId) {
 		return NextResponse.json({ error: 'User ID is required' }, { status: 400 });
@@ -30,10 +51,7 @@ export async function GET(
 	try {
 		await connectMongo();
 
-		const db = client.db(process.env.MONGODB_DB);
-		const usersCollection = db.collection('users');
-
-		const user = await usersCollection.findOne({ _id: objectId });
+		const user: User = await User.findById(userId).lean();
 		if (!user) {
 			return NextResponse.json({ error: 'User not found' }, { status: 404 });
 		}

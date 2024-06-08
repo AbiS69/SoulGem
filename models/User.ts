@@ -40,6 +40,20 @@ const userSchema = new mongoose.Schema(
 			type: Number,
 			default: 10,
 		},
+		images: [
+			{
+				url: {
+					type: String,
+				},
+				createdAt: {
+					type: Date,
+					default: Date.now,
+				},
+				format: {
+					type: String,
+				},
+			},
+		],
 	},
 	{
 		timestamps: true,

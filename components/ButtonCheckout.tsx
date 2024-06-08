@@ -44,7 +44,7 @@ const ButtonCheckout = ({
 
   return (
     <button
-      className="btn btn-primary btn-block group"
+      className="btn btn-primary btn-block group min-h-[60px]"
       onClick={() => handlePayment()}
     >
       {isLoading ? (

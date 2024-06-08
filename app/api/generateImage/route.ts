@@ -4,6 +4,7 @@ import { Storage } from '@google-cloud/storage';
 import { MongoClient, ObjectId } from 'mongodb';
 import { v4 as uuidv4 } from 'uuid';
 import connectMongo from '@/libs/mongoose';
+import User from '@/models/User';
 const sharp = require('sharp');
 
 const uri = process.env.MONGODB_URI;
@@ -115,12 +116,10 @@ export async function POST(request: NextRequest) {
 				try {
 					await connectMongo();
 
-					const db = client.db(process.env.MONGODB_DB);
-					const users = db.collection('users');
 
 					// Check if user exists
 					console.log('ObjectId:', objectId);
-					const user = await users.findOne({ _id: objectId });
+					const user = await User.findById(userId)
 
 					if (!user) {
 						console.error('User not found with ID:', userId);
@@ -128,7 +127,7 @@ export async function POST(request: NextRequest) {
 					}
 
 					// Update the user's document
-					const result = await users.updateOne(
+					const result = await User.updateOne(
 						{ _id: objectId },
 						{
 							$push: {
