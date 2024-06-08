@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import GoogleTranslate from '@/components/GoogleTranslate';
 
 export const dynamic1 = "force-dynamic";
 

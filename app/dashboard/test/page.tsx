@@ -1,31 +1,31 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import questionsData from "./questions.json";
-import "./Test.scss";
-import { ToastContainer, toast } from "react-toastify";
-import Sidebar from "@/components/Sidebar/Sidebar";
-import Gallery from "@/components/Gallery/Gallery";
+'use client';
+import React, { useState, useEffect } from 'react';
+import questionsData from './questions.json';
+import './Test.scss';
+import { ToastContainer, toast } from 'react-toastify';
+import Sidebar from '@/components/Sidebar/Sidebar';
+import Gallery from '@/components/Gallery/Gallery';
 
-import "react-toastify/dist/ReactToastify.css";
-import { set } from "mongoose";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
+import 'react-toastify/dist/ReactToastify.css';
+import { set } from 'mongoose';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+import GoogleTranslate from '@/components/GoogleTranslate';
 
-export const dynamic1 = "force-dynamic";
+export const dynamic1 = 'force-dynamic';
 
 const Test = () => {
 	const [questions, setQuestions] = useState([]);
 	const [answers, setAnswers] = useState({});
-	const [result, setResult] = useState("");
-	const [activeTab, setActiveTab] = useState(""); // Default to the first tab
-	const router = useRouter()
+	const [result, setResult] = useState('');
+	const [activeTab, setActiveTab] = useState(''); // Default to the first tab
+	const router = useRouter();
 	const searchParams = useSearchParams();
-	const format = searchParams.get("format");
-	
+	const format = searchParams.get('format');
 
-	console.log("format", searchParams.get("format"));
+	console.log('format', searchParams.get('format'));
 
 	const handleTabClick = (tab) => {
 		setActiveTab(tab);
@@ -33,29 +33,29 @@ const Test = () => {
 
 	useEffect(() => {
 		switch (activeTab) {
-		  case "Buy Credits":
-			router.push("/dashboard/credits");
-			break;
-		  case "Test":
-			router.push("/dashboard/test?format=smartphone");
-			break;
-		  case "Smartphone Wallpaper":
-			router.push("/dashboard/test?format=smartphone");
-			break;
-		  case "Desktop Wallpaper":
-			router.push("/dashboard/test?format=desktop");
-			break;
-		  case "Gallery":
-			router.push("/dashboard/gallery");
-			break;
+			case 'Buy Credits':
+				router.push('/dashboard/credits');
+				break;
+			case 'Test':
+				router.push('/dashboard/test?format=smartphone');
+				break;
+			case 'Smartphone Wallpaper':
+				router.push('/dashboard/test?format=smartphone');
+				break;
+			case 'Desktop Wallpaper':
+				router.push('/dashboard/test?format=desktop');
+				break;
+			case 'Gallery':
+				router.push('/dashboard/gallery');
+				break;
 		}
-	  }, [activeTab, router]);
+	}, [activeTab, router]);
 
 	useEffect(() => {
 		// Sélectionnez aléatoirement 3 questions pour chaque axe
 		const selectedQuestions: { [key: string]: any[] } = {};
 
-		for (let axis of ["axis_EI", "axis_SN", "axis_TF", "axis_JP"]) {
+		for (let axis of ['axis_EI', 'axis_SN', 'axis_TF', 'axis_JP']) {
 			selectedQuestions[axis] = [];
 			while (selectedQuestions[axis].length < 3) {
 				const randomIndex = Math.floor(
@@ -101,7 +101,7 @@ const Test = () => {
 	};
 
 	const getMBTI = (answers) => {
-		console.log("answers", answers);
+		console.log('answers', answers);
 
 		if (Object.keys(answers).length == 12) {
 			let index = 0;
@@ -147,19 +147,19 @@ const Test = () => {
 			}
 
 			const acronym = [
-				counts.axis_EI.E >= 2 ? "E" : "I",
-				counts.axis_SN.S >= 2 ? "S" : "N",
-				counts.axis_TF.T >= 2 ? "T" : "F",
-				counts.axis_JP.J >= 2 ? "J" : "P",
-			].join("");
+				counts.axis_EI.E >= 2 ? 'E' : 'I',
+				counts.axis_SN.S >= 2 ? 'S' : 'N',
+				counts.axis_TF.T >= 2 ? 'T' : 'F',
+				counts.axis_JP.J >= 2 ? 'J' : 'P',
+			].join('');
 
-			console.log("acronym", acronym);
+			console.log('acronym', acronym);
 			setResult(acronym);
 			router.push(`/dashboard/create?format=${format}`);
-			localStorage.setItem("acronym", acronym);
+			localStorage.setItem('acronym', acronym);
 		} else {
-			toast("You forgot a few questions!", {
-				position: "bottom-right",
+			toast('You forgot a few questions!', {
+				position: 'bottom-right',
 			});
 		}
 	};
@@ -167,47 +167,66 @@ const Test = () => {
 	return (
 		<>
 			<div className="flex w-full test">
-				<Sidebar onTabClick={handleTabClick} activeTab={"Test"} />
+				<Sidebar onTabClick={handleTabClick} activeTab={'Test'} />
 				<div className="w-full mx-auto content-area justify-center flex-grow test-container">
 					<Header />
 					<div className="test-header">
-						<h1 className="test-title mx-auto font-bold text-center">Take the test!</h1>
+						<h1 className="test-title mx-auto font-bold text-center">
+							Take the test!
+						</h1>
 						<h4 className="text-primary text-center mx-auto italic">
 							Try to be as objective as possible
 						</h4>
 					</div>
 					<div className="px-8">
-					<div className="flex justify-center text-center matrix-text">Answers are red and blue just because I love Matrix and found it funny 😂 <br/>  They are placed totally randomly, there is no meaning in having more red answers than blue.</div>	
-					{questions.map((question, index) => (
-						<div className="flex flex-col items-center mt-8" key={index}>
-							<p className="my-4 index">{index + 1}</p>
-							<p className="mb-4">{question.question}</p>
-							<div className="grid grid-cols-2 gap-4 flex items-center">
-								<button
-									onClick={() => handleAnswer(index, 0)}
-									className={`btn btn-outline justify-self-end pink-pill ${
-										answers[index] === 0 ? "pink-pill-active" : "blue-pill"
-									} `}
-								>
-									{question.answers[0]}
-								</button>
-								<button
-									onClick={() => handleAnswer(index, 1)}
-									className={`btn btn-outline justify-self-start blue-pill ${
-										answers[index] === 1 ? "blue-pill-active" : ""
-									} `}
-								>
-									{question.answers[1]}
-								</button>
-							</div>
+						<div className="flex flex-col justify-center text-center matrix-text pre-wrap">
+							<span className="line">
+								Answers are red and blue just because I love Matrix and found it
+								funny 😂
+							</span>
+							<span className="line">
+								They are placed totally randomly, there is no meaning in having
+								more red answers than blue.
+							</span>
 						</div>
-					))}
-					<button
-						className="btn btn-accent flex justify-center w-1/3 mx-auto results-button"
-						onClick={() => getMBTI(answers)}
-					>
-						Get the results
-					</button>
+						<div className="morpheus">
+							<img
+								src={'/assets/morpheus.png'}
+								alt="Morpheus proposing you the red and blue pills"
+								width={200}
+								height={200}
+							/>
+						</div>
+						{questions.map((question, index) => (
+							<div className="flex flex-col items-center mt-8" key={index}>
+								<p className="my-4 index">{index + 1}</p>
+								<p className="mb-4">{question.question}</p>
+								<div className="grid grid-cols-2 gap-4 flex items-center">
+									<button
+										onClick={() => handleAnswer(index, 0)}
+										className={`btn btn-outline justify-self-end pink-pill ${
+											answers[index] === 0 ? 'pink-pill-active' : 'blue-pill'
+										} `}
+									>
+										{question.answers[0]}
+									</button>
+									<button
+										onClick={() => handleAnswer(index, 1)}
+										className={`btn btn-outline justify-self-start blue-pill ${
+											answers[index] === 1 ? 'blue-pill-active' : ''
+										} `}
+									>
+										{question.answers[1]}
+									</button>
+								</div>
+							</div>
+						))}
+						<button
+							className="btn btn-accent flex justify-center w-1/3 mx-auto results-button"
+							onClick={() => getMBTI(answers)}
+						>
+							Get the results
+						</button>
 					</div>
 					<ToastContainer />
 					<Footer />

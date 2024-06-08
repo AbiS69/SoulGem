@@ -25,7 +25,7 @@ const Footer = () => {
                 width={24}
                 height={24}
               />
-              <strong className="font-extrabold tracking-tight text-base md:text-lg">
+              <strong className="font-extrabold tracking-tight text-base md:text-lg notranslate">
                 {config.appName}
               </strong>
             </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex-grow flex flex-wrap justify-center -mb-10 md:mt-0 mt-10 text-center">
-            <div className="lg:w-1/3 md:w-1/2 w-full px-4">
+            {/* <div className="lg:w-1/3 md:w-1/2 w-full px-4">
               <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
                 LINKS
               </div>
@@ -64,7 +64,7 @@ const Footer = () => {
                   Affiliates
                 </a>
               </div>
-            </div>
+            </div> */}
 
             <div className="lg:w-1/3 md:w-1/2 w-full px-4">
               <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">

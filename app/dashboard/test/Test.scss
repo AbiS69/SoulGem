@@ -20,6 +20,22 @@
 	font-size: 3rem;
 }
 
+.morpheus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.7;
+}
+
+.pre-wrap {
+	white-space: pre-wrap;
+}
+
+.line {
+	display: block;
+	margin-bottom: 5px; /* Adjust spacing as needed */
+}
+
 .test-header {
 	display: flex;
 	flex-direction: column;

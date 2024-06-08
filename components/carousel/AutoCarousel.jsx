@@ -3,7 +3,7 @@ import "./autoplaycarousel.scss";
 import { cardDetails } from "./carousel-config";
 import ItemCarousel from "./ItemCarousel";
 
-export default function AutoplayCarousel() {
+export default function AutoCarousel() {
   return (
     <div className="carousel-container">
       <div className="carousel-track">

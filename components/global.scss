@@ -7,3 +7,46 @@
     align-items: center;
     border: 2px solid oklch(var(--p));
 }
+
+.translate-widget{
+    position: absolute;
+    top: 1.2rem;
+    right: 15vw;
+    z-index: 1000;
+
+    @media (max-width: 1025px) {
+        right: 17vw;
+    }
+}
+
+.goog-te-gadget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0px !important;
+  }
+  
+  .goog-te-gadget-simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .goog-te-gadget span {
+    color: white;
+    display: none;
+  }
+
+  .goog-logo-link {
+    display:none !important;
+} 
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none !important;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc{
+    display: none !important;
+}
+    
+

@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 export default function UserInfo() {
   const { data: session, status } = useSession();
   const [user, setUser] = useState(null);
-  let credits = user?.credits || 0;
+  let credits: number;
   if (typeof window !== 'undefined' && window.localStorage.getItem('credits') !== null) {
     credits = parseInt(window.localStorage.getItem('credits'));
+  } else {
+    credits = user?.credits || 0;
   }
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export default function UserInfo() {
   return (
     <div className="text-center text-sm text-white-500">
       {user
-        ? `Credits: ${user.credits}`
+        ? `Credits: ${credits}`
         : "Loading your credits..."}
     </div>
   );

@@ -5,6 +5,7 @@ import fs from 'fs';
 import bucket from '../../lib/googleCloudStorage';
 import { MongoClient } from 'mongodb';
 import { v4 as uuidv4 } from 'uuid';
+import connectMongo from '@/libs/mongoose';
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
@@ -50,7 +51,8 @@ export async function POST(req: NextRequest) {
       blobStream.on('finish', async () => {
         const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
 
-        await client.connect();
+        await connectMongo();
+        
         const db = client.db('your-database-name');
         const collection = db.collection('images');
         const result = await collection.insertOne({

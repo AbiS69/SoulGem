@@ -1,6 +1,7 @@
 // app/api/userImages/[userId].ts
-import { NextRequest, NextResponse } from "next/server";
-import { MongoClient, ObjectId } from "mongodb";
+import { NextRequest, NextResponse } from 'next/server';
+import { MongoClient, ObjectId } from 'mongodb';
+import connectMongo from '@/libs/mongoose';
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
@@ -12,36 +13,37 @@ export async function GET(
 	const { userId } = params;
 
 	if (!userId) {
-		return NextResponse.json({ error: "User ID is required" }, { status: 400 });
+		return NextResponse.json({ error: 'User ID is required' }, { status: 400 });
 	}
 
 	let objectId;
 	try {
 		objectId = new ObjectId(userId);
 	} catch (error) {
-		console.error("Invalid userId:", error);
+		console.error('Invalid userId:', error);
 		return NextResponse.json(
-			{ error: "Invalid user ID format" },
+			{ error: 'Invalid user ID format' },
 			{ status: 400 }
 		);
 	}
 
 	try {
-		await client.connect();
+		await connectMongo();
+
 		const db = client.db(process.env.MONGODB_DB);
-		const usersCollection = db.collection("users");
+		const usersCollection = db.collection('users');
 
 		const user = await usersCollection.findOne({ _id: objectId });
 		if (!user) {
-			return NextResponse.json({ error: "User not found" }, { status: 404 });
+			return NextResponse.json({ error: 'User not found' }, { status: 404 });
 		}
 
 		const images = user.images || [];
 		return NextResponse.json({ images });
 	} catch (error) {
-		console.error("Failed to connect to MongoDB or fetch user:", error);
+		console.error('Failed to connect to MongoDB or fetch user:', error);
 		return NextResponse.json(
-			{ error: "Failed to fetch user images" },
+			{ error: 'Failed to fetch user images' },
 			{ status: 500 }
 		);
 	}

@@ -7,7 +7,7 @@ const Sidebar = ({ onTabClick, activeTab }) => {
 	return (
 		<>
 			<div className="sidebar border-primary p-2 sidebar bg-base-200">
-				<div className="mt-2">
+				<div className="mt-8">
 					<ButtonAccount />
 				</div>
 				<div className="mt-8">

@@ -52,7 +52,7 @@ const Hero = () => {
           </svg>
         </a> */}
           <h1
-            className="font-extrabold text-7xl lg:text-8xl tracking-tight md:mb-4 text-center drop-shadow-2xl -mt-10"
+            className="font-extrabold text-7xl lg:text-8xl tracking-tight md:mb-4 text-center drop-shadow-2xl -mt-10 notranslate"
             style={{
               textShadow: "8px 8px 8px rgba(0, 0, 0, 0.5)"
             }}
