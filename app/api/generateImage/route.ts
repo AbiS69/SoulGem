@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
 		return new Promise((resolve, reject) => {
 			blobStream.on('error', (error) => {
 				console.error('Blob stream error:', error);
-				reject(
+				resolve(
 					NextResponse.json({ error: 'Failed to upload file' }, { status: 500 })
 				);
 			});
