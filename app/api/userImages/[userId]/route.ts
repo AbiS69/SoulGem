@@ -10,7 +10,7 @@ export interface Image {
 	format: string;
   }
   
-  export interface User {
+  export interface UserType {
 	_id: string;
 	name: string;
 	email: string;
@@ -51,7 +51,7 @@ export async function GET(
 	try {
 		await connectMongo();
 
-		const user: User = await User.findById(userId).lean();
+		const user: UserType = await User.findById(userId).lean();
 		if (!user) {
 			return NextResponse.json({ error: 'User not found' }, { status: 404 });
 		}

@@ -21,24 +21,20 @@ const UserInfo = dynamic(() => import('./UserInfo'), { ssr: false });
 export const dynamic1 = 'force-dynamic';
 
 export default function Dashboard() {
-	const [activeTab, setActiveTab] = useState(''); // Default to the first tab
+	const [activeTab, setActiveTab] = useState('Test'); // Default to the first tab
 	const router = useRouter();
 
 	const handleTabClick = (tab) => {
 		setActiveTab(tab);
 	};
 
-	const renderContent = () => {
-		const router = useRouter();
-
+	useEffect(() => {
 		switch (activeTab) {
 			case 'Buy Credits':
 				router.push('/dashboard/credits');
 				break;
-			case 'Gallery':
-				return <Gallery />;
 			case 'Test':
-				router.push('/dashboard/test?format=smartphone');
+				router.push('/dashboard/test');
 				break;
 			case 'Smartphone Wallpaper':
 				router.push('/dashboard/test?format=smartphone');
@@ -46,11 +42,17 @@ export default function Dashboard() {
 			case 'Desktop Wallpaper':
 				router.push('/dashboard/test?format=desktop');
 				break;
-			// Add other cases as needed
-			default:
-				return <div>Content not found</div>;
+			case 'Gallery':
+				router.push('/dashboard/gallery');
+				break;
+            case 'Duo':
+                router.push('/dashboard/duo');
+                break;
+            case 'Print':
+                router.push('/dashboard/print');
+                break;
 		}
-	};
+	}, [activeTab, router]);
 
 	return (
 		<>
@@ -61,7 +63,6 @@ export default function Dashboard() {
 					Subscribe to get access:
 				</h1> */}
 
-					<div className="w-0 h-0">{renderContent()}</div>
 				</section>
 			</main>
 		</>
