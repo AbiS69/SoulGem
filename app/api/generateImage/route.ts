@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
 const sharp = require('sharp');
+import watermarkLogo from 'public/assets/watermark.png';
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
@@ -76,11 +77,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		if (watermark === true) {
 			console.log('Adding watermark to image');
 			// Load watermark image
-			const watermarkLogo = await sharp(
-				'/Users/antoinebouche/Documents/SoulGem/SoulGem/app/icon.png'
-			)
-				.resize(100)
-				.toBuffer();
+			const watermarkLogo = await sharp('public/assets/watermark.png').resize(1200).toBuffer();
 
 			// Add watermark to image
 			const watermarkedImage = await sharp(imageBuffer)
@@ -116,10 +113,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 				try {
 					await connectMongo();
 
-
 					// Check if user exists
 					console.log('ObjectId:', objectId);
-					const user = await User.findById(userId)
+					const user = await User.findById(userId);
 
 					if (!user) {
 						console.error('User not found with ID:', userId);

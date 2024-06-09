@@ -6,6 +6,7 @@ import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const font = Inter({ subsets: ["latin"] });
 

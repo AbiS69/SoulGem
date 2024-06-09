@@ -53,7 +53,7 @@ export default function Create() {
 			? parseInt(window.localStorage.getItem('credits') || '0')
 			: 0;
 	const [watermarking, setWatermarking] = useState(false);
-	let watermark: boolean;
+	let watermark: boolean = true;
 
 	useEffect(() => {
 		console.log('Image URL:', imageUrl);
@@ -192,12 +192,12 @@ export default function Create() {
 			case 'Gallery':
 				router.push('/dashboard/gallery');
 				break;
-            case 'Duo':
-                router.push('/dashboard/duo');
-                break;
-            case 'Print':
-                router.push('/dashboard/print');
-                break;
+			case 'Duo':
+				router.push('/dashboard/duo');
+				break;
+			case 'Print':
+				router.push('/dashboard/print');
+				break;
 		}
 	}, [activeTab, router]);
 
@@ -503,9 +503,6 @@ export default function Create() {
 									<p className="mbti-explanation mt-12 text-lg opacity-80 leading-relaxed mx-auto">
 										{explanation}
 									</p>
-									<h2 className="text-primary fit font-bold mb-36">
-										You will find each of your SoulGems in your gallery
-									</h2>
 									{watermark && (
 										<div>
 											<div className="text-center text-lg mt-8 italic text-center">
@@ -516,28 +513,24 @@ export default function Create() {
 											</div>
 										</div>
 									)}
-									{!watermark && (
-										<>
-											<div className="text-center text-lg mt-8 italic text-center">
-												Take a new test, create a new SoulGem and discover a new
-												facet of your personality!
-											</div>
-											<div className="flex justify-center">
-												<Link href="/dashboard/test">
-													<button className="btn btn-secondary mt-8 flex justify-center mx-auto">
-														Take a new test
-													</button>
-												</Link>
-											</div>
-										</>
-									)}
-									<div className="flex justify-center">
-										<Link href="/dashboard/gallery">
-											<button className="btn btn-accent flex justify-center mx-auto">
-												Go to your gallery
-											</button>
-										</Link>
-									</div>
+									<>
+										<div className="text-center text-lg mt-8 italic text-center">
+											Take a new test with new questions, create a new SoulGem and discover another
+											facet of your personality!
+										</div>
+										<div className="flex justify-center items-center mt-8">
+											<Link href="/dashboard/test">
+												<button className="btn btn-secondary flex justify-center mr-4">
+													Take a new test
+												</button>
+											</Link>
+											<Link href="/dashboard/gallery">
+												<button className="btn btn-secondary btn-outline flex justify-center mx-auto">
+													Go to your gallery
+												</button>
+											</Link>
+										</div>
+									</>
 								</>
 							)}
 							<div className="text-center text-lg mt-16 italic text-center">
