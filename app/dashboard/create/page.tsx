@@ -18,7 +18,7 @@ import Link from 'next/link';
 import ImageViewer from 'react-simple-image-viewer';
 import AutoCarousel from '@/components/carousel/AutoCarousel';
 
-export const dynamic1 = 'force-dynamic';
+// export const dynamic1 = 'force-dynamic';
 
 export default function Create() {
 	const { data: session } = useSession();

@@ -18,7 +18,7 @@ import GoogleTranslate from '@/components/GoogleTranslate';
 
 const UserInfo = dynamic(() => import('./UserInfo'), { ssr: false });
 
-export const dynamic1 = 'force-dynamic';
+//export const dynamic1 = 'force-dynamic';
 
 export default function Dashboard() {
 	const [activeTab, setActiveTab] = useState('Test'); // Default to the first tab

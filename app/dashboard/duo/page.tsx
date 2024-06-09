@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import "./duo.scss";    
 
-export const dynamic1 = 'force-dynamic';
+// export const dynamic1 = 'force-dynamic';
 
 export default function Duo() {
 	const [activeTab, setActiveTab] = useState(''); // Default to the first tab

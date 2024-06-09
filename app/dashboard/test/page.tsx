@@ -14,7 +14,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import GoogleTranslate from '@/components/GoogleTranslate';
 
-export const dynamic1 = 'force-dynamic';
+// export const dynamic1 = 'force-dynamic';
 
 const Test = () => {
 	const [questions, setQuestions] = useState([]);
