@@ -421,7 +421,7 @@ export default function Create() {
 													This will create a watermarked standard square image.
 													<br />
 													<br />
-													Get more credits to create an awesome HD{' '}
+													Get more credits to create an awesome HD
 													<span className="notranslate">SoulGem</span> in any
 													format without a watermark!
 												</div>

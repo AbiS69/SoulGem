@@ -113,12 +113,12 @@ function Gallery() {
 					) : (
 						<>
 							<div className="text-center mx-auto mt-8 px-8">
-								You can either screenshot or right-click and then click "Save"
+								You can either screenshot or right-click and then click &quot;Save&quot;
 								to then use the image as you wish !
 							</div>
 							<div className="gallery-images">
 								{images.length === 0 ? (
-									<p>You haven't created any SoulGems yet, take the test!</p>
+									<p>You haven&apos;t created any SoulGems yet, take the test!</p>
 								) : (
 									<>
 										<div className="gallery-title text-center">
