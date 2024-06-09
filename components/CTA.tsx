@@ -12,7 +12,7 @@ const CTA = () => {
         fill
       />
       <div className="relative hero-overlay bg-neutral bg-opacity-70"></div>
-      <ButtonCheckout priceId="price_1O5KtcAxyNprDp7iftKnrrpw" mode="payment" />
+      <ButtonCheckout priceId="price_1O5KtcAxyNprDp7iftKnrrpw" mode="payment" text="" />
     </section>
   );
 };
