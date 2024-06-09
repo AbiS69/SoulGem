@@ -149,7 +149,7 @@ export async function POST(request: NextRequest) {
 					);
 				} catch (error) {
 					console.error('Failed to connect to MongoDB or update user:', error);
-					reject(NextResponse.json({ error: error.message }, { status: 500 }));
+					resolve(NextResponse.json({ error: error.message }, { status: 500 }));
 				}
 			});
 
