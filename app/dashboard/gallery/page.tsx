@@ -62,6 +62,12 @@ function Gallery() {
 			case 'Gallery':
 				router.push('/dashboard/gallery');
 				break;
+            case 'Duo':
+                router.push('/dashboard/duo');
+                break;
+            case 'Print your SoulGem!':
+                router.push('/dashboard/print');
+                break;
 		}
 	}, [activeTab, router]);
 

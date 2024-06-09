@@ -31,7 +31,6 @@ export const getSEOTags = ({
         ? "http://localhost:3000/"
         : `https://${config.domainName}/`
     ),
-
     openGraph: {
       title: openGraph?.title || config.appName,
       description: openGraph?.description || config.appDescription,

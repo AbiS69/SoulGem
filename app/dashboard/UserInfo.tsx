@@ -9,6 +9,7 @@ export default function UserInfo() {
   let credits: number;
   if (typeof window !== 'undefined' && window.localStorage.getItem('credits') !== null) {
     credits = parseInt(window.localStorage.getItem('credits'));
+    console.log('credits from local storage:', credits);
   } else {
     credits = user?.credits || 0;
   }

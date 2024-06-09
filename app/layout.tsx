@@ -23,9 +23,10 @@ export const metadata = getSEOTags();
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme={config.colors.theme} className={font.className}>
+      <title className="notranslate">SoulGem</title>
       {config.domainName && (
         <head>
-          <script defer data-domain="soulgem.xyz" src="https://plausible.io/js/script.js"></script>
+          <script defer data-domain="mysoulgem.com" src="https://plausible.io/js/script.js"></script>
         </head>
       )}
       <body>

@@ -17,7 +17,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import ImageViewer from 'react-simple-image-viewer';
 import AutoCarousel from '@/components/carousel/AutoCarousel';
-import GoogleTranslate from '@/components/GoogleTranslate';
 
 export const dynamic1 = 'force-dynamic';
 
@@ -193,6 +192,12 @@ export default function Create() {
 			case 'Gallery':
 				router.push('/dashboard/gallery');
 				break;
+            case 'Duo':
+                router.push('/dashboard/duo');
+                break;
+            case 'Print':
+                router.push('/dashboard/print');
+                break;
 		}
 	}, [activeTab, router]);
 
@@ -259,7 +264,6 @@ export default function Create() {
 							Guess what? You are unique.
 						</h4>
 					</div>
-					<AutoCarousel />
 					{initialLoading ? (
 						<div className="w-full h-full bg-base-200">
 							<span className="loading loading-lg flex mx-auto"></span>
@@ -499,19 +503,20 @@ export default function Create() {
 									<p className="mbti-explanation mt-12 text-lg opacity-80 leading-relaxed mx-auto">
 										{explanation}
 									</p>
-									{/* {1 && ( */}
-									<div>
-										<div className="text-center text-lg mt-8 italic text-center">
-											Like your SoulGem? Create an even better one with greater
-											details and without a watermark! <br /> Get more credits
-											to unlock the full potential of your unique personality.
-											Take a look at some of the amazing HD SoulGems created by
-											our lovely users :
+									<h2 className="text-primary fit font-bold mb-36">
+										You will find each of your SoulGems in your gallery
+									</h2>
+									{watermark && (
+										<div>
+											<div className="text-center text-lg mt-8 italic text-center">
+												Like your SoulGem? Create an even better one with
+												greater details and without a watermark! <br /> Get more
+												credits to unlock the full potential of your unique
+												personality.
+											</div>
 										</div>
-										{/* <AutoCarousel /> */}
-									</div>
-									{/* )} */}
-									{/* {1 && (
+									)}
+									{!watermark && (
 										<>
 											<div className="text-center text-lg mt-8 italic text-center">
 												Take a new test, create a new SoulGem and discover a new
@@ -519,21 +524,13 @@ export default function Create() {
 											</div>
 											<div className="flex justify-center">
 												<Link href="/dashboard/test">
-													<button className="btn btn-accent flex justify-center w-1/3 mx-auto">
+													<button className="btn btn-secondary mt-8 flex justify-center mx-auto">
 														Take a new test
 													</button>
 												</Link>
 											</div>
-											<div className="text-center text-lg mt-8 italic text-center">
-												Take a look at some of the amazing HD SoulGems created
-												by our lovely users :
-											</div>
-											<AutoCarousel />
 										</>
-									)} */}
-									<h2 className="text-primary fit font-bold mb-36">
-										You will find each of your SoulGems in your gallery
-									</h2>
+									)}
 									<div className="flex justify-center">
 										<Link href="/dashboard/gallery">
 											<button className="btn btn-accent flex justify-center mx-auto">
@@ -543,6 +540,11 @@ export default function Create() {
 									</div>
 								</>
 							)}
+							<div className="text-center text-lg mt-16 italic text-center">
+								Take a look at some of the amazing HD SoulGems created by our
+								lovely users :
+							</div>
+							<AutoCarousel />
 						</section>
 					)}
 					<Footer />

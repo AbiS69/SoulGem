@@ -27,9 +27,11 @@
 
 .results-container {
 	margin-left: 15vw;
+	width: 85vw;
 
 	@media (max-width: 1025px) {
 		margin-left: 0;
+		width: 100vw;
 	}
 }
 

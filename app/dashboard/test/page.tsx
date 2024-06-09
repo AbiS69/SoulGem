@@ -27,6 +27,15 @@ const Test = () => {
 
 	console.log('format', searchParams.get('format'));
 
+	let tab: string;
+	if (format === 'smartphone') {
+		tab = 'Smartphone Wallpaper';
+	} else if (format === 'desktop') {
+		tab = 'Desktop Wallpaper';
+	} else tab = 'Test';
+
+		
+
 	const handleTabClick = (tab) => {
 		setActiveTab(tab);
 	};
@@ -37,7 +46,7 @@ const Test = () => {
 				router.push('/dashboard/credits');
 				break;
 			case 'Test':
-				router.push('/dashboard/test?format=smartphone');
+				router.push('/dashboard/test');
 				break;
 			case 'Smartphone Wallpaper':
 				router.push('/dashboard/test?format=smartphone');
@@ -47,6 +56,12 @@ const Test = () => {
 				break;
 			case 'Gallery':
 				router.push('/dashboard/gallery');
+				break;
+			case 'Duo':
+				router.push('/dashboard/duo');
+				break;
+			case 'Print':
+				router.push('/dashboard/print');
 				break;
 		}
 	}, [activeTab, router]);
@@ -167,7 +182,7 @@ const Test = () => {
 	return (
 		<>
 			<div className="flex w-full test">
-				<Sidebar onTabClick={handleTabClick} activeTab={'Test'} />
+				<Sidebar onTabClick={handleTabClick} activeTab={tab} />
 				<div className="w-full mx-auto content-area justify-center flex-grow test-container">
 					<Header />
 					<div className="test-header">
@@ -201,11 +216,11 @@ const Test = () => {
 							<div className="flex flex-col items-center mt-8" key={index}>
 								<p className="my-4 index">{index + 1}</p>
 								<p className="mb-4">{question.question}</p>
-								<div className="grid grid-cols-2 gap-4 flex items-center">
+								<div className="grid grid-cols-2 gap-4 flex items-center answers">
 									<button
 										onClick={() => handleAnswer(index, 0)}
-										className={`btn btn-outline justify-self-end pink-pill ${
-											answers[index] === 0 ? 'pink-pill-active' : 'blue-pill'
+										className={`btn btn-outline justify-self-end red-pill ${
+											answers[index] === 0 ? 'red-pill-active' : ''
 										} `}
 									>
 										{question.answers[0]}

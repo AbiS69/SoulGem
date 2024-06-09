@@ -15,9 +15,6 @@ const Hero = () => {
   const { data: session, status } = useSession();
 
   function clickCTA() {
-    // This function is called when the button is clicked
-    // It will increment the count by 1
-    console.log("sum function called");
     if (status === "authenticated") {
       router.push(config.auth.callbackUrl);
     } else {

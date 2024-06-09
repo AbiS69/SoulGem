@@ -1,0 +1,24 @@
+.duo-header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1vw;
+	width: 100%;
+	background-color: oklch(var(--b2));
+	min-height: 10vh;
+	padding: 2vw 0;
+}
+
+.duo-title {
+	width: fit-content;
+	font-size: 4rem;
+}
+
+.duo-container{
+    margin-left: 15vw;
+
+    @media (max-width: 1025px) {
+        margin-left: 0;
+    }
+}

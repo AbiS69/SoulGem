@@ -65,9 +65,9 @@ const Sidebar = ({ onTabClick, activeTab }) => {
 						Duo
 					</div>
 					<div
-						onClick={() => onTabClick("Prints")}
+						onClick={() => onTabClick("Print")}
 						className={` tab hover:text-primary ${
-							activeTab === "Prints" ? "active" : ""
+							activeTab === "Print" ? "active" : ""
 						}`}
 					>
 						Print your SoulGem!
