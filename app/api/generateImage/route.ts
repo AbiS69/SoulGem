@@ -15,7 +15,7 @@ const storage = new Storage({
 });
 const bucket = storage.bucket(process.env.GCS_BUCKET_NAME);
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
 	const { genderedPrompt, size, definition, userId, watermark, acronym } =
 		await request.json();
 	console.log('watermark:', watermark);
