@@ -6,7 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
 const sharp = require('sharp');
-import watermarkLogo from 'public/assets/watermark.png';
+
+export const config = {
+	maxDuration: 60,
+  };
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
