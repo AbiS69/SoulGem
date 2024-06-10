@@ -13,6 +13,11 @@
 .results-button {
 	margin-top: 5vw !important;
 	margin-bottom: 5vw !important;
+
+	@media (max-width: 1025px) {
+		margin-top: 10vw !important;
+		margin-bottom: 10vw !important;
+	}
 }
 
 .test-title {
