@@ -5,6 +5,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 import { v4 as uuidv4 } from 'uuid';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
+import path from 'path';
 const sharp = require('sharp');
 
 export const maxDuration = 60;
@@ -78,7 +79,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		if (watermark === true) {
 			console.log('Adding watermark to image');
 			// Load watermark image
-			const watermarkLogo = await sharp('/assets/watermark.png').resize(600).toBuffer();
+			const watermarkPath = path.join(process.cwd(), 'public', 'assets', 'watermark.png');
+			const watermarkLogo = await sharp(watermarkPath).resize(600).toBuffer();
 
 			// Add watermark to image
 			const watermarkedImage = await sharp(imageBuffer)
