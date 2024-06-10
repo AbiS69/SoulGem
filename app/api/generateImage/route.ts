@@ -77,7 +77,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		if (watermark === true) {
 			console.log('Adding watermark to image');
 			// Load watermark image
-			const watermarkLogo = await sharp('public/assets/watermark.png').resize(1200).toBuffer();
+			const watermarkLogo = await sharp('public/assets/watermark.png').resize(600).toBuffer();
 
 			// Add watermark to image
 			const watermarkedImage = await sharp(imageBuffer)

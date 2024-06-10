@@ -81,7 +81,7 @@ const Problem = () => {
 						img="/assets/unlock.svg"
 					/>
 
-					<Arrow extraStyle="max-md:-scale-x-100 md:-rotate-90 mt-12" />
+					<Arrow extraStyle="max-md:-scale-x-100 md:-rotate-90 md:mt-12" />
 
 					<Step
 						emoji="🎨"

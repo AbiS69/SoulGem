@@ -193,7 +193,7 @@ const Test = () => {
 							Try to be as objective as possible
 						</h4>
 					</div>
-					<div className="px-8">
+					<div className="px-8 mt-8">
 						<div className="flex flex-col justify-center text-center matrix-text pre-wrap">
 							<span className="line">
 								Answers are red and blue just because I love Matrix and found it
@@ -237,7 +237,7 @@ const Test = () => {
 							</div>
 						))}
 						<button
-							className="btn btn-accent flex justify-center w-1/3 mx-auto results-button"
+							className="btn btn-accent flex justify-center w-2/3 md:w-1/3 mx-auto results-button"
 							onClick={() => getMBTI(answers)}
 						>
 							Get the results

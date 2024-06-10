@@ -78,9 +78,9 @@ export default function Create() {
 			prompt;
 
 		let genderedPrompt;
-		if (gender == 'male') {
+		if (gender == 'man') {
 			genderedPrompt = prompt + ' The face should be slightly masculine.';
-		} else if (gender == 'female') {
+		} else if (gender == 'woman') {
 			genderedPrompt = prompt + ' The face should be slightly feminine.';
 		} else {
 			genderedPrompt = prompt + ' The face must be a non-binary face';
@@ -295,7 +295,7 @@ export default function Create() {
 										</h3>
 										<div className="formats flex justify-center w-full mx-auto">
 											<div className="format-choice w-32">
-												<div className="h-24 md:h-48 lg:h-64 flex justify-center mb-6 square">
+												<div className="h-24 md:h-48 lg:h-64 flex justify-center mb-6 square flex items-center">
 													<Image
 														src="/assets/square.svg"
 														alt="choice"
@@ -318,7 +318,7 @@ export default function Create() {
 													}
 												/>
 											</div>
-											<div className="format-choice w-32">
+											<div className="format-choice w-32 flex items-center">
 												<div className="h-24 md:h-48 lg:h-64 flex justify-center mb-6 square">
 													<Image
 														src="/assets/iphone.svg"
@@ -340,7 +340,7 @@ export default function Create() {
 													checked={selectedFormat === 'Smartphone Wallpaper'}
 												/>
 											</div>
-											<div className="format-choice w-60">
+											<div className="format-choice w-60 flex items-center">
 												<div className="h-24 md:h-48 lg:h-64 flex justify-center mb-6 mac">
 													<Image
 														src="/assets/macbook.svg"
@@ -372,9 +372,9 @@ export default function Create() {
 													<input
 														type="radio"
 														name="gender"
-														value="male"
+														value="man"
 														onChange={(e) => setGender(e.target.value)}
-														checked={gender === 'male'}
+														checked={gender === 'man'}
 														className="radio radio-accent gender-radio"
 													/>
 													Male
@@ -383,33 +383,22 @@ export default function Create() {
 													<input
 														type="radio"
 														name="gender"
-														value="female"
+														value="woman"
 														onChange={(e) => setGender(e.target.value)}
-														checked={gender === 'female'}
+														checked={gender === 'woman'}
 														className="radio radio-accent gender-radio"
 													/>
 													Female
 												</label>
-												<label>
-													<input
-														type="radio"
-														name="gender"
-														value="other"
-														onChange={(e) => setGender(e.target.value)}
-														checked={gender === 'other'}
-														className="radio radio-accent gender-radio"
-													/>
-													Other
-												</label>
 											</div>
 										</div>
-										<div className="md:h-16 flex items-center"></div>
+										<div className="h-16 flex items-center"></div>
 										{credits < calculateCredits('SD') &&
 										credits < calculateCredits('HD') &&
 										credits > 3 ? (
 											<div className="flex justify-center flex-col items-center">
 												<button
-													className="btn btn-secondary flex justify-center w-2/5 leading-6 h-16 mr-4 hover:scale-90 mb-2"
+													className="btn btn-secondary flex justify-center w-2/3 md:w-2/5 leading-6 h-16 hover:scale-90 mb-2"
 													onClick={() => generateImage('WATERMARK')}
 												>
 													<div className="line-container">
@@ -418,12 +407,11 @@ export default function Create() {
 													</div>
 												</button>
 												<div className="mb-12 text-center">
-													This will create a watermarked standard square image.
-													<br />
+													This will create a watermarked square image in standard quality.
 													<br />
 													Get more credits to create an awesome HD
-													<span className="notranslate">SoulGem</span> in any
-													format without a watermark!
+													<span className="notranslate"> SoulGem</span> in any
+													format and without a watermark!
 												</div>
 											</div>
 										) : (
@@ -497,10 +485,10 @@ export default function Create() {
 											/>
 										)}
 									</div>
-									<h2 className="text-primary fit mt-4 font-bold">
+									<h2 className="text-primary fit mt-4 font-bold text-center">
 										Your SoulGem Is Unique, Be Proud & Showcase It To The World!
 									</h2>
-									<p className="mbti-explanation mt-12 text-lg opacity-80 leading-relaxed mx-auto">
+									<p className="mbti-explanation mt-12 text-sm md:text-md lg:text-lg opacity-80 leading-relaxed mx-auto">
 										{explanation}
 									</p>
 									{watermark && (

@@ -42,7 +42,7 @@
 	align-items: center;
 	padding: 1vw;
 	border-radius: 2vw;
-	margin-top: 4vw;
+	margin-top: 6vw;
 
 	@media (max-width: 767px) {
 		margin-top: 8vw;
@@ -61,7 +61,7 @@
 	height: 4rem;
 	line-height: 1.5rem;
 	min-height: fit-content;
-	text-shadow: 10px 10px 30px rgba(0, 0, 0, 1);
+	text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
 
 	@media (max-width: 767px) {
 		display: flex;

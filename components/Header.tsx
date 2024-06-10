@@ -9,6 +9,8 @@ import ButtonSignin from './ButtonSignin';
 import logo from '@/app/icon.png';
 import config from '@/config';
 import GoogleTranslate from './GoogleTranslate';
+import UserInfo from '@/app/dashboard/UserInfo';
+import ButtonAccount from './ButtonAccount';
 
 const links: {
 	href: string;
@@ -47,7 +49,7 @@ const Header = () => {
 				className="container flex items-center justify-between px-8 py-4 mx-auto"
 				aria-label="Global"
 			>
-        <GoogleTranslate />
+				<GoogleTranslate />
 				{/* Your logo/name on large screens */}
 				<div className="flex lg:flex-1">
 					<Link
@@ -107,10 +109,9 @@ const Header = () => {
 				</div>
 
 				{/* CTA on large screens */}
-				
 
 				<div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
-        <GoogleTranslate />
+				<GoogleTranslate />
 			</nav>
 
 			{/* Mobile menu, show/hide based on menu state. */}
@@ -178,7 +179,13 @@ const Header = () => {
 
 						<div className="divider"></div>
 						{/* Your CTA on small screens */}
-						<div className="flex flex-col">{cta}</div>
+						<div className="flex flex-col flex-col items-center">
+							<ButtonAccount />
+							<div className="mt-8">
+								<UserInfo />
+							</div>
+
+						</div>
 					</div>
 				</div>
 			</div>
