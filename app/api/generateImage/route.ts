@@ -7,9 +7,7 @@ import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
 const sharp = require('sharp');
 
-export const config = {
-	maxDuration: 60,
-  };
+export const maxDuration = 60;
 
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
