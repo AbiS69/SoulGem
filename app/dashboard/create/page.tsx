@@ -377,7 +377,7 @@ export default function Create() {
 														checked={gender === 'man'}
 														className="radio radio-accent gender-radio"
 													/>
-													Male
+													Man
 												</label>
 												<label>
 													<input
@@ -388,7 +388,7 @@ export default function Create() {
 														checked={gender === 'woman'}
 														className="radio radio-accent gender-radio"
 													/>
-													Female
+													Woman
 												</label>
 											</div>
 										</div>
@@ -468,8 +468,8 @@ export default function Create() {
 										{selectedFormat === 'Desktop Wallpaper' && (
 											<Image
 												src={imageUrl}
-												width={800}
-												height={400}
+												width={1600}
+												height={800}
 												alt={explanation}
 												onClick={() => openImageViewer(1)}
 											/>

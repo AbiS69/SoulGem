@@ -5,16 +5,25 @@ import { MongoClient, ObjectId } from 'mongodb';
 import { v4 as uuidv4 } from 'uuid';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
+import path from 'path';
+import getConfig from 'next/config';
 const sharp = require('sharp');
 
 export const maxDuration = 60;
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+//LOCAL
 const storage = new Storage({
 	projectId: process.env.GCP_PROJECT_ID,
 	keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
 });
+
+//PROD
+// const storage = new Storage({
+// 	projectId: process.env.GCP_PROJECT_ID,
+// 	credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS),
+//   });
+
+
 const bucket = storage.bucket(process.env.GCS_BUCKET_NAME);
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -77,8 +86,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
 		if (watermark === true) {
 			console.log('Adding watermark to image');
+			console.log('process.cwd():', process.cwd());
 			// Load watermark image
-			const watermarkLogo = await sharp('/public/assets/watermark.png').resize(600).toBuffer();
+			// const watermarkLogoPath = path.resolve("/assets/watermark.png");
+			const response = await fetch(
+				'https://mysoulgem.com/assets/watermark.png'
+			);
+			const arrayBuffer = await response.arrayBuffer();
+			const watermarkLogo = await sharp(Buffer.from(arrayBuffer))
+				.resize(600)
+				.toBuffer();
 
 			// Add watermark to image
 			const watermarkedImage = await sharp(imageBuffer)
@@ -93,6 +110,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
 		const fileName = `${acronym.toUpperCase()}-${uuidv4()}.jpg`; // Generates a unique filename with .jpg extension
 		const blob = bucket.file(fileName);
+		console.log('Blob:');
 
 		const blobStream = blob.createWriteStream({
 			resumable: false,
@@ -106,10 +124,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 					NextResponse.json({ error: 'Failed to upload file' }, { status: 500 })
 				);
 			});
-
+			console.log('Just before gcs');
 			blobStream.on('finish', async () => {
 				const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
-
+				console.log('right after gcs');	
 				// Connect to MongoDB and update the user document
 				try {
 					await connectMongo();

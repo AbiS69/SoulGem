@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // outputFileTracingIncludes: {
+  //   '/api/generateImage': ['./public/assets/**/*'],
+  // },
+  // serverRuntimeConfig: {
+  //   PROJECT_ROOT: __dirname
+  // },
+  // assetPath: './public',
+  // publicPath: './public',
   reactStrictMode: true,
   images: {
     domains: [
@@ -25,7 +33,7 @@ const nextConfig = {
         destination: "https://plausible.io/api/event",
       },
     ];
-}
+  }
 };
 
 module.exports = nextConfig;

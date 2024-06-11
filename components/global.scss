@@ -1,55 +1,88 @@
-.circler{
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid oklch(var(--p));
+.circler {
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid oklch(var(--p));
 }
 
-.translate-widget{
-    position: absolute;
-    top: 0.7rem;
-    right: 19vw;
-    z-index: 1000;
+.translate-widget {
+	position: absolute;
+	top: 0.7rem;
+	right: 19vw;
+	z-index: 1000;
 
-    @media (max-width: 1025px) {
-        right: 17vw;
-    }
+	@media (max-width: 1025px) {
+		right: 17vw;
+	}
 }
 
 .goog-te-gadget {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0px !important;
-  }
-  
-  .goog-te-gadget-simple {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .goog-te-gadget span {
-    color: white;
-    display: none;
-  }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 0px !important;
+}
 
-  .goog-logo-link {
-    display:none !important;
-} 
+.goog-te-gadget-simple {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.goog-te-gadget span {
+	color: white;
+	display: none;
+}
+
+.goog-logo-link {
+	display: none !important;
+}
 
 .VIpgJd-ZVi9od-ORHb-OEVmcd {
-    display: none !important;
+	display: none !important;
 }
 
-.VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc{
-    display: none !important;
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc {
+	display: none !important;
 }
-    
-.styles-module_navigation__1pqAE{
-  height: 89% !important;
-  align-items: flex-end !important;
+
+.styles-module_navigation__1pqAE {
+	height: 89% !important;
+	align-items: flex-end !important;
+}
+
+.goog-tooltip {
+	display: none !important;
+}
+.goog-tooltip:hover {
+	display: none !important;
+}
+.goog-text-highlight {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+	display: none !important;
+}
+.goog-text-highlight {
+	background: none !important;
+	box-shadow: none !important;
+}
+
+body {
+	top: 0 !important;
+}
+.goog-te-banner-frame {
+	display: none !important;
+}
+
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q{
+  background-color: unset !important;
+  box-shadow: none !important;
 }

@@ -15,7 +15,7 @@ import { Crisp } from "crisp-sdk-web";
 export default function Home() {
 
   useEffect(() => {
-    Crisp.configure("76426dd1-287c-4a27-84e6-d91674efdbd8");
+    Crisp.configure("4c98dc7e-5720-4fea-bf21-048735d4f495");
   });
 
   return (
