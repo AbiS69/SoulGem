@@ -23,7 +23,7 @@ export const getSEOTags = ({
     // up to 160 characters (how does your app help the user?)
     description: description || config.appDescription,
     // some keywords separated by commas. by default it will be your app name
-    keywords: keywords || [config.appName],
+    keywords: "soulgem, ai generated images, personality test, ai image generator",
     applicationName: config.appName,
     // set a base URL prefix for other fields that require a fully qualified URL (.e.g og:image: og:image: 'https://yourdomain.com/share.png' => '/share.png')
     metadataBase: new URL(
@@ -37,13 +37,13 @@ export const getSEOTags = ({
       url: openGraph?.url || `https://${config.domainName}/`,
       siteName: openGraph?.title || config.appName,
       // If you add an opengraph-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
-      // images: [
-      //   {
-      //     url: `https://${config.domainName}/share.png`,
-      //     width: 1200,
-      //     height: 660,
-      //   },
-      // ],
+      images: [
+        {
+          url: `https://${config.domainName}/opengraph-image.jpeg`,
+          width: 1200,
+          height: 660,
+        },
+      ],
       locale: "en_US",
       type: "website",
     },
@@ -54,7 +54,7 @@ export const getSEOTags = ({
       // If you add an twitter-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [openGraph?.image || defaults.og.image],
       card: "summary_large_image",
-      creator: "@marc_louvion",
+      creator: "@digitwareg",
     },
 
     // If a canonical URL is given, we add it. The metadataBase will turn the relative URL into a fully qualified URL
@@ -90,7 +90,7 @@ export const renderSchemaTags = () => {
             "@type": "Person",
             name: "Antoine Bouché",
           },
-          datePublished: "2023-08-01",
+          datePublished: "2024-12-06",
           applicationCategory: "EducationalApplication",
           aggregateRating: {
             "@type": "AggregateRating",
@@ -100,7 +100,7 @@ export const renderSchemaTags = () => {
           offers: [
             {
               "@type": "Offer",
-              price: "9.00",
+              price: "1.00",
               priceCurrency: "USD",
             },
           ],

@@ -53,7 +53,7 @@ export default function Create() {
 			? parseInt(window.localStorage.getItem('credits') || '0')
 			: 0;
 	const [watermarking, setWatermarking] = useState(false);
-	let watermark: boolean = true;
+	let watermark: boolean;
 
 	useEffect(() => {
 		console.log('Image URL:', imageUrl);
@@ -115,7 +115,7 @@ export default function Create() {
 
 		let creditsToSubstract: number;
 		if (quality === 'WATERMARK') {
-			creditsToSubstract = 4;
+			creditsToSubstract = 2;
 		} else {
 			creditsToSubstract = calculateCredits(quality);
 		}
@@ -209,7 +209,7 @@ export default function Create() {
 				if (definition === 'HD') {
 					return 15;
 				} else if (definition === 'SD') {
-					return 4;
+					return 8;
 				} else {
 					return 0;
 				}
@@ -272,10 +272,10 @@ export default function Create() {
 						<section className=" w-5/6 lg:w-2/3 mx-auto mt-10 md:mt-18 lg:mt-24">
 							<div className="text-center text-lg mb-1 italic">You are...</div>
 							<h2 className="text-center mx-auto text-5xl font-bold italic mbti-type mt-4">
-								The <span className="text-primary italic">{title}</span>.
+								The <span className="text-primary italic">{title}</span>
 							</h2>
 							<div className="mbti-description mx-auto mt-10 md:mt-18 lg:mt-24">
-								<p className="text-sm md:text-md lg:text-lg opacity-80 leading-relaxed">
+								<p className="text-sm md:text-md lg:text-lg opacity-80 leading-relaxed text-center">
 									{MBTIdescription}
 								</p>
 							</div>
@@ -395,7 +395,7 @@ export default function Create() {
 										<div className="h-16 flex items-center"></div>
 										{credits < calculateCredits('SD') &&
 										credits < calculateCredits('HD') &&
-										credits > 3 ? (
+										credits > 1 ? (
 											<div className="flex justify-center flex-col items-center">
 												<button
 													className="btn btn-secondary flex justify-center w-2/3 md:w-2/5 leading-6 h-16 hover:scale-90 mb-2"
@@ -406,8 +406,9 @@ export default function Create() {
 														<div>4 credits</div>
 													</div>
 												</button>
-												<div className="mb-12 text-center">
-													This will create a watermarked square image in standard quality.
+												<div className="mb-12 text-center text-md">
+													This will create a watermarked square image in
+													standard quality.
 													<br />
 													Get more credits to create an awesome HD
 													<span className="notranslate"> SoulGem</span> in any
@@ -417,7 +418,7 @@ export default function Create() {
 										) : (
 											<></>
 										)}
-										<div className="mt-8 md:mt-2 flex-column-reverse md:flex justify-center">
+										<div className="md:mt-2 flex-column-reverse md:flex justify-center">
 											<button
 												className="btn btn-primary create-btn mr-4 xl:w-2/5 text-white"
 												onClick={() => generateImage('HD')}
@@ -488,12 +489,12 @@ export default function Create() {
 									<h2 className="text-primary fit mt-4 font-bold text-center">
 										Your SoulGem Is Unique, Be Proud & Showcase It To The World!
 									</h2>
-									<p className="mbti-explanation mt-12 text-sm md:text-md lg:text-lg opacity-80 leading-relaxed mx-auto">
+									<p className="mbti-explanation mt-12 text-sm md:text-md lg:text-lg opacity-80 leading-relaxed mx-auto text-center">
 										{explanation}
 									</p>
-									{watermark && (
+									{watermarking && (
 										<div>
-											<div className="text-center text-lg mt-8 italic text-center">
+											<div className="text-center text-md mt-8 italic text-center">
 												Like your SoulGem? Create an even better one with
 												greater details and without a watermark! <br /> Get more
 												credits to unlock the full potential of your unique
@@ -502,9 +503,9 @@ export default function Create() {
 										</div>
 									)}
 									<>
-										<div className="text-center text-lg mt-8 italic text-center">
-											Take a new test with new questions, create a new SoulGem and discover another
-											facet of your personality!
+										<div className="text-center text-md mt-8 italic text-center">
+											Take a new test with new questions, create a new SoulGem
+											and discover another facet of your personality!
 										</div>
 										<div className="flex justify-center items-center mt-8">
 											<Link href="/dashboard/test">

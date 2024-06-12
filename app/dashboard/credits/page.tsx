@@ -66,7 +66,7 @@ export default function Credits() {
 							<span className="loading loading-lg flex mx-auto"></span>
 						</div>
 					) : (
-						<section className="w-2/3 mx-auto mt-16">
+						<section className="w-11/12 md:w-2/3 mx-auto mt-16">
 							<BuyCredits />
 						</section>
 					)}

@@ -24,22 +24,22 @@ const config = {
 						? //? "price_1Niyy5AxyNprDp7iZIqEyD2h"
 						  'price_1PIWozFY60tLCCEBJR8VIIhb'
 						: //? ""
-						  'price_456',
+						  'price_1PQulsFY60tLCCEBvSuyZAmf',
 				//  REQUIRED - Name of the plan, displayed on the pricing page
 				name: 'Just curious',
 				// A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
 				description: 'Perfect to try and create a few artworks',
 				// The price you want to display, the one user will be charged on Stripe.
 				price: 1,
-				planText: 'Get 15 credits',
-				credits: 15,
+				planText: 'Get 20 credits',
+				credits: 20,
 				// If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
 				// priceAnchor: 4,
 				features: [
 					{ name: '1 HD square artwork' },
 					{ name: 'or 1 basic wallpaper' },
 					{
-						name: 'or 3 basic square artworks',
+						name: 'or 2 basic square artworks',
 					},
 				],
 			},
@@ -50,25 +50,23 @@ const config = {
 						? //? "price_1Niyy5AxyNprDp7iZIqEyD2h"
 						  'price_1P7hKhFY60tLCCEBjXj5BFyg'
 						: //? ""
-						  'price_456',
+						  'price_1PQunHFY60tLCCEBsBJ4A6sg',
 				//  REQUIRED - Name of the plan, displayed on the pricing page
 				name: 'Discover yourself',
 				// A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
-				description: 'Reveal facets of your personality',
+				description: 'Discover facets of your personality',
 				// The price you want to display, the one user will be charged on Stripe.
 				price: 4,
 				planText: 'Get 100 credits',
 				credits: 100,
 				// If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-				priceAnchor: 10,
+				priceAnchor: 8,
 				isFeatured: true,
 				features: [
 					{ name: '4 HD wallpapers' },
 					{ name: 'or 6 HD square artwork' },
 					{ name: 'or 8 basic wallpapers' },
-					{
-						name: 'or 25 basic square artworks',
-					},
+					{ name: 'or 12 basic square artworks'},
 					{ name: 'or create your own mix' },
 				],
 			},
@@ -76,19 +74,19 @@ const config = {
 				priceId:
 					process.env.NODE_ENV === 'development'
 						? 'price_1PDxPfFY60tLCCEBgrxqfDJZ'
-						: 'price_456',
+						: 'price_1PQuocFY60tLCCEBervUNKeE',
 				// This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
 				name: 'Soul Artist',
 				description: 'Explore your inner self in every aspect',
 				planText: 'Get 500 credits',
 				credits: 500,
-				price: 15,
+				price: 12,
 				// priceAnchor: 25,
 				features: [
 					{ name: '20 HD wallpapers' },
 					{ name: 'or 33 HD square artwork' },
 					{ name: 'or 41 basic wallpapers' },
-					{ name: 'or 125 basic square artworks' },
+					{ name: 'or 62 basic square artworks' },
 					{ name: 'or create your own mix' },
 				],
 			},
@@ -108,7 +106,8 @@ const config = {
 		// REQUIRED — Email 'From' field to be used when sending other emails, like abandoned carts, updates etc..
 		fromAdmin: `Antoine at SoulGem <antoine@mail.mysoulgem.com>`,
 		// Email shown to customer if need support. Leave empty if not needed => if empty, set up Crisp above, otherwise you won't be able to offer customer support."
-		supportEmail: 'antoine@mail.mysoulgem.com',
+		// supportEmail: 'antoine@mail.mysoulgem.com',
+		supportEmail: 'antoinebou44@gmail.com',
 		// When someone replies to supportEmail sent by the app, forward it to the email below (otherwise it's lost). If you set supportEmail to empty, this will be ignored.
 		forwardRepliesTo: 'antoinebou44@gmail.com',
 	},

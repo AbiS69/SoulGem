@@ -11,17 +11,21 @@ const sharp = require('sharp');
 
 export const maxDuration = 60;
 
-//LOCAL
-const storage = new Storage({
-	projectId: process.env.GCP_PROJECT_ID,
-	keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
-});
+let storage;
 
-//PROD
-// const storage = new Storage({
-// 	projectId: process.env.GCP_PROJECT_ID,
-// 	credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS),
-//   });
+if (process.env.NODE_ENV === 'production') {
+  //PROD
+  storage = new Storage({
+    projectId: process.env.GCP_PROJECT_ID,
+    credentials: JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS),
+  });
+} else {
+  //LOCAL
+  storage = new Storage({
+    projectId: process.env.GCP_PROJECT_ID,
+    keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  });
+}
 
 
 const bucket = storage.bucket(process.env.GCS_BUCKET_NAME);

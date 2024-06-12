@@ -215,7 +215,7 @@ const Test = () => {
 						{questions.map((question, index) => (
 							<div className="flex flex-col items-center mt-8" key={index}>
 								<p className="my-4 index">{index + 1}</p>
-								<p className="mb-4">{question.question}</p>
+								<p className="mb-4 text-center">{question.question}</p>
 								<div className="grid grid-cols-2 gap-4 flex items-center answers">
 									<button
 										onClick={() => handleAnswer(index, 0)}
