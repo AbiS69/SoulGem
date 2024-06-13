@@ -116,7 +116,7 @@ function Gallery() {
 								You can either screenshot or right-click and then click &quot;Save&quot;
 								to then use the image as you wish !
 							</div>
-							<div className="gallery-images">
+							<div className="gallery-images mt-36">
 								{images.length === 0 ? (
 									<p>You haven&apos;t created any SoulGems yet, take the test!</p>
 								) : (

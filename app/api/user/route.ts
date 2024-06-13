@@ -9,7 +9,6 @@ import User from "@/models/User";
 export async function GET(req: NextRequest, res: NextApiResponse) {
 	const searchParams = req.nextUrl.searchParams;
 	const userId = searchParams.get("userId");
-	console.log("Received userId:", userId);
 	// const client = new MongoClient(process.env.MONGODB_URI);
 	await connectMongo();
 	// const database = client.db(process.env.MONGODB_DB);
@@ -17,6 +16,5 @@ export async function GET(req: NextRequest, res: NextApiResponse) {
 	// const user = await users.findOne({ id: userId });
 	// const user = await users.findOne({ _id: new ObjectId(userId) });
 	const user = await User.findById(userId);
-	// console.log("User User:", user);
 	return NextResponse.json(user);
 }

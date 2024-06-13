@@ -10,11 +10,15 @@
 .mbti-type {
 	border: 3px solid white;
 	border-radius: 5vw;
-	padding: 1vw;
+	padding: 10px 2vw;
 	width: fit-content;
 	background-color: rgba(255, 255, 255, 0.15);
 	box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.4);
 	text-shadow: 10px 10px 30px rgba(0, 0, 0, 1);
+
+	@media (max-width: 1025px) {
+		padding: 10px 20px;
+	}
 }
 
 .mac {
@@ -42,7 +46,7 @@
 	align-items: center;
 	padding: 1vw;
 	border-radius: 2vw;
-	margin-top: 6vw;
+	margin-top: 4vw;
 
 	@media (max-width: 767px) {
 		margin-top: 8vw;
@@ -197,4 +201,9 @@ label {
 .mbti-title {
 	width: fit-content;
 	font-size: 4rem;
+}
+
+.carousel-border{
+	border: 2px solid oklch(var(--p));
+	border-radius: 25px;
 }

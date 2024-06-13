@@ -13,7 +13,6 @@ export default function UserInfo() {
 		window.localStorage.getItem('credits') !== null
 	) {
 		credits = parseInt(window.localStorage.getItem('credits'));
-		console.log('credits from local storage:', credits);
 	} else {
 		credits = user?.credits || 0;
 	}
@@ -26,6 +25,7 @@ export default function UserInfo() {
 					console.log('Fetched data:', data);
 					setUser(data);
 					localStorage.setItem('credits', data.credits);
+					localStorage.setItem('userId', data.id);
 				})
 				.catch((error) => console.error('Error:', error));
 		}

@@ -33,10 +33,6 @@ const bucket = storage.bucket(process.env.GCS_BUCKET_NAME);
 export async function POST(request: NextRequest): Promise<NextResponse> {
 	const { genderedPrompt, size, definition, userId, watermark, acronym } =
 		await request.json();
-	console.log('watermark:', watermark);
-	console.log('quality:', definition);
-	console.log('size:', size);
-	console.log('Received userId:', userId);
 
 	if (!userId) {
 		return NextResponse.json({ error: 'User ID is required' }, { status: 400 });
@@ -79,20 +75,15 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		}
 
 		const data = await response.json();
-		console.log('url:', data.data[0].url);
 		const imageB64Json = data.data[0].b64_json;
 		const revisedGenderedPrompt = data.data[0].revised_prompt;
-		console.log('Revised genderedPrompt:', revisedGenderedPrompt);
 
 		// Convert b64_json to Buffer
 		const imageBuffer = Buffer.from(imageB64Json, 'base64');
 		let watermarkedImageBuffer: any;
 
 		if (watermark === true) {
-			console.log('Adding watermark to image');
-			console.log('process.cwd():', process.cwd());
-			// Load watermark image
-			// const watermarkLogoPath = path.resolve("/assets/watermark.png");
+
 			const response = await fetch(
 				'https://mysoulgem.com/assets/watermark.png'
 			);
@@ -109,12 +100,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 			// Convert the watermarked image back to base64
 			const base64WatermarkedImage = watermarkedImage.toString('base64');
 			watermarkedImageBuffer = Buffer.from(base64WatermarkedImage, 'base64');
-			console.log('Watermarked image created');
 		}
 
 		const fileName = `${acronym.toUpperCase()}-${uuidv4()}.jpg`; // Generates a unique filename with .jpg extension
 		const blob = bucket.file(fileName);
-		console.log('Blob:');
 
 		const blobStream = blob.createWriteStream({
 			resumable: false,
@@ -128,10 +117,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 					NextResponse.json({ error: 'Failed to upload file' }, { status: 500 })
 				);
 			});
-			console.log('Just before gcs');
 			blobStream.on('finish', async () => {
 				const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
-				console.log('right after gcs');	
 				// Connect to MongoDB and update the user document
 				try {
 					await connectMongo();
@@ -176,7 +163,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 				console.log('Uploading watermarked image');
 				blobStream.end(watermarkedImageBuffer);
 			} else {
-				console.log('Uploading image');
 				blobStream.end(imageBuffer);
 			}
 			// blobStream.end(watermarkedImage);

@@ -196,12 +196,8 @@ const Test = () => {
 					<div className="px-8 mt-8">
 						<div className="flex flex-col justify-center text-center matrix-text pre-wrap">
 							<span className="line">
-								Answers are red and blue just because I love Matrix and found it
-								funny 😂
-							</span>
-							<span className="line">
-								They are placed totally randomly, there is no meaning in having
-								more red answers than blue.
+								The color and placement of answers are totally random, there is no meaning in having
+								more red answers than blue 🔴🔵
 							</span>
 						</div>
 						<div className="morpheus">

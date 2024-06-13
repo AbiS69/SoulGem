@@ -38,7 +38,11 @@ const userSchema = new mongoose.Schema(
 		},
 		credits: {
 			type: Number,
-			default: 10,
+			default: 5,
+		},
+		usedCoupon: {
+			type: Boolean,
+			default: false,
 		},
 		images: [
 			{

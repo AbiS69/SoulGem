@@ -25,9 +25,13 @@ export const authOptions: NextAuthOptionsExtended = {
           email: profile.email,
           image: profile.picture,
           createdAt: new Date(),
-          credits: 10,
+          credits: 5,
+          usedCoupon: false,
         };
       },
+      httpOptions: {
+        timeout: 10000,
+      }
     }),
     // Follow the "Login with Email" tutorial to set up your email server
     // Requires a MongoDB database. Set MONOGODB_URI env variable.

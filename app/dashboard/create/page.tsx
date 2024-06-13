@@ -36,7 +36,6 @@ export default function Create() {
 		formatTemp = 'Desktop Wallpaper';
 	}
 	const [selectedFormat, setSelectedFormat] = useState(formatTemp);
-	console.log('selectedFormat', selectedFormat);
 	const [MBTIdescription, setMBTIdescription] = useState('');
 	const [imageUrl, setImageUrl] = useState(null);
 	const [loading, setLoading] = useState(false);
@@ -202,8 +201,6 @@ export default function Create() {
 	}, [activeTab, router]);
 
 	const calculateCredits = (definition) => {
-		console.log('selectedFormat', selectedFormat);
-		console.log('definition', definition);
 		switch (selectedFormat) {
 			case 'Profile Picture/Square Artwork':
 				if (definition === 'HD') {
@@ -522,11 +519,13 @@ export default function Create() {
 									</>
 								</>
 							)}
-							<div className="text-center text-lg mt-16 italic text-center">
+							<div className="text-center text-lg mt-24 italic text-center">
 								Take a look at some of the amazing HD SoulGems created by our
 								lovely users :
 							</div>
-							<AutoCarousel />
+							<div className="carousel-border">
+								<AutoCarousel />
+							</div>
 						</section>
 					)}
 					<Footer />

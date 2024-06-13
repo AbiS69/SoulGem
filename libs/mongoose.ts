@@ -9,6 +9,7 @@ const connectMongo = async () => {
 
   if (mongoose.connection.readyState >= 1) {
     // If mongoose connection is already established, use that connection
+    console.log('Mongoose connection already established');
     return mongoose.connection;
   }
 

@@ -10,7 +10,13 @@ declare global {
 }
 
 const uri = process.env.MONGODB_URI;
-const options = {};
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 60000, // Increase timeout to 60 seconds
+  retryWrites: true, // Enable automatic retries
+  connectTimeoutMS: 60000, // Increase connection timeout
+};
 
 let client: MongoClient | undefined;
 let clientPromise: Promise<MongoClient> | undefined;

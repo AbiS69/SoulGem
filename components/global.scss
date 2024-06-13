@@ -83,7 +83,26 @@ body {
 	display: none !important;
 }
 
-.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q{
-  background-color: unset !important;
-  box-shadow: none !important;
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
+	background-color: unset !important;
+	box-shadow: none !important;
+}
+
+.goog-te-gadget .goog-te-combo {
+	margin: 4px 0;
+	color: rgba(255, 255, 255, 0.8);
+	border: 1px solid oklch(var(--p));
+	border-radius: 5px;
+}
+
+.coupon-modal {
+	border: 2px solid oklch(var(--s));
+}
+
+.coupon-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: baseline;
+	height: 3rem;
 }
