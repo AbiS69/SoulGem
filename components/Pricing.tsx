@@ -187,7 +187,7 @@ const Pricing = () => {
 					/>
 				</div>
 				<div className="mt-4 italic text-sm text-center">
-					Hint: What's the greatest film of all time? 🎬
+					Hint: What&apos;s the greatest film of all time? 🎬
 				</div>
 			</div>
 			{isModalOpen && (

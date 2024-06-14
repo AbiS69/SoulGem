@@ -18,7 +18,7 @@ const faqList: FAQItemProps[] = [
   },
   {
     question: "Is it free?",
-    answer: <div className="space-y-2 leading-relaxed">You can create up to 2 images for free! Then, you will have to support us by paying just a few dollars if you want to generate images in better resolution and different formats. We have to pay for the artists working in the background! Of course it is a joke, it's not real people creating the images but an artificial intelligence, Dall-E. It ain&apos;t free though!</div>,
+    answer: <div className="space-y-2 leading-relaxed">You can create up to 2 images for free! Then, you will have to support us by paying just a few dollars if you want to generate images in better resolution and different formats. We have to pay for the artists working in the background! Of course it&apos;s a joke, there&apos;s not real people creating the images but an artificial intelligence, Dall-E. It ain&apos;t free though!</div>,
   },
   {
     question: "Is this a professional and scientifical personality test?",
