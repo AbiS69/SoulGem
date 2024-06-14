@@ -49,6 +49,7 @@ const Pricing = () => {
 				coupon === 'INSTA' ||
 				coupon === 'TWITTER' ||
 				coupon === 'HN50' ||
+				coupon === 'MATRIX' ||
 				coupon === 'FRIENDS') &&
 			!usedCoupon
 		) {
@@ -184,6 +185,9 @@ const Pricing = () => {
 						title="Apply Coupon"
 						onClick={() => giveCouponFreeCredits(coupon)}
 					/>
+				</div>
+				<div className="mt-4 italic text-sm text-center">
+					Hint: What's the greatest film of all time? 🎬
 				</div>
 			</div>
 			{isModalOpen && (

@@ -80,85 +80,70 @@ const list: {
 }[] = [
   {
     // Show @username for social media like Twitter. Does not link anywhere but cool to display
-    username: "marclou",
-    name: "Marc Lou",
-    text: "Really easy to use. The tutorials are really useful and explains how everything works. Hope to ship my next project really fast!",
+    name: "Hermine B.",
+    text: "Amazing! It works so well !!!",
     // use refTypes.other if you don't want to display an icon
-    type: refTypes.twitter,
+    type: refTypes.other,
+    img: "/assets/hermine.jpg",
     // Link to the person's testimonial. It's more trustable
-    link: "https://twitter.com/marc_louvion",
     // A statically imported image (usually from your public folder—recommended) or a link to the person's avatar. Shows a fallback letter if not provided
-    img: "https://pbs.twimg.com/profile_images/1514863683574599681/9k7PqDTA_400x400.jpg",
     // You can display video testimonials to build more trust. Just swap the type above to "video" and add at least the video source below
     // videoSrc: "/jack.mp4"
   },
   {
-    username: "the_mcnaveen",
-    name: "Naveen",
-    text: "Setting up everything from the ground up is a really hard, and time consuming process. What you pay for will save your time for sure.",
-    type: refTypes.twitter,
-    link: "https://twitter.com/the_mcnaveen",
-  },
-  {
-    username: "wahab",
-    name: "Wahab Shaikh",
-    text: "Easily saves 15+ hrs for me setting up trivial stuff. Now, I can directly focus on shipping features rather than hours of setting up the same technologies from scratch. Feels like a super power! :D",
-    type: refTypes.productHunt,
-    link: "https://www.producthunt.com/products/shipfast-2/reviews?review=667971",
-  },
-  {
-    name: "Sean",
-    text: "Just purchased and cloned and *holy shit!* I realllyyy like what I'm seeing here!",
+    name: "Joseph",
+    text: "The test is fun and the resulting image pretty impressive! Good work! 🚀🚀🚀 ",
     type: refTypes.other,
+    img: "/assets/joseph.jpg",
   },
   {
-    username: "krishna",
-    name: "Krishna Kant",
-    text: "Finally a good boilerplate for Nextjs, now I dont have to cry about it comparing with laravel ecosystem.",
-    type: refTypes.productHunt,
-    link: "https://www.producthunt.com/posts/shipfast-2?comment=2707061",
-  },
-  {
-    username: "imgyf",
-    name: "Yifan Goh",
-    text: "It's a game changer  🚀 Comes with easy to follow tutorial, and saves you a ton of time. What's not to love?",
-    type: refTypes.twitter,
-    link: "https://twitter.com/imgyf/status/1697549891080532236?s=20",
-  },
-  {
-    name: "Yazdun",
-    text: "Yo Marc, I got the boilerplate, it's fantastic man you just save me 10 hours on each project",
+    name: "Anne B.",
+    text: "Done! That's totally me!",
     type: refTypes.other,
+    img: "/assets/anne.jpg",
   },
   {
-    name: "Marc Lou",
-    text: "The tool is exactly what I didn't even know I needed.",
-    videoPoster: "https://d1wkquwg5s1b04.cloudfront.net/demo/marcPoster.jpg",
-    videoSrc: "https://d1wkquwg5s1b04.cloudfront.net/demo/marcVideo.mp4",
-    videoHeight: 250,
-    videoWidth: 500,
-    type: refTypes.video,
-  },
-  {
-    username: "zawwadx",
-    name: "Zawwad Ul Sami",
-    text: "It's an amazing minimalist, lightweight boilerplate with well-organized code. It has almost all the core features you would want in a SaaS boilerplate. As a new team last year it actually took us months to build a similar set of features at a stable level.",
-    type: refTypes.twitter,
-  },
-  {
-    username: "dan",
-    name: "Dan Mindru",
-    text: "Probably one of the most powerful things you can 'npm install' that I've seen",
+    name: "Maxou",
+    text: "It somehow guessed that I am a mechanical engineer?! Is this thing reading into my mind??? Almost scary but 🔥",
     type: refTypes.productHunt,
-    link: "https://www.producthunt.com/posts/shipfast-2?comment=2706763",
+    img: "/assets/maxou.jpg", 
+  },
+  {
+    name: "Ines",
+    text: "Why is mine ugly lol... But it's still fun! 😂",
+    type: refTypes.other,
+    img: "/assets/ines.jpg",
+  },
+  {
+    name: "Alexis B.",
+    text: "It works perfectly well 👍",
+    type: refTypes.other,
+    img: "/assets/alexis.jpg",
+  },
+  {
+    name: "Polo",
+    text: "I love the image it generated!",
+    type: refTypes.other,
+    img: "/assets/paul.jpg",
+  },
+  {
+    name: "Aude",
+    text: "I love the image it generated!",
+    type: refTypes.other,
+    img: "/assets/aude.jpg",
+  },
+  {
+    name: "Antoine",
+    text: "Sorry to promote my own stuff but seriously, look at what I got! 😍 Each time you get a different and amazing artwork, I got addicted while doing this website lmfao",
+    type: refTypes.other,
+    img: "/assets/antoine.jpg",
   },
   // The last testimonial is featured on big devices (span 2 columns + big font) 👇
   {
-    username: "VicPivots",
-    name: "Victor Abeledo",
-    text: "Marc, I got your boilerplate and having the payments setup with Stripe + user auth is a blessing. This will save me like a week of work for each new side project I spin up. I appreciate that is well documented, as well. 100% worth it 🚀🚀🚀",
-    type: refTypes.twitter,
-    link: "https://twitter.com/VicPivots/status/1697352442986250413?s=20",
+    name: "Reivax",
+    text: "There is probably still some work to do on the translation side, but it is still very understandable and very well done. I am very happy with the result!",
+    type: refTypes.other,
+    img: "/assets/xavier.jpg"
   },
 ];
 
@@ -179,14 +164,14 @@ const Testimonial = ({ i }: { i: number }) => {
           <p className="text-sm text-base-content/80">{testimonial.text}</p>
         </blockquote>
         <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 border-t border-base-content/5">
-          <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
+          <div className="overflow-hidden rounded-3xl bg-base-300 shrink-0">
             {testimonial.img ? (
               <Image
-                className="w-10 h-10 rounded-full object-cover"
+                className="w-100 h-100 rounded-3xl object-cover"
                 src={list[i].img}
                 alt={`${list[i].name}'s testimonial for ${config.appName}`}
-                width={48}
-                height={48}
+                width={100}
+                height={100}
               />
             ) : (
               <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-base-300">
@@ -366,12 +351,12 @@ const Testimonials11 = () => {
         <div className="flex flex-col text-center w-full mb-20">
           <div className="mb-8">
             <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
-              212 makers are already shipping faster!
+              Tens of people have already created amazing and uniques <span className="text-primary notranslate">SoulGems</span> and they love it!
             </h2>
           </div>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
+          <p className="lg:w-2/3 mx-auto ‡leading-relaxed text-base text-base-content/80">
             Don&apos;t take our word for it. Here&apos;s what they have to say
-            about {config.appName}.
+            about <span className="text-primary notranslate">SoulGem</span>.
           </p>
         </div>
 
@@ -389,7 +374,7 @@ const Testimonials11 = () => {
 
           <li className="hidden md:grid order-none md:order-first lg:order-none col-span-2 grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* BIG FEATURED TESTIMONIAL — THE LAST ONE IN THE LIST (11th) */}
-            <ul className="col-span-2">
+            {/* <ul className="col-span-2">
               <li>
                 <figure className="relative h-full p-6 bg-base-100 rounded-lg">
                   <blockquote className="relative p-4">
@@ -428,7 +413,7 @@ const Testimonials11 = () => {
                   </figcaption>
                 </figure>
               </li>
-            </ul>
+            </ul> */}
             <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
               {[...Array(2)].map((e, i) => (
                 <Testimonial key={i} i={i + 3} />

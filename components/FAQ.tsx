@@ -13,22 +13,25 @@ interface FAQItemProps {
 
 const faqList: FAQItemProps[] = [
   {
-    question: "What do I get exactly?",
-    answer: <div className="space-y-2 leading-relaxed">Loreum Ipseum</div>,
+    question: "What is it exactly?",
+    answer: <div className="space-y-2 leading-relaxed">You take a brief personality test of 12 questions, you get an presentation of your personality as we understood it, and then you can create an awesome SoulGem representing your traits of personality in a beautiful and visual way! You will then get a text explaining you the colors and style used for your image, which are corresponding to your caracter.</div>,
   },
   {
-    question: "Can I get a refund?",
+    question: "Is it free?",
+    answer: <div className="space-y-2 leading-relaxed">You can create up to 2 images for free! Then, you will have to support us by paying just a few dollars if you want to generate images in better resolution and different formats. We have to pay for the artists working in the background! Of course it is a joke, it's not real people creating the images but an artificial intelligence, Dall-E. It ain&apos;t free though!</div>,
+  },
+  {
+    question: "Is this a professional and scientifical personality test?",
     answer: (
       <p>
-        Yes! You can request a refund within 7 days of your purchase. Reach out
-        by email.
+        No, it is not. It is a fun and entertaining test, and the results are not to be taken seriously. The test is based on the Myers-Briggs Type Indicator, which is a popular and well-known personality test. The results are not meant to be used for any professional or scientific purposes. The results are meant to be taken with a grain of salt. If you are looking for a professional or scientific personality test, we recommend that you consult a licensed psychologist or other mental health professional.
       </p>
     ),
   },
   {
     question: "I have another question",
     answer: (
-      <div className="space-y-2 leading-relaxed">Cool, contact us by email</div>
+      <div className="space-y-2 leading-relaxed">Contact us by email or with the dialog button on the bottom right!</div>
     ),
   },
 ];
@@ -95,7 +98,7 @@ const FaqItem = ({ item }: { item: FAQItemProps }) => {
 
 const FAQ = () => {
   return (
-    <section className="bg-base-200" id="faq">
+    <section className="bg-base-100" id="faq">
       <div className="py-24 px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
         <div className="flex flex-col text-left basis-1/2">
           <p className="inline-block font-semibold text-primary mb-4">FAQ</p>

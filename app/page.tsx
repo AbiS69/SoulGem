@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { Crisp } from "crisp-sdk-web";
+import Testimonials11 from "@/components/Testimonials11";
 
 
 export default function Home() {
@@ -26,10 +27,10 @@ export default function Home() {
       <main>
         <Hero />
         <Problem />
+        <Testimonials11 />
         {/* <FeaturesAccordion /> */}
         {/* <Pricing /> */}
-        {/* <FAQ />
-        <CTA /> */}
+        <FAQ />
       </main>
       <Footer />
     </>

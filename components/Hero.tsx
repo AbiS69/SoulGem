@@ -28,6 +28,7 @@ const Hero = () => {
         className="mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-12 lg:pt-32 lg:pb-28 md:bg-contain md:bg-center bg-repeat-x"
         style={{
           backgroundImage: "url('/assets/HeroSoulGem1.png')",
+          // backgroundImage: "url('/assets/hero-lq.jpeg')",
           filter: "brightness(0.8)"
         }}
       >
