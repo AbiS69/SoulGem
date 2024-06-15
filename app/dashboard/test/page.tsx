@@ -34,8 +34,6 @@ const Test = () => {
 		tab = 'Desktop Wallpaper';
 	} else tab = 'Test';
 
-		
-
 	const handleTabClick = (tab) => {
 		setActiveTab(tab);
 	};
@@ -195,10 +193,8 @@ const Test = () => {
 					</div>
 					<div className="px-8 mt-8">
 						<div className="flex flex-col justify-center text-center matrix-text pre-wrap">
-							<span className="line">
-								The color and placement of answers are totally random, there is no meaning in having
-								more red answers than blue 🔴🔵
-							</span>
+							The color and placement of answers are totally random, there is no
+							meaning in having more red answers than blue 🔴🔵
 						</div>
 						<div className="morpheus">
 							<img

@@ -17,11 +17,15 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import ImageViewer from 'react-simple-image-viewer';
 import AutoCarousel from '@/components/carousel/AutoCarousel';
+import Modal from '../../../components/Modal';
+import ButtonGradient from '../../../components/ButtonGradient';
 
 // export const dynamic1 = 'force-dynamic';
 
 export default function Create() {
 	const { data: session } = useSession();
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [coupon, setCoupon] = useState('');
 	const userId = session?.user?.id;
 	const [acronym, setAcronym] = useState('');
 	const [activeTab, setActiveTab] = useState('');
@@ -51,6 +55,12 @@ export default function Create() {
 		typeof window !== 'undefined'
 			? parseInt(window.localStorage.getItem('credits') || '0')
 			: 0;
+	const [useCredits, setUseCredits] = useState(credits);
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [router]);
+
 	const [watermarking, setWatermarking] = useState(false);
 	let watermark: boolean;
 
@@ -230,6 +240,53 @@ export default function Create() {
 				return 0;
 		}
 	};
+
+	async function giveCouponFreeCredits(coupon: string) {
+		let creditsToAdd = 0;
+		let usedCoupon;
+		if (!coupon) return;
+		if (session) {
+			console.log('session:', session);
+			const userId = session.user.id;
+			try {
+				const response = await fetch(`/api/user?userId=${userId}`);
+				const data = await response.json();
+				usedCoupon = data.usedCoupon;
+			} catch (error) {
+				console.error('Error:', error);
+			}
+		}
+
+		if (
+			(coupon === 'FAMILY' ||
+				coupon === 'PH50' ||
+				coupon === 'LINKEDIN' ||
+				coupon === 'INSTA' ||
+				coupon === 'TWITTER' ||
+				coupon === 'HN50' ||
+				coupon === 'MATRIX' ||
+				coupon === 'FRIENDS') &&
+			!usedCoupon
+		) {
+			console.log('Coupon:', usedCoupon);
+			creditsToAdd = 50;
+			const userId = session.user.id;
+			console.log('userId:', userId);
+			const userResponse = await fetch('/api/updateUserCredits', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ userId, creditsToAdd }),
+			});
+
+			const responseBody = await userResponse.json();
+			let updatedCredits = responseBody.credits;
+			localStorage.setItem('credits', updatedCredits);
+			setUseCredits(updatedCredits);
+			setIsModalOpen(true);
+		}
+	}
 
 	useEffect(() => {
 		const storedAcronym = localStorage.getItem('acronym');
@@ -411,6 +468,30 @@ export default function Create() {
 													<span className="notranslate"> SoulGem</span> in any
 													format and without a watermark!
 												</div>
+												<div>
+													<div className="coupon-container">
+														<input
+															type="text"
+															placeholder="Add your coupon here!"
+															className="input input-bordered w-full max-w-xs"
+															value={coupon}
+															onChange={(e) => setCoupon(e.target.value)}
+														/>
+														<ButtonGradient
+															title="Apply Coupon"
+															onClick={() => giveCouponFreeCredits(coupon)}
+														/>
+													</div>
+													<div className="mt-4 mb-12 italic text-sm text-center">
+														Hint: What&apos;s the greatest film of all time? 🎬
+													</div>
+												</div>
+												{isModalOpen && (
+													<Modal
+														isModalOpen={isModalOpen}
+														setIsModalOpen={setIsModalOpen}
+													/>
+												)}
 											</div>
 										) : (
 											<></>
