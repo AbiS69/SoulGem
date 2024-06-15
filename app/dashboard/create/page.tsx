@@ -57,9 +57,10 @@ export default function Create() {
 			: 0;
 	const [useCredits, setUseCredits] = useState(credits);
 
-	useEffect(() => {
+	document.addEventListener("DOMContentLoaded", function() {
 		window.scrollTo(0, 0);
-	}, [router]);
+	});
+
 
 	const [watermarking, setWatermarking] = useState(false);
 	let watermark: boolean;

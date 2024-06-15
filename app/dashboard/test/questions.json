@@ -36,7 +36,7 @@
 			]
 		},
 		{
-			"question": "Which describes your preferred social setting?",
+			"question": "What describes your preferred social setting?",
 			"answers": ["A large, lively gathering", "A small, intimate setting"]
 		},
 		{
@@ -54,7 +54,7 @@
 			]
 		},
 		{
-			"question": "Which is more appealing to you?",
+			"question": "What is more appealing to you?",
 			"answers": [
 				"Traveling to a popular tourist destination",
 				"Exploring a quiet, less-known place"
@@ -71,7 +71,7 @@
 
 	"axis_SN": [
 		{
-			"question": "When learning something new, do you prefer?",
+			"question": "When learning something new, what do you prefer?",
 			"answers": [
 				"Detailed, step-by-step instructions",
 				"An overview with general concepts and ideas"
@@ -85,47 +85,47 @@
 			]
 		},
 		{
-			"question": "When making a decision, do you rely more on?",
-			"answers": ["Concrete facts and data", "Intuition and gut feelings"]
+			"question": "When making a decision, what do you rely more on?",
+			"answers": ["Concrete facts and data", "Intuition"]
 		},
 		{
-			"question": "In your daily life, do you prefer?",
+			"question": "In your daily life, what do you prefer?",
 			"answers": ["Routine and consistency", "Variety and spontaneity"]
 		},
 		{
-			"question": "When someone asks you to describe something, do you tend to focus on?",
+			"question": "When someone asks you to describe something, what do you tend to focus on?",
 			"answers": [
 				"Specific details and characteristics",
 				"General impressions and overall themes"
 			]
 		},
 		{
-			"question": "Do you tend to notice?",
+			"question": "What do you tend to notice?",
 			"answers": [
 				"The practical applications of things",
 				"The hidden meanings or symbolism in things"
 			]
 		},
 		{
-			"question": "When organizing a project, do you prefer?",
+			"question": "When organizing a project, what do you prefer?",
 			"answers": ["A clear, structured plan", "Flexibility to adjust as you go"]
 		},
 		{
-			"question": "Do you tend to appreciate?",
+			"question": "What do you tend to appreciate?",
 			"answers": [
 				"Things that are tangible and can be experienced with the senses",
 				"Ideas that are theoretical or conceptual"
 			]
 		},
 		{
-			"question": "Which do you find more appealing?",
+			"question": "What do you find more appealing?",
 			"answers": [
 				"Things that are concrete and grounded in reality",
 				"Things that are abstract and imaginative"
 			]
 		},
 		{
-			"question": "When it comes to future planning, do you prefer?",
+			"question": "When it comes to future planning, what do you prefer?",
 			"answers": [
 				"Focusing on the near-term and what is feasible",
 				"Thinking about long-term possibilities and visions"
@@ -134,21 +134,21 @@
 	],
 	"axis_TF": [
 		{
-			"question": "When making decisions, do you prioritize?",
+			"question": "When making decisions, what do you prioritize?",
 			"answers": [
 				"Logical analysis and objectivity",
 				"Personal values and emotions"
 			]
 		},
 		{
-			"question": "When giving feedback, do you tend to?",
+			"question": "When giving feedback, what do you tend to?",
 			"answers": [
 				"Be straightforward and direct",
 				"Consider how the other person will feel"
 			]
 		},
 		{
-			"question": "Which is more important to you in a work environment?",
+			"question": "What  is more important to you in a work environment?",
 			"answers": ["Efficiency and results", "Team morale and harmony"]
 		},
 		{
@@ -159,14 +159,14 @@
 			]
 		},
 		{
-			"question": "When planning an event, do you prioritize?",
+			"question": "When planning an event, what do you prioritize?",
 			"answers": [
 				"Achieving the goals and tasks",
 				"Making sure everyone is comfortable and enjoying themselves"
 			]
 		},
 		{
-			"question": "When choosing a career, do you focus more on?",
+			"question": "When choosing a career, what do you focus more on?",
 			"answers": [
 				"Opportunities for advancement and success",
 				"Job satisfaction and personal fulfillment"
@@ -180,7 +180,7 @@
 			]
 		},
 		{
-			"question": "Which do you tend to prioritize in relationships?",
+			"question": "What do you tend to prioritize in relationships?",
 			"answers": [
 				"Clear communication and mutual respect",
 				"Emotional support and empathy"
@@ -194,7 +194,7 @@
 			]
 		},
 		{
-			"question": "When working on a team project, do you prefer?",
+			"question": "When working on a team project, what do you prefer?",
 			"answers": [
 				"Clearly defined roles and expectations",
 				"A flexible approach that allows for collaboration"
@@ -210,14 +210,14 @@
 			]
 		},
 		{
-			"question": "When planning a trip, do you prefer?",
+			"question": "When planning a trip, what do you prefer?",
 			"answers": [
 				"Having an itinerary with scheduled activities",
 				"Going with the flow and exploring spontaneously"
 			]
 		},
 		{
-			"question": "When working on a project, do you prefer?",
+			"question": "When working on a project, what do you prefer?",
 			"answers": [
 				"To have clear deadlines and expectations",
 				"To work with a flexible timeline and open-ended goals"
@@ -231,42 +231,42 @@
 			]
 		},
 		{
-			"question": "Which do you prefer when making plans with friends?",
+			"question": "What do you prefer when making plans with friends?",
 			"answers": [
 				"Setting a time and sticking to it",
 				"Having flexibility to change plans as needed"
 			]
 		},
 		{
-			"question": "When approaching a new challenge, do you prefer?",
+			"question": "When approaching a new challenge, what do you prefer?",
 			"answers": [
 				"To research and understand the details beforehand",
 				"To dive in and learn as you go"
 			]
 		},
 		{
-			"question": "Which describes your general style of organization?",
+			"question": "What describes your general style of organization?",
 			"answers": [
 				"Keeping things neat, tidy, and in their place",
 				"A more relaxed approach, with some clutter"
 			]
 		},
 		{
-			"question": "When it comes to deadlines, do you prefer?",
+			"question": "When it comes to deadlines, what do you prefer?",
 			"answers": [
 				"Meeting them ahead of time",
 				"Working up to the last minute, sometimes pushing them back"
 			]
 		},
 		{
-			"question": "When making decisions, do you prefer?",
+			"question": "When making decisions, what do you prefer?",
 			"answers": [
 				"To make a choice and stick with it",
 				"To keep options open for as long as possible"
 			]
 		},
 		{
-			"question": "Which do you find more comfortable?",
+			"question": "What do you find more comfortable?",
 			"answers": [
 				"Having structure and routine in your daily life",
 				"Enjoying flexibility and variety day-to-day"

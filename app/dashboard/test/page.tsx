@@ -168,6 +168,12 @@ const Test = () => {
 
 			console.log('acronym', acronym);
 			setResult(acronym);
+			if (
+				/CriOS/i.test(navigator.userAgent) &&
+				/iphone|ipod|ipad/i.test(navigator.userAgent)
+			) {
+				window.scrollTo(0, 0);
+			}
 			router.push(`/dashboard/create?format=${format}`);
 			localStorage.setItem('acronym', acronym);
 		} else {
