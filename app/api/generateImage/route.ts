@@ -81,6 +81,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		// Convert b64_json to Buffer
 		const imageBuffer = Buffer.from(imageB64Json, 'base64');
 		let watermarkedImageBuffer: any;
+		let base64WatermarkedImage: string;
 
 		if (watermark === true) {
 
@@ -98,7 +99,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 				.toBuffer();
 
 			// Convert the watermarked image back to base64
-			const base64WatermarkedImage = watermarkedImage.toString('base64');
+			base64WatermarkedImage = watermarkedImage.toString('base64');
 			watermarkedImageBuffer = Buffer.from(base64WatermarkedImage, 'base64');
 		}
 
@@ -151,6 +152,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 						NextResponse.json({
 							success: true,
 							imageUrl: publicUrl,
+							imageB64: watermark === true ? base64WatermarkedImage : imageB64Json
 						})
 					);
 				} catch (error) {
@@ -165,7 +167,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 			} else {
 				blobStream.end(imageBuffer);
 			}
-			// blobStream.end(watermarkedImage);
 		});
 	} catch (error) {
 		console.error(error);

@@ -51,17 +51,16 @@ export default function Create() {
 	const [isViewerOpen, setIsViewerOpen] = useState(false);
 	const [images, setImages] = useState([]);
 	const [gender, setGender] = useState('other');
+	const [imageB64, setImageB64] = useState('');
 	const credits =
 		typeof window !== 'undefined'
 			? parseInt(window.localStorage.getItem('credits') || '0')
 			: 0;
 	const [useCredits, setUseCredits] = useState(credits);
 
-	document.addEventListener("DOMContentLoaded", function() {
+	window.addEventListener('load', function () {
 		window.scrollTo(0, 0);
 	});
-
-
 	const [watermarking, setWatermarking] = useState(false);
 	let watermark: boolean;
 
@@ -158,6 +157,7 @@ export default function Create() {
 
 		const data = await response.json();
 		setImageUrl(data.imageUrl);
+		setImageB64(data.imageB64);
 
 		const userResponse = await fetch('/api/updateUserCredits', {
 			method: 'POST',
@@ -304,6 +304,50 @@ export default function Create() {
 		setInitialLoading(false);
 	}, []);
 
+	// function downloadSoulGem(url): void {
+	// 	const downloadLink = `data:image/jpeg;base64,${imageB64}`;
+	// 	const a = document.createElement('a');
+	// 	a.href = downloadLink;
+	// 	a.download = 'SoulGem.jpg';
+	// 	a.click();
+	// }
+
+	function downloadSoulGem(imageB64) {
+		// Helper function to convert base64 to Blob
+		const base64ToBlob = (base64, mimeType) => {
+			const byteChars = atob(base64);
+			const byteNumbers = new Array(byteChars.length);
+			for (let i = 0; i < byteChars.length; i++) {
+				byteNumbers[i] = byteChars.charCodeAt(i);
+			}
+			const byteArray = new Uint8Array(byteNumbers);
+			return new Blob([byteArray], { type: mimeType });
+		};
+
+		// Ensure the base64 string has the correct format
+		if (!imageB64.startsWith('data:image/')) {
+			imageB64 = 'data:image/jpeg;base64,' + imageB64;
+		}
+
+		// Extract the base64 data and MIME type
+		const base64Data = imageB64.split(',')[1];
+		const mimeType = imageB64.split(',')[0].split(':')[1].split(';')[0];
+
+		// Convert base64 to Blob
+		const blob = base64ToBlob(base64Data, mimeType);
+
+		// Create a download link
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.style.display = 'none';
+		a.href = url;
+		//a.download = 'SoulGem.jpg';
+		a.target = '_blank';
+		document.body.appendChild(a);
+		a.click();
+		URL.revokeObjectURL(url);
+	}
+
 	return (
 		<>
 			<main className="min-h-screen create-container flex w-full">
@@ -448,9 +492,7 @@ export default function Create() {
 											</div>
 										</div>
 										<div className="h-16 flex items-center"></div>
-										{credits < calculateCredits('SD') &&
-										credits < calculateCredits('HD') &&
-										credits > 1 ? (
+										{credits < 8 && credits > 1 ? (
 											<div className="flex justify-center flex-col items-center">
 												<button
 													className="btn btn-secondary flex justify-center w-2/3 md:w-2/5 leading-6 h-16 hover:scale-90 mb-2"
@@ -565,9 +607,19 @@ export default function Create() {
 											/>
 										)}
 									</div>
+									<h3 className="fit text-center text-sm italic flex md:hidden">
+										Hold press on the image to download it!
+									</h3>
 									<h2 className="text-primary fit mt-4 font-bold text-center">
 										Your SoulGem Is Unique, Be Proud & Showcase It To The World!
 									</h2>
+									<div
+										className="btn btn-primary btn-outline justify-center hidden md:flex md: md:w-1/3 lg:w-1/4 mx-auto md:mt-2 md:mb-12"
+										onClick={() => downloadSoulGem(imageB64)}
+									>
+										Download my SoulGem
+									</div>
+
 									<p className="mbti-explanation mt-12 text-sm md:text-md lg:text-lg opacity-80 leading-relaxed mx-auto text-center">
 										{explanation}
 									</p>

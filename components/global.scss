@@ -11,12 +11,14 @@
 .translate-widget {
 	position: absolute;
 	top: 0.7rem;
-	right: 19vw;
+	right: 14vw;
 	z-index: 1000;
 
 	@media (max-width: 1025px) {
-		right: 17vw;
 		margin-top: 6px;
+	}
+	@media(max-width: 720px) {
+		right: 12vw;
 	}
 }
 

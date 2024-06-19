@@ -46,7 +46,7 @@ const Header = () => {
 	return (
 		<header className="bg-base-300">
 			<nav
-				className="container flex items-center justify-between px-8 py-4 mx-auto"
+				className="container flex items-center justify-between px-4 py-4 mx-auto"
 				aria-label="Global"
 			>
 				<GoogleTranslate />
@@ -66,7 +66,7 @@ const Header = () => {
 							width={32}
 							height={32}
 						/>
-						<span className="font-extrabold text-lg">{config.appName}</span>
+						<span className="font-extrabold text-lg notranslate">SoulGem</span>
 					</Link>
 				</div>
 				{/* Burger button to open menu on mobile */}
@@ -122,7 +122,7 @@ const Header = () => {
 					{/* Your logo/name on small screens */}
 					<div className="flex items-center justify-between">
 						<Link
-							className="flex items-center gap-2 shrink-0 "
+							className="flex items-center gap-2 shrink-0 notranslate"
 							title={`${config.appName} homepage`}
 							href="/"
 						>
@@ -135,7 +135,7 @@ const Header = () => {
 								width={32}
 								height={32}
 							/>
-							<span className="font-extrabold text-lg">{config.appName}</span>
+							<span className="font-extrabold text-lg notranslate">SoulGem</span>
 						</Link>
 						<button
 							type="button"

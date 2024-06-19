@@ -62,12 +62,12 @@ function Gallery() {
 			case 'Gallery':
 				router.push('/dashboard/gallery');
 				break;
-            case 'Duo':
-                router.push('/dashboard/duo');
-                break;
-            case 'Print your SoulGem!':
-                router.push('/dashboard/print');
-                break;
+			case 'Duo':
+				router.push('/dashboard/duo');
+				break;
+			case 'Print your SoulGem!':
+				router.push('/dashboard/print');
+				break;
 		}
 	}, [activeTab, router]);
 
@@ -103,7 +103,7 @@ function Gallery() {
 							Your gallery
 						</h1>
 						<h4 className="text-primary text-center mx-auto italic">
-							Pretty uniques, huh?
+							Pretty unique pieces, huh?
 						</h4>
 					</div>
 					{loading ? (
@@ -112,13 +112,17 @@ function Gallery() {
 						</div>
 					) : (
 						<>
-							<div className="text-center mx-auto mt-8 px-8">
-								You can either screenshot or right-click and then click &quot;Save&quot;
-								to then use the image as you wish !
+							<div className="text-center mx-auto mt-8 px-8 md:hidden">
+								You can long press on any image to save it or simply take a screenshot!
+							</div>
+							<div className="text-center mx-auto mt-8 px-8 hidden md:block">
+								You can click on any image and then right-click to save it !
 							</div>
 							<div className="gallery-images mt-36">
 								{images.length === 0 ? (
-									<p>You haven&apos;t created any SoulGems yet, take the test!</p>
+									<p>
+										You haven&apos;t created any SoulGems yet, take the test!
+									</p>
 								) : (
 									<>
 										<div className="gallery-title text-center">
@@ -144,7 +148,9 @@ function Gallery() {
 													)
 											)}
 										</div>
-										<div className="gallery-title text-center">Smartphone Wallpapers</div>
+										<div className="gallery-title text-center">
+											Smartphone Wallpapers
+										</div>
 										<div className="gallery-format">
 											{images.map(
 												(image, index) =>
@@ -165,7 +171,9 @@ function Gallery() {
 													)
 											)}
 										</div>
-										<div className="gallery-title text-center">Desktop Wallpapers</div>
+										<div className="gallery-title text-center">
+											Desktop Wallpapers
+										</div>
 										<div className="gallery-format">
 											{images.map(
 												(image, index) =>

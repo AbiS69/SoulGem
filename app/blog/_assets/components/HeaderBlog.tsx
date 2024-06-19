@@ -154,13 +154,13 @@ const HeaderBlog = () => {
 
   return (
     <header className="bg-base-200">
-      <nav className="max-w-7xl flex items-center justify-between px-8 py-3 mx-auto">
+      <nav className="max-w-7xl flex items-center justify-between px-4 py-3 mx-auto">
         {/* Your logo/name on large screens */}
         <div className="flex lg:flex-1">
           <Link
             className="flex items-center gap-2 shrink-0 "
             href="/"
-            title={`${config.appName} homepage`}
+            title={'SoulGem homepage'}
           >
             <Image
               src={logo}
@@ -170,7 +170,7 @@ const HeaderBlog = () => {
               width={32}
               height={32}
             />
-            <span className="font-extrabold text-lg">{config.appName}</span>
+            <span className="font-extrabold text-lg notranslate">{config.appName}</span>
           </Link>
         </div>
         {/* Burger button to open menu on mobile */}

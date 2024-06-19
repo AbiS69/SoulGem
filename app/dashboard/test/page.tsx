@@ -194,7 +194,7 @@ const Test = () => {
 							Take the test!
 						</h1>
 						<h4 className="text-primary text-center mx-auto italic">
-							Try to be as objective as possible
+							Try to be as subjective as possible
 						</h4>
 					</div>
 					<div className="px-8 mt-8">
