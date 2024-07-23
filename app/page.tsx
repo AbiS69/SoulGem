@@ -11,6 +11,7 @@ import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import { Crisp } from 'crisp-sdk-web';
 import Testimonials11 from '@/components/Testimonials11';
+import "../components/global.scss";
 
 export default function Home() {
 	useEffect(() => {
@@ -29,6 +30,9 @@ export default function Home() {
 				{/* <FeaturesAccordion /> */}
 				{/* <Pricing /> */}
 				<FAQ />
+				<div className="taaft-cta">
+					<a href="https://theresanaiforthat.com/ai/soulgem/?ref=featured&v=1977650" target="_blank" rel="nofollow"><img width="300" src="https://media.theresanaiforthat.com/featured-on-taaft.png?width=600" /></a>
+				</div>
 			</main>
 			<Footer />
 		</>

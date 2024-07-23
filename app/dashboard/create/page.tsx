@@ -341,8 +341,7 @@ export default function Create() {
 		const a = document.createElement('a');
 		a.style.display = 'none';
 		a.href = url;
-		//a.download = 'SoulGem.jpg';
-		a.target = '_blank';
+		a.download = 'SoulGem.jpg';
 		document.body.appendChild(a);
 		a.click();
 		URL.revokeObjectURL(url);

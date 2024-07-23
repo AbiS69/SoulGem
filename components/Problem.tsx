@@ -2,7 +2,7 @@ import AutoCarousel from "../components/carousel/AutoCarousel";
 import Image from "next/image";
 import "./global.scss";
 
-const Arrow = ({ extraStyle }: { extraStyle: string }) => {
+const Arrow = ({ extraStyle }: { extraStyle: string; }) => {
 	return (
 		<svg
 			className={`shrink-0 w-12 fill-neutral-content opacity-70 ${extraStyle}`}

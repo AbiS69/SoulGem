@@ -8,6 +8,12 @@
 	border: 2px solid oklch(var(--p));
 }
 
+.taaft-cta {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+
 .translate-widget {
 	position: absolute;
 	top: 0.7rem;
@@ -17,7 +23,7 @@
 	@media (max-width: 1025px) {
 		margin-top: 6px;
 	}
-	@media(max-width: 720px) {
+	@media (max-width: 720px) {
 		right: 12vw;
 	}
 }
@@ -110,12 +116,14 @@ body {
 }
 
 .hero-img::after {
-	content: "";
+	content: '';
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
 	height: 15px; /* Ajustez cette valeur pour changer la hauteur du flou */
-  background: linear-gradient(to top, oklch(var(--b2)), transparent);
-  backdrop-filter: blur(30px); /* Ajustez cette valeur pour changer l'intensité du flou */
-  }
+	background: linear-gradient(to top, oklch(var(--b2)), transparent);
+	backdrop-filter: blur(
+		30px
+	); /* Ajustez cette valeur pour changer l'intensité du flou */
+}
