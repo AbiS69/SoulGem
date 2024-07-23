@@ -1,71 +1,71 @@
-'use client';
+"use client";
 
-import { useCallback, useEffect, useState } from 'react';
-import Image from 'next/image';
-import Sidebar from '@/components/Sidebar/Sidebar';
-import BuyCredits from '@/components/BuyCredits/BuyCredits';
-import './create.scss';
-import promptData from './prompts.json';
-import mbtiData from './MBTI.json';
-import Gallery from '@/components/Gallery/Gallery';
-import exp from 'constants';
-import { set } from 'nprogress';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import { useSession } from 'next-auth/react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import ImageViewer from 'react-simple-image-viewer';
-import AutoCarousel from '@/components/carousel/AutoCarousel';
-import Modal from '../../../components/Modal';
-import ButtonGradient from '../../../components/ButtonGradient';
+import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
+import Sidebar from "@/components/Sidebar/Sidebar";
+import BuyCredits from "@/components/BuyCredits/BuyCredits";
+import "./create.scss";
+import promptData from "./prompts.json";
+import mbtiData from "./MBTI.json";
+import Gallery from "@/components/Gallery/Gallery";
+import exp from "constants";
+import { set } from "nprogress";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import { useSession } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import ImageViewer from "react-simple-image-viewer";
+import AutoCarousel from "@/components/carousel/AutoCarousel";
+import Modal from "../../../components/Modal";
+import ButtonGradient from "../../../components/ButtonGradient";
 
 // export const dynamic1 = 'force-dynamic';
 
 export default function Create() {
 	const { data: session } = useSession();
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [coupon, setCoupon] = useState('');
+	const [coupon, setCoupon] = useState("");
 	const userId = session?.user?.id;
-	const [acronym, setAcronym] = useState('');
-	const [activeTab, setActiveTab] = useState('');
+	const [acronym, setAcronym] = useState("");
+	const [activeTab, setActiveTab] = useState("");
 	const searchParams = useSearchParams();
-	const format = searchParams.get('format');
-	let formatTemp = 'Smartphone Wallpaper';
-	if (format === 'square') {
-		formatTemp = 'Profile Picture/Square Artwork';
-	} else if (format === 'smatphone') {
-		formatTemp = 'Smartphone Wallpaper';
-	} else if (format === 'desktop') {
-		formatTemp = 'Desktop Wallpaper';
+	const format = searchParams.get("format");
+	let formatTemp = "Smartphone Wallpaper";
+	if (format === "square") {
+		formatTemp = "Profile Picture/Square Artwork";
+	} else if (format === "smatphone") {
+		formatTemp = "Smartphone Wallpaper";
+	} else if (format === "desktop") {
+		formatTemp = "Desktop Wallpaper";
 	}
 	const [selectedFormat, setSelectedFormat] = useState(formatTemp);
-	const [MBTIdescription, setMBTIdescription] = useState('');
+	const [MBTIdescription, setMBTIdescription] = useState("");
 	const [imageUrl, setImageUrl] = useState(null);
 	const [loading, setLoading] = useState(false);
-	const [explanation, setExplanation] = useState('');
-	const [title, setTitle] = useState('');
+	const [explanation, setExplanation] = useState("");
+	const [title, setTitle] = useState("");
 	const [initialLoading, setInitialLoading] = useState(true);
 	const router = useRouter();
 	const [currentImage, setCurrentImage] = useState(0);
 	const [isViewerOpen, setIsViewerOpen] = useState(false);
 	const [images, setImages] = useState([]);
-	const [gender, setGender] = useState('other');
-	const [imageB64, setImageB64] = useState('');
+	const [gender, setGender] = useState("other");
+	const [imageB64, setImageB64] = useState("");
 	const credits =
-		typeof window !== 'undefined'
-			? parseInt(window.localStorage.getItem('credits') || '0')
+		typeof window !== "undefined"
+			? parseInt(window.localStorage.getItem("credits") || "0")
 			: 0;
 	const [useCredits, setUseCredits] = useState(credits);
 
-	window.addEventListener('load', function () {
+	window.addEventListener("load", function () {
 		window.scrollTo(0, 0);
 	});
 	const [watermarking, setWatermarking] = useState(false);
 	let watermark: boolean;
 
 	useEffect(() => {
-		console.log('Image URL:', imageUrl);
+		console.log("Image URL:", imageUrl);
 		setImages([imageUrl]);
 	}, [imageUrl]);
 
@@ -83,19 +83,19 @@ export default function Create() {
 		setLoading(true);
 		let prompt = promptData.prompts.find((p) => p.type === acronym).prompt;
 		prompt =
-			'I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:' +
+			"I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:" +
 			prompt;
 
 		let genderedPrompt;
-		if (gender == 'man') {
-			genderedPrompt = prompt + ' The face should be slightly masculine.';
-		} else if (gender == 'woman') {
-			genderedPrompt = prompt + ' The face should be slightly feminine.';
+		if (gender == "man") {
+			genderedPrompt = prompt + " The face should be slightly masculine.";
+		} else if (gender == "woman") {
+			genderedPrompt = prompt + " The face should be slightly feminine.";
 		} else {
-			genderedPrompt = prompt + ' The face must be a non-binary face';
+			genderedPrompt = prompt + " The face must be a non-binary face";
 		}
 
-		if (quality === 'WATERMARK') {
+		if (quality === "WATERMARK") {
 			setWatermarking(true);
 			watermark = true;
 		} else {
@@ -104,40 +104,40 @@ export default function Create() {
 		}
 
 		let size: string;
-		if (quality === 'WATERMARK') {
-			size = '1024x1024';
-		} else if (selectedFormat === 'Profile Picture/Square Artwork') {
-			size = '1024x1024';
-		} else if (selectedFormat === 'Smartphone Wallpaper') {
-			size = '1024x1792';
+		if (quality === "WATERMARK") {
+			size = "1024x1024";
+		} else if (selectedFormat === "Profile Picture/Square Artwork") {
+			size = "1024x1024";
+		} else if (selectedFormat === "Smartphone Wallpaper") {
+			size = "1024x1792";
 			genderedPrompt =
-				genderedPrompt + ' The image should be in portrait mode.';
-		} else if (selectedFormat === 'Desktop Wallpaper') {
-			size = '1792x1024';
+				genderedPrompt + " The image should be in portrait mode.";
+		} else if (selectedFormat === "Desktop Wallpaper") {
+			size = "1792x1024";
 			genderedPrompt =
-				genderedPrompt + ' The image should be in landscape mode.';
+				genderedPrompt + " The image should be in landscape mode.";
 		}
 
-		let definition = quality === 'HD' ? 'hd' : 'standard';
+		let definition = quality === "HD" ? "hd" : "standard";
 
-		const credits = parseInt(localStorage.getItem('credits') || '0');
+		const credits = parseInt(localStorage.getItem("credits") || "0");
 
 		let creditsToSubstract: number;
-		if (quality === 'WATERMARK') {
+		if (quality === "WATERMARK") {
 			creditsToSubstract = 2;
 		} else {
 			creditsToSubstract = calculateCredits(quality);
 		}
 
 		if (credits < creditsToSubstract) {
-			router.push('/dashboard/credits');
+			router.push("/dashboard/credits");
 			return;
 		}
 
-		const response = await fetch('/api/generateImage', {
-			method: 'POST',
+		const response = await fetch("/api/generateImage", {
+			method: "POST",
 			headers: {
-				'Content-Type': 'application/json',
+				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
 				genderedPrompt,
@@ -145,12 +145,12 @@ export default function Create() {
 				definition,
 				userId,
 				watermark,
-				acronym,
-			}),
+				acronym
+			})
 		});
 
 		if (!response.ok) {
-			console.error('Failed to generate image');
+			console.error("Failed to generate image");
 			setLoading(false);
 			return;
 		}
@@ -159,20 +159,20 @@ export default function Create() {
 		setImageUrl(data.imageUrl);
 		setImageB64(data.imageB64);
 
-		const userResponse = await fetch('/api/updateUserCredits', {
-			method: 'POST',
+		const userResponse = await fetch("/api/updateUserCredits", {
+			method: "POST",
 			headers: {
-				'Content-Type': 'application/json',
+				"Content-Type": "application/json"
 			},
-			body: JSON.stringify({ userId, creditsToSubstract }),
+			body: JSON.stringify({ userId, creditsToSubstract })
 		});
 
 		const responseBody = await userResponse.json();
 		let updatedCredits = responseBody.credits;
-		localStorage.setItem('credits', updatedCredits);
+		localStorage.setItem("credits", updatedCredits);
 
 		if (!userResponse.ok) {
-			console.error('Failed to update user credits');
+			console.error("Failed to update user credits");
 		}
 		setLoading(false);
 	};
@@ -187,52 +187,52 @@ export default function Create() {
 
 	useEffect(() => {
 		switch (activeTab) {
-			case 'Buy Credits':
-				router.push('/dashboard/credits');
+			case "Buy Credits":
+				router.push("/dashboard/credits");
 				break;
-			case 'Test':
-				router.push('/dashboard/test');
+			case "Test":
+				router.push("/dashboard/test");
 				break;
-			case 'Smartphone Wallpaper':
-				router.push('/dashboard/test?format=smartphone');
+			case "Smartphone Wallpaper":
+				router.push("/dashboard/test?format=smartphone");
 				break;
-			case 'Desktop Wallpaper':
-				router.push('/dashboard/test?format=desktop');
+			case "Desktop Wallpaper":
+				router.push("/dashboard/test?format=desktop");
 				break;
-			case 'Gallery':
-				router.push('/dashboard/gallery');
+			case "Gallery":
+				router.push("/dashboard/gallery");
 				break;
-			case 'Duo':
-				router.push('/dashboard/duo');
+			case "Duo":
+				router.push("/dashboard/duo");
 				break;
-			case 'Print':
-				router.push('/dashboard/print');
+			case "Print":
+				router.push("/dashboard/print");
 				break;
 		}
 	}, [activeTab, router]);
 
 	const calculateCredits = (definition) => {
 		switch (selectedFormat) {
-			case 'Profile Picture/Square Artwork':
-				if (definition === 'HD') {
+			case "Profile Picture/Square Artwork":
+				if (definition === "HD") {
 					return 15;
-				} else if (definition === 'SD') {
+				} else if (definition === "SD") {
 					return 8;
 				} else {
 					return 0;
 				}
-			case 'Smartphone Wallpaper':
-				if (definition === 'HD') {
+			case "Smartphone Wallpaper":
+				if (definition === "HD") {
 					return 25;
-				} else if (definition === 'SD') {
+				} else if (definition === "SD") {
 					return 12;
 				} else {
 					return 0;
 				}
-			case 'Desktop Wallpaper':
-				if (definition === 'HD') {
+			case "Desktop Wallpaper":
+				if (definition === "HD") {
 					return 25;
-				} else if (definition === 'SD') {
+				} else if (definition === "SD") {
 					return 12;
 				} else {
 					return 0;
@@ -247,50 +247,51 @@ export default function Create() {
 		let usedCoupon;
 		if (!coupon) return;
 		if (session) {
-			console.log('session:', session);
+			console.log("session:", session);
 			const userId = session.user.id;
 			try {
 				const response = await fetch(`/api/user?userId=${userId}`);
 				const data = await response.json();
 				usedCoupon = data.usedCoupon;
 			} catch (error) {
-				console.error('Error:', error);
+				console.error("Error:", error);
 			}
 		}
 
 		if (
-			(coupon === 'FAMILY' ||
-				coupon === 'PH50' ||
-				coupon === 'LINKEDIN' ||
-				coupon === 'INSTA' ||
-				coupon === 'TWITTER' ||
-				coupon === 'HN50' ||
-				coupon === 'MATRIX' ||
-				coupon === 'FRIENDS') &&
+			(coupon === "FAMILY" ||
+				coupon === "PH50" ||
+				coupon === "LINKEDIN" ||
+				coupon === "INSTA" ||
+				coupon === "TWITTER" ||
+				coupon === "HN50" ||
+				coupon === "MATRIX" ||
+				coupon === "FRIENDS" ||
+				coupon === "MARC") &&
 			!usedCoupon
 		) {
-			console.log('Coupon:', usedCoupon);
+			console.log("Coupon:", usedCoupon);
 			creditsToAdd = 50;
 			const userId = session.user.id;
-			console.log('userId:', userId);
-			const userResponse = await fetch('/api/updateUserCredits', {
-				method: 'POST',
+			console.log("userId:", userId);
+			const userResponse = await fetch("/api/updateUserCredits", {
+				method: "POST",
 				headers: {
-					'Content-Type': 'application/json',
+					"Content-Type": "application/json"
 				},
-				body: JSON.stringify({ userId, creditsToAdd }),
+				body: JSON.stringify({ userId, creditsToAdd })
 			});
 
 			const responseBody = await userResponse.json();
 			let updatedCredits = responseBody.credits;
-			localStorage.setItem('credits', updatedCredits);
+			localStorage.setItem("credits", updatedCredits);
 			setUseCredits(updatedCredits);
 			setIsModalOpen(true);
 		}
 	}
 
 	useEffect(() => {
-		const storedAcronym = localStorage.getItem('acronym');
+		const storedAcronym = localStorage.getItem("acronym");
 		setAcronym(storedAcronym);
 		const personality = mbtiData.personalities.find(
 			(p) => p.type === storedAcronym
@@ -325,23 +326,24 @@ export default function Create() {
 		};
 
 		// Ensure the base64 string has the correct format
-		if (!imageB64.startsWith('data:image/')) {
-			imageB64 = 'data:image/jpeg;base64,' + imageB64;
+		if (!imageB64.startsWith("data:image/")) {
+			imageB64 = "data:image/jpeg;base64," + imageB64;
 		}
 
 		// Extract the base64 data and MIME type
-		const base64Data = imageB64.split(',')[1];
-		const mimeType = imageB64.split(',')[0].split(':')[1].split(';')[0];
+		const base64Data = imageB64.split(",")[1];
+		const mimeType = imageB64.split(",")[0].split(":")[1].split(";")[0];
 
 		// Convert base64 to Blob
 		const blob = base64ToBlob(base64Data, mimeType);
 
 		// Create a download link
 		const url = URL.createObjectURL(blob);
-		const a = document.createElement('a');
-		a.style.display = 'none';
+		const a = document.createElement("a");
+		a.style.display = "none";
 		a.href = url;
-		a.download = 'SoulGem.jpg';
+		//a.download = 'SoulGem.jpg';
+		a.target = "_blank";
 		document.body.appendChild(a);
 		a.click();
 		URL.revokeObjectURL(url);
@@ -400,7 +402,7 @@ export default function Create() {
 														width={200}
 														height={200}
 														onClick={() =>
-															document.getElementById('square-radio').click()
+															document.getElementById("square-radio").click()
 														}
 													/>
 												</div>
@@ -412,7 +414,7 @@ export default function Create() {
 													className="radio radio-primary"
 													onChange={handleFormatChange}
 													checked={
-														selectedFormat === 'Profile Picture/Square Artwork'
+														selectedFormat === "Profile Picture/Square Artwork"
 													}
 												/>
 											</div>
@@ -424,7 +426,7 @@ export default function Create() {
 														width={400}
 														height={400}
 														onClick={() =>
-															document.getElementById('iphone-radio').click()
+															document.getElementById("iphone-radio").click()
 														}
 													/>
 												</div>
@@ -435,7 +437,7 @@ export default function Create() {
 													value="Smartphone Wallpaper"
 													className="radio radio-primary"
 													onChange={handleFormatChange}
-													checked={selectedFormat === 'Smartphone Wallpaper'}
+													checked={selectedFormat === "Smartphone Wallpaper"}
 												/>
 											</div>
 											<div className="format-choice w-60 flex items-center">
@@ -446,7 +448,7 @@ export default function Create() {
 														width={800}
 														height={800}
 														onClick={() =>
-															document.getElementById('macbook-radio').click()
+															document.getElementById("macbook-radio").click()
 														}
 													/>
 												</div>
@@ -457,7 +459,7 @@ export default function Create() {
 													value="Desktop Wallpaper"
 													className="radio radio-primary"
 													onChange={handleFormatChange}
-													checked={selectedFormat === 'Desktop Wallpaper'}
+													checked={selectedFormat === "Desktop Wallpaper"}
 												/>
 											</div>
 										</div>
@@ -472,7 +474,7 @@ export default function Create() {
 														name="gender"
 														value="man"
 														onChange={(e) => setGender(e.target.value)}
-														checked={gender === 'man'}
+														checked={gender === "man"}
 														className="radio radio-accent gender-radio"
 													/>
 													Man
@@ -483,7 +485,7 @@ export default function Create() {
 														name="gender"
 														value="woman"
 														onChange={(e) => setGender(e.target.value)}
-														checked={gender === 'woman'}
+														checked={gender === "woman"}
 														className="radio radio-accent gender-radio"
 													/>
 													Woman
@@ -495,7 +497,7 @@ export default function Create() {
 											<div className="flex justify-center flex-col items-center">
 												<button
 													className="btn btn-secondary flex justify-center w-2/3 md:w-2/5 leading-6 h-16 hover:scale-90 mb-2"
-													onClick={() => generateImage('WATERMARK')}
+													onClick={() => generateImage("WATERMARK")}
 												>
 													<div className="line-container">
 														<div>I want to try!</div>
@@ -541,23 +543,23 @@ export default function Create() {
 										<div className="md:mt-2 flex-column-reverse md:flex justify-center">
 											<button
 												className="btn btn-primary create-btn mr-4 xl:w-2/5 text-white"
-												onClick={() => generateImage('HD')}
+												onClick={() => generateImage("HD")}
 											>
 												<div className="line-container">
 													<div>{selectedFormat}</div>
 													<div className="text-lg">
-														in HD: {calculateCredits('HD')} credits
+														in HD: {calculateCredits("HD")} credits
 													</div>
 												</div>
 											</button>
 											<button
 												className="btn btn-primary btn-outline create-btn ml-4 xl:w-2/5 text-white"
-												onClick={() => generateImage('SD')}
+												onClick={() => generateImage("SD")}
 											>
 												<div className="line-container">
 													<div>{selectedFormat}</div>
 													<div className="text-lg">
-														{calculateCredits('SD')} credits
+														{calculateCredits("SD")} credits
 													</div>
 												</div>
 											</button>
@@ -568,7 +570,7 @@ export default function Create() {
 							{imageUrl && (
 								<>
 									<div className="soulgem mx-auto mt-8">
-										{selectedFormat === 'Profile Picture/Square Artwork' && (
+										{selectedFormat === "Profile Picture/Square Artwork" && (
 											<Image
 												src={imageUrl}
 												width={400}
@@ -577,7 +579,7 @@ export default function Create() {
 												onClick={() => openImageViewer(1)}
 											/>
 										)}
-										{selectedFormat === 'Smartphone Wallpaper' && (
+										{selectedFormat === "Smartphone Wallpaper" && (
 											<Image
 												src={imageUrl}
 												width={400}
@@ -586,7 +588,7 @@ export default function Create() {
 												onClick={() => openImageViewer(1)}
 											/>
 										)}
-										{selectedFormat === 'Desktop Wallpaper' && (
+										{selectedFormat === "Desktop Wallpaper" && (
 											<Image
 												src={imageUrl}
 												width={1600}
